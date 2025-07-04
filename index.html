@@ -1,210 +1,211 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Fardhan | Interactive Portfolio</title>
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+  <title>Fardhan | School Projects</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
   <style>
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
     body {
       font-family: 'Poppins', sans-serif;
       background: #0f172a;
       color: #f8fafc;
-      overflow-x: hidden;
+      margin: 0;
+      padding: 0;
     }
+
     header {
       background: #1e293b;
       padding: 1rem 2rem;
       display: flex;
       justify-content: space-between;
       align-items: center;
-      position: sticky;
-      top: 0;
-      z-index: 1000;
-      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
     }
-    nav a {
-      margin-left: 1.5rem;
+
+    header a {
       color: #f8fafc;
       text-decoration: none;
       font-weight: 500;
-      transition: color 0.3s ease;
     }
-    nav a:hover {
-      color: #38bdf8;
-    }
-    .hero {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      height: 90vh;
-      text-align: center;
-      padding: 0 1rem;
-    }
-    .hero h1 {
-      font-size: 3rem;
-      animation: fadeInDown 1s ease-out;
-    }
-    .hero p {
-      font-size: 1.2rem;
-      margin-top: 1rem;
-      animation: fadeInUp 1s ease-out;
-    }
-    .hero button {
-      margin-top: 2rem;
-      padding: 0.8rem 2rem;
-      border: none;
-      background: #38bdf8;
-      color: #0f172a;
-      font-size: 1rem;
-      font-weight: 600;
-      border-radius: 8px;
-      cursor: pointer;
-      transition: background 0.3s ease;
-    }
-    .hero button:hover {
-      background: #0ea5e9;
-    }
-    .section {
+
+    .projects-section {
       padding: 4rem 2rem;
-      text-align: center;
+      max-width: 1200px;
+      margin: auto;
     }
-    .section h2 {
+
+    .projects-section h2 {
+      text-align: center;
       font-size: 2.5rem;
       margin-bottom: 2rem;
     }
-    .projects {
+
+    .project-grid {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
       gap: 2rem;
-      margin-top: 2rem;
     }
-    .project-card {
+
+    .project-box {
       background: #1e293b;
-      border-radius: 10px;
+      border-radius: 12px;
       overflow: hidden;
+      box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
       transition: transform 0.3s ease;
-      text-decoration: none;
-      color: inherit;
-      display: block;
+      text-align: center;
+      padding-bottom: 1.5rem;
     }
-    .project-card:hover {
-      transform: scale(1.05);
+
+    .project-box:hover {
+      transform: scale(1.03);
     }
-    .project-card img {
-      width: 100%;
-      height: 180px;
-      object-fit: cover;
+
+    .project-box img {
+      width: 100px;
+      height: 100px;
+      margin-top: 1.5rem;
+      object-fit: contain;
     }
-    .project-card h3 {
-      padding: 1rem;
+
+    .project-box h3 {
+      margin: 1rem 0 0.5rem;
     }
-    .about, .contact {
-      max-width: 800px;
-      margin: 0 auto;
+
+    .project-box p {
+      font-size: 0.95rem;
+      color: #cbd5e1;
+      padding: 0 1rem;
     }
-    form input, form textarea {
-      width: 100%;
-      margin: 1rem 0;
-      padding: 1rem;
-      border-radius: 6px;
-      border: none;
-      font-size: 1rem;
-    }
-    form button {
+
+    .view-button {
+      margin-top: 1rem;
+      display: inline-block;
+      padding: 0.6rem 1.2rem;
       background: #38bdf8;
       color: #0f172a;
-      padding: 0.8rem 2rem;
       font-weight: 600;
+      text-decoration: none;
       border-radius: 6px;
-      border: none;
-      cursor: pointer;
+      transition: background 0.3s ease;
     }
-    footer {
-      background: #1e293b;
-      padding: 2rem;
-      text-align: center;
-      color: #94a3b8;
-    }
-    @keyframes fadeInDown {
-      from { opacity: 0; transform: translateY(-30px); }
-      to { opacity: 1; transform: translateY(0); }
-    }
-    @keyframes fadeInUp {
-      from { opacity: 0; transform: translateY(30px); }
-      to { opacity: 1; transform: translateY(0); }
-    }
-    @media (max-width: 600px) {
-      .hero h1 {
-        font-size: 2rem;
-      }
-      .section h2 {
-        font-size: 2rem;
-      }
+
+    .view-button:hover {
+      background: #0ea5e9;
     }
   </style>
 </head>
+
 <body>
+
   <header>
     <h2>Fardhan.dev</h2>
-    <nav>
-      <a href="#about">About</a>
-      <a href="#projects">Projects</a>
-      <a href="#contact">Contact</a>
-    </nav>
+    <a href="index.html">Back to Home</a>
   </header>
 
-  <section class="hero">
-    <h1>Hi, I'm Fardhan</h1>
-    <p>A passionate Web Developer & Digital Marketer</p>
-    <button onclick="document.getElementById('contact').scrollIntoView({behavior: 'smooth'})">Hire Me</button>
-  </section>
+  <section class="projects-section">
+    <h2>School Website Projects</h2>
+    <div class="project-grid">
 
-  <section class="section about" id="about">
-    <h2>About Me</h2>
-    <p>I’m a full-stack web developer with 2+ years of experience building responsive, high-performance websites and web apps. I’m also experienced in SEO, CMS platforms, and digital strategy. I combine creativity and logic to create stunning digital experiences.</p>
-  </section>
+      <!-- Card 1 -->
+      <div class="project-box">
+        <img src="https://www.nbv.ac.in/images/logo/logowhite.png" alt="School Logo" />
+        <h3>Navajeevan Bethany Vidyalaya</h3>
+        <p>Online admissions, event calendar, mobile-friendly layout.</p>
+        <a class="view-button" href="https://www.nbv.ac.in/" target="_blank">View Website</a>
+      </div>
 
-  <section class="section" id="projects">
-    <h2>My Projects</h2>
-    <div class="projects">
+      <!-- Card 2 -->
+      <div class="project-box">
+        <img src="Images/st-joseph.png" alt="School Logo" />
+        <h3>St. Joseph’s Matric Hr. Sec. School</h3>
+        <p>Interactive homepage, teacher directory, secure admin panel.</p>
+        <a class="view-button" href="https://www.sjmhss.edu.in/" target="_blank">View Website</a>
+      </div>
 
-      <a href="projects.html" class="project-card">
-        <img src="Images/school.png" alt="School Projects" />
-        <h3>School Website Projects</h3>
-      </a>
+      <!-- Card 3 -->
+      <div class="project-box">
+        <img src="Images/st-michael.png" alt="School Logo" />
+        <h3>St.Michael's Matric Hr. Sec. School</h3>
+        <p>Pre-school curriculum, colorful UI, photo galleries.</p>
+        <a class="view-button" href="https://smhsk.edu.in/" target="_blank">View Website</a>
+      </div>
 
-      <a href="projects.html" target="_blank" class="project-card">
-        <img src="Images/business.png" alt="Business Website" />
-        <h3>Business Website Project</h3>
-      </a>
+      <!-- Card 4 -->
+      <div class="project-box">
+        <img src="images/victory-public.png" alt="School Logo" />
+        <h3>Victory Public School</h3>
+        <p>Custom result portal, PDF downloads, fee details page.</p>
+        <a class="view-button" href="https://www.victorypublicschool.org/" target="_blank">View Website</a>
+      </div>
 
-      <a href="projects.html" target="_blank" class="project-card">
-        <img src="Images/social-media.png" alt="Social Media Campaigns" />
-        <h3>Social Media Campaigns</h3>
-      </a>
+      <!-- Card 5 -->
+      <div class="project-box">
+        <img src="images/victory-matric.png" alt="School Logo" />
+        <h3>Victory Matric Hr. Sec. School</h3>
+        <p>Modern single-page layout with integrated WhatsApp support.</p>
+        <a class="view-button" href="https://www.victorymatricschool.edu.in/" target="_blank">View Website</a>
+      </div>
+
+      <!-- Card 6 -->
+      <div class="project-box">
+        <img src="images/mother-theresa.png" alt="School Logo" />
+        <h3>Mother Theresa Matric Hr. Sec. School</h3>
+        <p>Kid-friendly design with animations and simple navigation.</p>
+        <a class="view-button" href="https://mothertheresamylacode.edu.in/" target="_blank">View Website</a>
+      </div>
+
+      <!-- Card 7 -->
+      <div class="project-box">
+        <img src="Images/nanjil-school.png" alt="School Logo" />
+        <h3>Nanjil Catholic School(CBSE)</h3>
+        <p>Multi-language support, latest news section, parent portal.</p>
+        <a class="view-button" href="https://www.nanjilschool.edu.in/" target="_blank">View Website</a>
+      </div>
+
+      <!-- Card 9 -->
+      <div class="project-box">
+        <img src="Images/nanjil-college.png" alt="School Logo" />
+        <h3>Nanjil Catholic College of Arts and Science.</h3>
+        <p>Academic calendar, responsive navigation, results archive.</p>
+        <a class="view-button" href="https://nccas.edu.in/" target="_blank">View Website</a>
+      </div>
+
+      <!-- Card 8 -->
+      <div class="project-box">
+        <img src="Images/corpus.png" alt="School Logo" />
+        <h3>Corpus Christi School</h3>
+        <p>Class-based photo galleries, announcement banner, contact form.</p>
+        <a class="view-button" href="https://www.ccs.edu.in/" target="_blank">View Website</a>
+      </div>
+
+      <!-- Card 10 -->
+      <div class="project-box">
+        <img src="Images/st-judes.png" alt="School Logo" />
+        <h3>St. Judes Hi-Tech School</h3>
+        <p>PDF brochure download, principal message, student achievements.</p>
+        <a class="view-button" href="https://stjudeshitechschool.edu.in/" target="_blank">View Website</a>
+      </div>
+
+      <!-- Card 11 -->
+      <div class="project-box">
+        <img src="Images/Little-champion.png" alt="School Logo" />
+        <h3>Little Champion CBSE School</h3>
+        <p>PDF brochure download, principal message, student achievements.</p>
+        <a class="view-button" href="https://littlechampioncbseschool.edu.in/" target="_blank">View Website</a>
+      </div>
+
+      <!-- Card 12 -->
+      <div class="project-box">
+        <img src="Images/cherupushpa.png" alt="School Logo" />
+        <h3>Cherupushpa Bethany Senior Secondary School</h3>
+        <p>PDF brochure download, principal message, student achievements.</p>
+        <a class="view-button" href="https://cherupushpabethany.edu.in/" target="_blank">View Website</a>
+      </div>
 
     </div>
   </section>
 
-  <section class="section contact" id="contact">
-    <h2>Contact Me</h2>
-    <form>
-      <input type="text" placeholder="Your Name" required />
-      <input type="email" placeholder="Your Email" required />
-      <textarea rows="5" placeholder="Your Message" required></textarea>
-      <button type="submit">Send Message</button>
-    </form>
-  </section>
-
-  <footer>
-    &copy; 2025 Fardhan. All rights reserved.
-  </footer>
 </body>
+
 </html>
