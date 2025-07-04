@@ -90,6 +90,9 @@
       border-radius: 10px;
       overflow: hidden;
       transition: transform 0.3s ease;
+      text-decoration: none;
+      color: inherit;
+      display: block;
     }
     .project-card:hover {
       transform: scale(1.05);
@@ -171,18 +174,22 @@
   <section class="section" id="projects">
     <h2>My Projects</h2>
     <div class="projects">
-      <div class="project-card">
-        <img src="project1.jpg" alt="Project 1" /> <!-- Replace with your image -->
-        <h3>Educational Website</h3>
-      </div>
-      <div class="project-card">
-        <img src="project2.jpg" alt="Project 2" />
+
+      <a href="projects.html" class="project-card">
+        <img src="Images/school.png" alt="School Projects" />
+        <h3>School Website Projects</h3>
+      </a>
+
+      <a href="projects.html" target="_blank" class="project-card">
+        <img src="Images/business.png" alt="Business Website" />
         <h3>Business Website Project</h3>
-      </div>
-      <div class="project-card">
-        <img src="project3.jpg" alt="Project 3" />
-        <h3>SEO Dashboard</h3>
-      </div>
+      </a>
+
+      <a href="projects.html" target="_blank" class="project-card">
+        <img src="Images/social-media.png" alt="Social Media Campaigns" />
+        <h3>Social Media Campaigns</h3>
+      </a>
+
     </div>
   </section>
 
