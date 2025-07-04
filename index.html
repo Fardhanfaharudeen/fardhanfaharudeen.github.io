@@ -46,34 +46,156 @@
       color: #38bdf8;
     }
 
+    /* HERO SECTION */
+
     .hero {
-      display: flex;
-      flex-direction: row;
-      align-items: center;
-      justify-content: center;
+      position: relative;
       height: 90vh;
-      text-align: center;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      overflow: hidden;
+      background: #0f172a;
+      color: #f8fafc;
       padding: 0 1rem;
-      gap: 3rem;
     }
 
-    .hero-text {
-      max-width: 600px;
+    .parallax-bg {
+      position: absolute;
+      top: 0;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 100vw;
+      height: 100%;
+      pointer-events: none;
+      overflow: visible;
+      z-index: 0;
+    }
+
+    .parallax-bg i {
+      position: absolute;
+      font-size: 2.5rem;
+      color: rgba(56, 189, 248, 0.15);
+      user-select: none;
+      /* no animation */
+    }
+
+    /* Positions for 16 icons */
+    .parallax-bg i:nth-child(1) {
+      top: 8%;
+      left: 6%;
+    }
+
+    .parallax-bg i:nth-child(2) {
+      top: 22%;
+      left: 25%;
+    }
+
+    .parallax-bg i:nth-child(3) {
+      top: 38%;
+      left: 12%;
+    }
+
+    .parallax-bg i:nth-child(4) {
+      top: 63%;
+      left: 17%;
+    }
+
+    .parallax-bg i:nth-child(5) {
+      top: 72%;
+      left: 8%;
+    }
+
+    .parallax-bg i:nth-child(6) {
+      top: 15%;
+      left: 42%;
+    }
+
+    .parallax-bg i:nth-child(7) {
+      top: 35%;
+      left: 50%;
+    }
+
+    .parallax-bg i:nth-child(8) {
+      top: 60%;
+      left: 45%;
+    }
+
+    .parallax-bg i:nth-child(9) {
+      top: 80%;
+      left: 30%;
+    }
+
+    .parallax-bg i:nth-child(10) {
+      top: 10%;
+      left: 65%;
+    }
+
+    .parallax-bg i:nth-child(11) {
+      top: 27%;
+      left: 75%;
+    }
+
+    .parallax-bg i:nth-child(12) {
+      top: 50%;
+      left: 68%;
+    }
+
+    .parallax-bg i:nth-child(13) {
+      top: 70%;
+      left: 80%;
+    }
+
+    .parallax-bg i:nth-child(14) {
+      top: 85%;
+      left: 60%;
+    }
+
+    .parallax-bg i:nth-child(15) {
+      top: 40%;
+      left: 90%;
+    }
+
+    .parallax-bg i:nth-child(16) {
+      top: 65%;
+      left: 85%;
+    }
+
+
+    .hero-content {
+      position: relative;
+      display: flex;
+      gap: 3rem;
+      align-items: center;
+      z-index: 1;
+      text-align: center;
+      max-width: 900px;
+      margin: 0 auto;
+    }
+
+    .hero-img {
+      max-width: 300px;
+    }
+
+    .hero-img img {
+      width: 100%;
+      border-radius: 20px;
+      /* no floating animation */
+    }
+
+    .hero-text h1 {
+      font-size: 3rem;
+      animation: fadeInDown 1s ease-out;
+      margin-bottom: 0.5rem;
+    }
+
+    .hero-text p {
+      font-size: 1.2rem;
+      margin-bottom: 1.5rem;
       animation: fadeInUp 1s ease-out;
     }
 
-    .hero h1 {
-      font-size: 3rem;
-      animation: fadeInDown 1s ease-out;
-    }
-
-    .hero p {
-      font-size: 1.2rem;
-      margin-top: 1rem;
-    }
-
-    .hero button {
-      margin-top: 2rem;
+    .hero-text button {
       padding: 0.8rem 2rem;
       border: none;
       background: #38bdf8;
@@ -85,25 +207,41 @@
       transition: background 0.3s ease;
     }
 
-    .hero button:hover {
+    .hero-text button:hover {
       background: #0ea5e9;
     }
 
-    .hero-img {
-      max-width: 300px;
-      animation: slideInLeft 1.5s ease-out;
+    @keyframes fadeInDown {
+      from {
+        opacity: 0;
+        transform: translateY(-30px);
+      }
+
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
     }
 
-    .hero-img img {
-      width: 100%;
-      border-radius: 20px;
-      /* Removed box-shadow glow as per your request */
-      animation: floatImage 3s ease-in-out infinite;
+    @keyframes fadeInUp {
+      from {
+        opacity: 0;
+        transform: translateY(30px);
+      }
+
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
     }
+
+    /* SECTIONS */
 
     .section {
       padding: 4rem 2rem;
       text-align: center;
+      max-width: 900px;
+      margin: 0 auto;
     }
 
     .section h2 {
@@ -168,73 +306,64 @@
       cursor: pointer;
     }
 
-    /* Footer Styles */
+    /* FOOTER */
 
-    .connect-section {
+    .footer-wave {
+      background: url('data:image/svg+xml;utf8,<svg viewBox="0 0 1440 320" xmlns="http://www.w3.org/2000/svg"><path fill="%230f172a" fill-opacity="1" d="M0,192L60,181.3C120,171,240,149,360,144C480,139,600,149,720,154.7C840,160,960,160,1080,154.7C1200,149,1320,139,1380,133.3L1440,128L1440,320L1380,320C1320,320,1200,320,1080,320C960,320,840,320,720,320C600,320,480,320,360,320C240,320,120,320,60,320L0,320Z"></path></svg>') no-repeat;
+      height: 100px;
+      background-size: cover;
+    }
+
+    .super-footer {
       background: linear-gradient(to right, #0f172a, #1e293b);
       padding: 3rem 1rem;
       color: #cbd5e1;
       text-align: center;
     }
 
-    .connect-section h3 {
+    .super-footer h3 {
       font-size: 1.8rem;
       margin-bottom: 0.5rem;
       color: #f1f5f9;
     }
 
-    .connect-section p {
-      margin-bottom: 1.5rem;
-      font-size: 1rem;
-      color: #94a3b8;
-    }
-
     .footer-social-icons {
       display: flex;
       justify-content: center;
-      gap: 1.2rem;
+      gap: 1.5rem;
       flex-wrap: wrap;
       align-items: center;
+      margin-top: 1rem;
     }
 
-    .footer-social-icons .icon-wrapper {
-      position: relative;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      width: 44px;
-      height: 44px;
-      transition: transform 0.3s ease;
-    }
-
-    .footer-social-icons .icon-wrapper a {
+    .footer-social-icons a {
       font-size: 1.8rem;
       color: #94a3b8;
-      transition: color 0.3s ease;
+      transition: transform 0.3s ease, color 0.3s ease;
+      position: relative;
     }
 
-    .footer-social-icons .icon-wrapper:hover {
+    .footer-social-icons a:hover {
       transform: scale(1.2);
     }
 
-    /* Brand color hovers */
-    .footer-social-icons .icon-wrapper a[href*="instagram"]:hover {
+    /* Brand colors on hover */
+    .footer-social-icons a[href*="instagram"]:hover {
       color: #E4405F;
     }
 
-    .footer-social-icons .icon-wrapper a[href*="facebook"]:hover {
+    .footer-social-icons a[href*="facebook"]:hover {
       color: #1877F2;
     }
 
-    .footer-social-icons .icon-wrapper a[href*="wa.me"]:hover {
+    .footer-social-icons a[href*="wa.me"]:hover {
       color: #25D366;
     }
 
-    .footer-social-icons .icon-wrapper a[href*="linkedin"]:hover {
+    .footer-social-icons a[href*="linkedin"]:hover {
       color: #0A66C2;
     }
 
-    /* Flag badge styling for WhatsApp */
     .flag-badge {
       position: absolute;
       top: -8px;
@@ -243,74 +372,20 @@
       pointer-events: none;
     }
 
-    .footer-bar {
-      background: #111827;
-      padding: 1rem 1rem;
-      color: #6b7280;
-      text-align: center;
+    .footer-copy {
+      margin-top: 1rem;
       font-size: 0.9rem;
-      border-top: 1px solid #222e48;
-    }
-
-    /* Animations */
-    @keyframes fadeInDown {
-      from {
-        opacity: 0;
-        transform: translateY(-30px);
-      }
-
-      to {
-        opacity: 1;
-        transform: translateY(0);
-      }
-    }
-
-    @keyframes fadeInUp {
-      from {
-        opacity: 0;
-        transform: translateY(30px);
-      }
-
-      to {
-        opacity: 1;
-        transform: translateY(0);
-      }
-    }
-
-    @keyframes slideInLeft {
-      from {
-        opacity: 0;
-        transform: translateX(-100%);
-      }
-
-      to {
-        opacity: 1;
-        transform: translateX(0);
-      }
-    }
-
-    @keyframes floatImage {
-      0%,
-      100% {
-        transform: translateY(0px);
-      }
-
-      50% {
-        transform: translateY(-15px);
-      }
+      color: #94a3b8;
     }
 
     /* Responsive */
 
     @media (max-width: 768px) {
-      .hero {
+      .hero-content {
         flex-direction: column;
-        gap: 2rem;
-        height: auto;
-        padding: 4rem 1rem;
       }
 
-      .hero h1 {
+      .hero-text h1 {
         font-size: 2.2rem;
       }
 
@@ -332,13 +407,33 @@
   </header>
 
   <section class="hero" id="hero">
-    <div class="hero-img">
-      <img src="images/fardhan.png" alt="Fardhan Image" />
+    <div class="parallax-bg" aria-hidden="true">
+      <i class="fab fa-html5"></i>
+      <i class="fab fa-css3-alt"></i>
+      <i class="fab fa-js-square"></i>
+      <i class="fab fa-react"></i>
+      <i class="fab fa-node-js"></i>
+      <i class="fas fa-bullhorn"></i>
+      <i class="fas fa-chart-line"></i>
+      <i class="fas fa-search"></i>
+      <i class="fas fa-envelope"></i>
+      <i class="fab fa-google"></i>
+      <i class="fab fa-git-alt"></i>
+      <i class="fab fa-npm"></i>
+      <i class="fab fa-docker"></i>
+      <i class="fas fa-analytics"></i>
+      <i class="fas fa-ad"></i>
+      <i class="fab fa-twitter"></i>
     </div>
-    <div class="hero-text">
-      <h1>Hi, I'm Fardhan</h1>
-      <p>A passionate Web Developer & Digital Marketer</p>
-      <button onclick="document.getElementById('contact').scrollIntoView({behavior: 'smooth'})">Hire Me</button>
+    <div class="hero-content">
+      <div class="hero-img">
+        <img src="images/fardhan.png" alt="Fardhan Image" />
+      </div>
+      <div class="hero-text">
+        <h1>Hi, I'm Fardhan</h1>
+        <p>A passionate Web Developer & Digital Marketer</p>
+        <button onclick="document.getElementById('contact').scrollIntoView({behavior: 'smooth'})">Hire Me</button>
+      </div>
     </div>
   </section>
 
@@ -377,47 +472,45 @@
     </form>
   </section>
 
-  <!-- Let's Connect Section -->
-  <section class="connect-section">
-    <h3>Let’s Connect 🌐</h3>
-    <p>Feel free to reach out for collaboration, freelancing, or just a friendly hello!</p>
+  <div class="footer-wave"></div>
 
-    <div class="footer-social-icons">
-      <div class="icon-wrapper">
+  <footer class="super-footer">
+    <div class="footer-content">
+      <h3>Let’s Connect 🌐</h3>
+      <p>Feel free to reach out for collaboration, freelancing, or just a friendly hello!</p>
+
+      <div class="footer-social-icons">
+        <!-- Instagram -->
         <a href="https://www.instagram.com/yourusername" target="_blank" aria-label="Instagram">
           <i class="fab fa-instagram"></i>
         </a>
-      </div>
-      <div class="icon-wrapper">
+
+        <!-- Facebook -->
         <a href="https://www.facebook.com/yourusername" target="_blank" aria-label="Facebook">
           <i class="fab fa-facebook"></i>
         </a>
-      </div>
-      <div class="icon-wrapper" style="position: relative;">
-        <a href="https://wa.me/919999999999" target="_blank" aria-label="WhatsApp India">
-          <i class="fab fa-whatsapp"></i>
-          <span class="flag-badge">🇮🇳</span>
-        </a>
-      </div>
-      <div class="icon-wrapper" style="position: relative;">
-        <a href="https://wa.me/971555555555" target="_blank" aria-label="WhatsApp UAE">
-          <i class="fab fa-whatsapp"></i>
-          <span class="flag-badge">🇦🇪</span>
-        </a>
-      </div>
-      <div class="icon-wrapper">
+
+        <!-- WhatsApp India -->
+        <div style="position:relative;">
+          <a href="https://wa.me/919999999999" target="_blank" aria-label="WhatsApp India" style="position: relative;">
+            <i class="fab fa-whatsapp"></i>
+            <span class="flag-badge" style="top:-8px; right:-10px;">🇮🇳</span>
+          </a>
+        </div>
+
+        <!-- WhatsApp UAE -->
+        <div style="position:relative;">
+          <a href="https://wa.me/971555555555" target="_blank" aria-label="WhatsApp UAE" style="position: relative;">
+            <i class="fab fa-whatsapp"></i>
+            <span class="flag-badge" style="top:-8px; right:-10px;">🇦🇪</span>
+          </a>
+        </div>
+
+        <!-- LinkedIn -->
         <a href="https://www.linkedin.com/in/yourusername" target="_blank" aria-label="LinkedIn">
           <i class="fab fa-linkedin"></i>
         </a>
       </div>
-    </div>
-  </section>
 
-  <!-- Footer Bar -->
-  <footer class="footer-bar">
-    <p>© 2025 Fardhan — Made with ❤️ & JavaScript</p>
-  </footer>
-
-</body>
-
-</html>
+      <p class="footer-copy">© 2025 Fardhan — Made with ❤️ & JavaScript</p>
+    </div
