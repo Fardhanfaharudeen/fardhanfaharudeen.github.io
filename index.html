@@ -1,22 +1,27 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Fardhan | Interactive Portfolio</title>
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet" />
+  <!-- Font Awesome CDN -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
   <style>
     * {
       margin: 0;
       padding: 0;
       box-sizing: border-box;
     }
+
     body {
       font-family: 'Poppins', sans-serif;
       background: #0f172a;
       color: #f8fafc;
       overflow-x: hidden;
     }
+
     header {
       background: #1e293b;
       padding: 1rem 2rem;
@@ -28,6 +33,7 @@
       z-index: 1000;
       box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
     }
+
     nav a {
       margin-left: 1.5rem;
       color: #f8fafc;
@@ -35,9 +41,11 @@
       font-weight: 500;
       transition: color 0.3s ease;
     }
+
     nav a:hover {
       color: #38bdf8;
     }
+
     .hero {
       display: flex;
       flex-direction: row;
@@ -48,18 +56,22 @@
       padding: 0 1rem;
       gap: 3rem;
     }
+
     .hero-text {
       max-width: 600px;
       animation: fadeInUp 1s ease-out;
     }
+
     .hero h1 {
       font-size: 3rem;
       animation: fadeInDown 1s ease-out;
     }
+
     .hero p {
       font-size: 1.2rem;
       margin-top: 1rem;
     }
+
     .hero button {
       margin-top: 2rem;
       padding: 0.8rem 2rem;
@@ -72,32 +84,40 @@
       cursor: pointer;
       transition: background 0.3s ease;
     }
+
     .hero button:hover {
       background: #0ea5e9;
     }
+
     .hero-img {
       max-width: 300px;
       animation: slideInLeft 1.5s ease-out;
     }
+
     .hero-img img {
       width: 100%;
       border-radius: 20px;
+      /* Removed box-shadow glow as per your request */
+      animation: floatImage 3s ease-in-out infinite;
     }
 
     .section {
       padding: 4rem 2rem;
       text-align: center;
     }
+
     .section h2 {
       font-size: 2.5rem;
       margin-bottom: 2rem;
     }
+
     .projects {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
       gap: 2rem;
       margin-top: 2rem;
     }
+
     .project-card {
       background: #1e293b;
       border-radius: 10px;
@@ -107,22 +127,29 @@
       color: inherit;
       display: block;
     }
+
     .project-card:hover {
       transform: scale(1.05);
     }
+
     .project-card img {
       width: 100%;
       height: 180px;
       object-fit: cover;
     }
+
     .project-card h3 {
       padding: 1rem;
     }
-    .about, .contact {
+
+    .about,
+    .contact {
       max-width: 800px;
       margin: 0 auto;
     }
-    form input, form textarea {
+
+    form input,
+    form textarea {
       width: 100%;
       margin: 1rem 0;
       padding: 1rem;
@@ -130,6 +157,7 @@
       border: none;
       font-size: 1rem;
     }
+
     form button {
       background: #38bdf8;
       color: #0f172a;
@@ -139,25 +167,140 @@
       border: none;
       cursor: pointer;
     }
-    footer {
-      background: #1e293b;
-      padding: 2rem;
+
+    /* Footer Styles */
+
+    .connect-section {
+      background: linear-gradient(to right, #0f172a, #1e293b);
+      padding: 3rem 1rem;
+      color: #cbd5e1;
       text-align: center;
+    }
+
+    .connect-section h3 {
+      font-size: 1.8rem;
+      margin-bottom: 0.5rem;
+      color: #f1f5f9;
+    }
+
+    .connect-section p {
+      margin-bottom: 1.5rem;
+      font-size: 1rem;
       color: #94a3b8;
     }
 
+    .footer-social-icons {
+      display: flex;
+      justify-content: center;
+      gap: 1.2rem;
+      flex-wrap: wrap;
+      align-items: center;
+    }
+
+    .footer-social-icons .icon-wrapper {
+      position: relative;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 44px;
+      height: 44px;
+      transition: transform 0.3s ease;
+    }
+
+    .footer-social-icons .icon-wrapper a {
+      font-size: 1.8rem;
+      color: #94a3b8;
+      transition: color 0.3s ease;
+    }
+
+    .footer-social-icons .icon-wrapper:hover {
+      transform: scale(1.2);
+    }
+
+    /* Brand color hovers */
+    .footer-social-icons .icon-wrapper a[href*="instagram"]:hover {
+      color: #E4405F;
+    }
+
+    .footer-social-icons .icon-wrapper a[href*="facebook"]:hover {
+      color: #1877F2;
+    }
+
+    .footer-social-icons .icon-wrapper a[href*="wa.me"]:hover {
+      color: #25D366;
+    }
+
+    .footer-social-icons .icon-wrapper a[href*="linkedin"]:hover {
+      color: #0A66C2;
+    }
+
+    /* Flag badge styling for WhatsApp */
+    .flag-badge {
+      position: absolute;
+      top: -8px;
+      right: -10px;
+      font-size: 0.75rem;
+      pointer-events: none;
+    }
+
+    .footer-bar {
+      background: #111827;
+      padding: 1rem 1rem;
+      color: #6b7280;
+      text-align: center;
+      font-size: 0.9rem;
+      border-top: 1px solid #222e48;
+    }
+
+    /* Animations */
     @keyframes fadeInDown {
-      from { opacity: 0; transform: translateY(-30px); }
-      to { opacity: 1; transform: translateY(0); }
+      from {
+        opacity: 0;
+        transform: translateY(-30px);
+      }
+
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
     }
+
     @keyframes fadeInUp {
-      from { opacity: 0; transform: translateY(30px); }
-      to { opacity: 1; transform: translateY(0); }
+      from {
+        opacity: 0;
+        transform: translateY(30px);
+      }
+
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
     }
+
     @keyframes slideInLeft {
-      from { opacity: 0; transform: translateX(-100%); }
-      to { opacity: 1; transform: translateX(0); }
+      from {
+        opacity: 0;
+        transform: translateX(-100%);
+      }
+
+      to {
+        opacity: 1;
+        transform: translateX(0);
+      }
     }
+
+    @keyframes floatImage {
+      0%,
+      100% {
+        transform: translateY(0px);
+      }
+
+      50% {
+        transform: translateY(-15px);
+      }
+    }
+
+    /* Responsive */
 
     @media (max-width: 768px) {
       .hero {
@@ -166,15 +309,18 @@
         height: auto;
         padding: 4rem 1rem;
       }
+
       .hero h1 {
         font-size: 2.2rem;
       }
+
       .section h2 {
         font-size: 2rem;
       }
     }
   </style>
 </head>
+
 <body>
   <header>
     <h2>Fardhan.dev</h2>
@@ -185,7 +331,7 @@
     </nav>
   </header>
 
-  <section class="hero">
+  <section class="hero" id="hero">
     <div class="hero-img">
       <img src="images/fardhan.png" alt="Fardhan Image" />
     </div>
@@ -198,7 +344,9 @@
 
   <section class="section about" id="about">
     <h2>About Me</h2>
-    <p>I’m a full-stack web developer with 2+ years of experience building responsive, high-performance websites and web apps. I’m also experienced in SEO, CMS platforms, and digital strategy. I combine creativity and logic to create stunning digital experiences.</p>
+    <p>I’m a full-stack web developer with 2+ years of experience building responsive, high-performance websites and web
+      apps. I’m also experienced in SEO, CMS platforms, and digital strategy. I combine creativity and logic to create
+      stunning digital experiences.</p>
   </section>
 
   <section class="section" id="projects">
@@ -208,12 +356,10 @@
         <img src="images/school.png" alt="School Projects" />
         <h3>School Website Projects</h3>
       </a>
-
       <a href="projects.html" target="_blank" class="project-card">
         <img src="images/business.png" alt="Business Website" />
         <h3>Business Website Project</h3>
       </a>
-
       <a href="projects.html" target="_blank" class="project-card">
         <img src="images/social-media.png" alt="Social Media Campaigns" />
         <h3>Social Media Campaigns</h3>
@@ -231,8 +377,47 @@
     </form>
   </section>
 
-  <footer>
-    &copy; 2025 Fardhan. All rights reserved.
+  <!-- Let's Connect Section -->
+  <section class="connect-section">
+    <h3>Let’s Connect 🌐</h3>
+    <p>Feel free to reach out for collaboration, freelancing, or just a friendly hello!</p>
+
+    <div class="footer-social-icons">
+      <div class="icon-wrapper">
+        <a href="https://www.instagram.com/yourusername" target="_blank" aria-label="Instagram">
+          <i class="fab fa-instagram"></i>
+        </a>
+      </div>
+      <div class="icon-wrapper">
+        <a href="https://www.facebook.com/yourusername" target="_blank" aria-label="Facebook">
+          <i class="fab fa-facebook"></i>
+        </a>
+      </div>
+      <div class="icon-wrapper" style="position: relative;">
+        <a href="https://wa.me/919999999999" target="_blank" aria-label="WhatsApp India">
+          <i class="fab fa-whatsapp"></i>
+          <span class="flag-badge">🇮🇳</span>
+        </a>
+      </div>
+      <div class="icon-wrapper" style="position: relative;">
+        <a href="https://wa.me/971555555555" target="_blank" aria-label="WhatsApp UAE">
+          <i class="fab fa-whatsapp"></i>
+          <span class="flag-badge">🇦🇪</span>
+        </a>
+      </div>
+      <div class="icon-wrapper">
+        <a href="https://www.linkedin.com/in/yourusername" target="_blank" aria-label="LinkedIn">
+          <i class="fab fa-linkedin"></i>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer Bar -->
+  <footer class="footer-bar">
+    <p>© 2025 Fardhan — Made with ❤️ & JavaScript</p>
   </footer>
+
 </body>
+
 </html>
