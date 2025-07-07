@@ -45,7 +45,6 @@
       color: #38bdf8;
     }
 
-    /* HERO SECTION */
     .hero {
       position: relative;
       min-height: 100vh;
@@ -74,100 +73,22 @@
       user-select: none;
     }
 
-    /* Position icons */
-    .parallax-bg i:nth-child(n) {
-      animation: floatIcon 10s infinite ease-in-out alternate;
-    }
-
-    .parallax-bg i:nth-child(1) {
-      top: 8%;
-      left: 6%;
-    }
-
-    .parallax-bg i:nth-child(2) {
-      top: 22%;
-      left: 25%;
-    }
-
-    .parallax-bg i:nth-child(3) {
-      top: 38%;
-      left: 12%;
-    }
-
-    .parallax-bg i:nth-child(4) {
-      top: 63%;
-      left: 17%;
-    }
-
-    .parallax-bg i:nth-child(5) {
-      top: 72%;
-      left: 8%;
-    }
-
-    .parallax-bg i:nth-child(6) {
-      top: 15%;
-      left: 42%;
-    }
-
-    .parallax-bg i:nth-child(7) {
-      top: 35%;
-      left: 50%;
-    }
-
-    .parallax-bg i:nth-child(8) {
-      top: 60%;
-      left: 45%;
-    }
-
-    .parallax-bg i:nth-child(9) {
-      top: 80%;
-      left: 30%;
-    }
-
-    .parallax-bg i:nth-child(10) {
-      top: 10%;
-      left: 65%;
-    }
-
-    .parallax-bg i:nth-child(11) {
-      top: 27%;
-      left: 75%;
-    }
-
-    .parallax-bg i:nth-child(12) {
-      top: 50%;
-      left: 68%;
-    }
-
-    .parallax-bg i:nth-child(13) {
-      top: 70%;
-      left: 80%;
-    }
-
-    .parallax-bg i:nth-child(14) {
-      top: 85%;
-      left: 60%;
-    }
-
-    .parallax-bg i:nth-child(15) {
-      top: 40%;
-      left: 90%;
-    }
-
-    .parallax-bg i:nth-child(16) {
-      top: 65%;
-      left: 85%;
-    }
-
-    @keyframes floatIcon {
-      0% {
-        transform: translateY(0);
-      }
-
-      100% {
-        transform: translateY(-20px);
-      }
-    }
+    .parallax-bg i:nth-child(1) { top: 8%; left: 6%; }
+    .parallax-bg i:nth-child(2) { top: 22%; left: 25%; }
+    .parallax-bg i:nth-child(3) { top: 38%; left: 12%; }
+    .parallax-bg i:nth-child(4) { top: 63%; left: 17%; }
+    .parallax-bg i:nth-child(5) { top: 72%; left: 8%; }
+    .parallax-bg i:nth-child(6) { top: 15%; left: 42%; }
+    .parallax-bg i:nth-child(7) { top: 35%; left: 50%; }
+    .parallax-bg i:nth-child(8) { top: 60%; left: 45%; }
+    .parallax-bg i:nth-child(9) { top: 73%; left: 55%; }
+    .parallax-bg i:nth-child(10) { top: 10%; left: 65%; }
+    .parallax-bg i:nth-child(11) { top: 27%; left: 75%; }
+    .parallax-bg i:nth-child(12) { top: 50%; left: 68%; }
+    .parallax-bg i:nth-child(13) { top: 73%; left: 70%; }
+    .parallax-bg i:nth-child(14) { top: 85%; left: 60%; }
+    .parallax-bg i:nth-child(15) { top: 40%; left: 90%; }
+    .parallax-bg i:nth-child(16) { top: 65%; left: 85%; }
 
     .hero-content {
       position: relative;
@@ -182,11 +103,14 @@
 
     .hero-img {
       max-width: 300px;
-      animation: slideInLeft 1s ease-out forwards, floatUpDown 3s ease-in-out infinite alternate;
       opacity: 0;
     }
 
-    @keyframes slideInLeft {
+    .slide-in {
+      animation: slideAndFloat 1.5s ease-out forwards, floatUpDown 4s ease-in-out infinite alternate;
+    }
+
+    @keyframes slideAndFloat {
       from {
         transform: translateX(-100%);
         opacity: 0;
@@ -199,11 +123,11 @@
     }
 
     @keyframes floatUpDown {
-      from {
+      0% {
         transform: translateY(0);
       }
 
-      to {
+      100% {
         transform: translateY(-15px);
       }
     }
@@ -276,11 +200,6 @@
       margin: 0 auto;
     }
 
-    .section h2 {
-      font-size: 2.5rem;
-      margin-bottom: 2rem;
-    }
-
     .projects {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
@@ -305,10 +224,6 @@
       width: 100%;
       height: 180px;
       object-fit: cover;
-    }
-
-    .project-card h3 {
-      padding: 1rem;
     }
 
     .about,
@@ -337,29 +252,15 @@
       cursor: pointer;
     }
 
-    /* FOOTER SECTION SPLIT */
-
     .footer-wave {
       height: 80px;
       background: linear-gradient(to right, #1e293b, #0f172a);
-    }
-
-    .super-footer {
-      background: #1e293b;
-      padding: 3rem 1rem;
-      text-align: center;
-      color: #cbd5e1;
     }
 
     .footer-connect {
       background: #0f1c30;
       padding: 3rem 1rem 1rem;
       text-align: center;
-    }
-
-    .footer-connect h3 {
-      font-size: 1.8rem;
-      color: #f1f5f9;
     }
 
     .footer-social-icons {
@@ -381,34 +282,25 @@
       transform: scale(1.2);
     }
 
-    .footer-social-icons a[href*="instagram"]:hover {
-      color: #E4405F;
-    }
-
-    .footer-social-icons a[href*="facebook"]:hover {
-      color: #1877F2;
-    }
-
-    .footer-social-icons a[href*="wa.me"]:hover {
-      color: #25D366;
-    }
-
-    .footer-social-icons a[href*="linkedin"]:hover {
-      color: #0A66C2;
-    }
+    .footer-social-icons a[href*="instagram"]:hover { color: #E4405F; }
+    .footer-social-icons a[href*="facebook"]:hover { color: #1877F2; }
+    .footer-social-icons a[href*="wa.me"]:hover { color: #25D366; }
+    .footer-social-icons a[href*="linkedin"]:hover { color: #0A66C2; }
 
     .flag-badge {
       position: absolute;
-      top: -8px;
-      right: -10px;
-      font-size: 0.75rem;
+      top: -10px;
+      right: -12px;
+      font-size: 0.8rem;
       pointer-events: none;
+      display: block;
     }
 
-    .footer-copy {
-      font-size: 0.9rem;
+    .super-footer {
+      background: #1e293b;
+      padding: 1.2rem 1rem;
+      text-align: center;
       color: #94a3b8;
-      margin-top: 1.5rem;
     }
 
     @media (max-width: 768px) {
@@ -418,10 +310,6 @@
 
       .hero-text h1 {
         font-size: 2.2rem;
-      }
-
-      .section h2 {
-        font-size: 2rem;
       }
 
       .projects {
@@ -474,9 +362,7 @@
 
   <section class="section about" id="about">
     <h2>About Me</h2>
-    <p>I’m a full-stack web developer with 2+ years of experience building responsive, high-performance websites and web
-      apps. I’m also experienced in SEO, CMS platforms, and digital strategy. I combine creativity and logic to create
-      stunning digital experiences.</p>
+    <p>I’m a full-stack web developer with 2+ years of experience building responsive, high-performance websites and web apps. I’m also experienced in SEO, CMS platforms, and digital strategy. I combine creativity and logic to create stunning digital experiences.</p>
   </section>
 
   <section class="section" id="projects">
@@ -515,10 +401,14 @@
     <div class="footer-social-icons">
       <a href="https://www.instagram.com/__.being_faru.__" target="_blank"><i class="fab fa-instagram"></i></a>
       <a href="https://www.facebook.com/share/1AZRT3f7R5/" target="_blank"><i class="fab fa-facebook"></i></a>
-      <a href="https://wa.me/+919514365936" target="_blank"><i class="fab fa-whatsapp"></i><span
-          class="flag-badge">🇮🇳</span></a>
-      <a href="https://wa.me/+971562409467" target="_blank"><i class="fab fa-whatsapp"></i><span
-          class="flag-badge">🇦🇪</span></a>
+      <span style="position: relative; display: inline-block;">
+        <a href="https://wa.me/+919514365936" target="_blank"><i class="fab fa-whatsapp"></i></a>
+        <span class="flag-badge">🇮🇳</span>
+      </span>
+      <span style="position: relative; display: inline-block;">
+        <a href="https://wa.me/+971562409467" target="_blank"><i class="fab fa-whatsapp"></i></a>
+        <span class="flag-badge">🇦🇪</span>
+      </span>
       <a href="https://www.linkedin.com/in/fardhan-f-58799a274" target="_blank"><i class="fab fa-linkedin"></i></a>
     </div>
   </div>
@@ -532,6 +422,11 @@
       const parallax = document.querySelector('.parallax-bg');
       const scrollY = window.scrollY;
       parallax.style.transform = `translateX(-50%) translateY(${scrollY * 0.3}px)`;
+    });
+
+    window.addEventListener('load', () => {
+      const heroImg = document.querySelector('.hero-img');
+      heroImg.classList.add('slide-in');
     });
   </script>
 </body>
