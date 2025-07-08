@@ -8,6 +8,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
   <style>
+    /*------------- Body --------------*/
     * {
       margin: 0;
       padding: 0;
@@ -21,6 +22,9 @@
       overflow-x: hidden;
     }
 
+
+
+    /*------------- Navbar --------------*/
     header {
       background: #1e293b;
       padding: 1rem 2rem;
@@ -44,6 +48,10 @@
     nav a:hover {
       color: #38bdf8;
     }
+
+
+
+    /*------------- Banner --------------*/
 
     .hero {
       position: relative;
@@ -73,22 +81,85 @@
       user-select: none;
     }
 
-    .parallax-bg i:nth-child(1) { top: 8%; left: 6%; }
-    .parallax-bg i:nth-child(2) { top: 22%; left: 25%; }
-    .parallax-bg i:nth-child(3) { top: 38%; left: 12%; }
-    .parallax-bg i:nth-child(4) { top: 63%; left: 17%; }
-    .parallax-bg i:nth-child(5) { top: 72%; left: 8%; }
-    .parallax-bg i:nth-child(6) { top: 15%; left: 42%; }
-    .parallax-bg i:nth-child(7) { top: 35%; left: 50%; }
-    .parallax-bg i:nth-child(8) { top: 60%; left: 45%; }
-    .parallax-bg i:nth-child(9) { top: 73%; left: 55%; }
-    .parallax-bg i:nth-child(10) { top: 10%; left: 65%; }
-    .parallax-bg i:nth-child(11) { top: 27%; left: 75%; }
-    .parallax-bg i:nth-child(12) { top: 50%; left: 68%; }
-    .parallax-bg i:nth-child(13) { top: 73%; left: 70%; }
-    .parallax-bg i:nth-child(14) { top: 85%; left: 60%; }
-    .parallax-bg i:nth-child(15) { top: 40%; left: 90%; }
-    .parallax-bg i:nth-child(16) { top: 65%; left: 85%; }
+    .parallax-bg i:nth-child(1) {
+      top: 8%;
+      left: 6%;
+    }
+
+    .parallax-bg i:nth-child(2) {
+      top: 22%;
+      left: 25%;
+    }
+
+    .parallax-bg i:nth-child(3) {
+      top: 38%;
+      left: 12%;
+    }
+
+    .parallax-bg i:nth-child(4) {
+      top: 63%;
+      left: 17%;
+    }
+
+    .parallax-bg i:nth-child(5) {
+      top: 72%;
+      left: 8%;
+    }
+
+    .parallax-bg i:nth-child(6) {
+      top: 15%;
+      left: 42%;
+    }
+
+    .parallax-bg i:nth-child(7) {
+      top: 35%;
+      left: 50%;
+    }
+
+    .parallax-bg i:nth-child(8) {
+      top: 60%;
+      left: 45%;
+    }
+
+    .parallax-bg i:nth-child(9) {
+      top: 73%;
+      left: 55%;
+    }
+
+    .parallax-bg i:nth-child(10) {
+      top: 10%;
+      left: 65%;
+    }
+
+    .parallax-bg i:nth-child(11) {
+      top: 27%;
+      left: 75%;
+    }
+
+    .parallax-bg i:nth-child(12) {
+      top: 50%;
+      left: 68%;
+    }
+
+    .parallax-bg i:nth-child(13) {
+      top: 73%;
+      left: 70%;
+    }
+
+    .parallax-bg i:nth-child(14) {
+      top: 85%;
+      left: 60%;
+    }
+
+    .parallax-bg i:nth-child(15) {
+      top: 40%;
+      left: 90%;
+    }
+
+    .parallax-bg i:nth-child(16) {
+      top: 65%;
+      left: 85%;
+    }
 
     .hero-content {
       position: relative;
@@ -200,17 +271,27 @@
       margin: 0 auto;
     }
 
+
+
+
+    /*------------- Project --------------*/
+
     .projects {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
       gap: 2rem;
     }
-    .projects H3{
-      padding:4px 0px 12px 0px;
+
+    .projects H3 {
+      padding: 4px 0px 12px 0px;
     }
-    #projects h2{
+
+    #projects h2,
+    #contact h2,
+    #faq h2 {
       margin-bottom: 40px;
     }
+
     .project-card {
       background: #1e293b;
       border-radius: 10px;
@@ -236,6 +317,10 @@
       max-width: 800px;
       margin: 0 auto;
     }
+
+
+    /*------------- Contact --------------*/
+
 
     form input,
     form textarea {
@@ -287,10 +372,21 @@
       transform: scale(1.2);
     }
 
-    .footer-social-icons a[href*="instagram"]:hover { color: #E4405F; }
-    .footer-social-icons a[href*="facebook"]:hover { color: #1877F2; }
-    .footer-social-icons a[href*="wa.me"]:hover { color: #25D366; }
-    .footer-social-icons a[href*="linkedin"]:hover { color: #0A66C2; }
+    .footer-social-icons a[href*="instagram"]:hover {
+      color: #E4405F;
+    }
+
+    .footer-social-icons a[href*="facebook"]:hover {
+      color: #1877F2;
+    }
+
+    .footer-social-icons a[href*="wa.me"]:hover {
+      color: #25D366;
+    }
+
+    .footer-social-icons a[href*="linkedin"]:hover {
+      color: #0A66C2;
+    }
 
     .flag-badge {
       position: absolute;
@@ -301,12 +397,108 @@
       display: block;
     }
 
+
+    /*------------- FAQ --------------*/
+
+    .faq-section {
+      max-width: 600px;
+      margin: auto;
+    }
+
+    .faq-item {
+      background-color: #1e293b;
+      overflow: hidden;
+      transition: background 0.3s ease;
+    }
+
+    /* Top rounded corners for first item */
+    .faq-item.first {
+      border-top-left-radius: 10px;
+      border-top-right-radius: 10px;
+    }
+
+    /* Bottom rounded corners for last item */
+    .faq-item.last {
+      border-bottom-left-radius: 10px;
+      border-bottom-right-radius: 10px;
+    }
+
+    .faq-question {
+      padding: 1.2rem 1rem;
+      cursor: pointer;
+      font-weight: 600;
+      position: relative;
+      text-align: left;
+    }
+
+    .faq-question::after {
+      content: '+';
+      position: absolute;
+      right: 1.2rem;
+      font-size: 1.2rem;
+      transition: transform 0.3s ease;
+    }
+
+    .faq-item.active .faq-question::after {
+      transform: rotate(45deg);
+    }
+
+    .faq-answer {
+      height: 0;
+      text-align: left;
+      overflow: hidden;
+      transition: height 0.4s ease;
+      padding: 0 1rem;
+      background-color: #0f172a;
+      border-top: 1px solid #334155;
+    }
+
+    .faq-answer p {
+      padding: 1.6rem 0;
+    }
+
     .super-footer {
       background: #1e293b;
       padding: 1.2rem 1rem;
       text-align: center;
       color: #94a3b8;
     }
+
+    /* Cursor styles */
+    .cursor-dot,
+    .cursor-ring {
+      position: fixed;
+      top: 0;
+      left: 0;
+      pointer-events: none;
+      z-index: 9999;
+      transform: translate(-50%, -50%);
+      transition: background-color 0.3s ease;
+    }
+
+    .cursor-dot {
+      width: 6px;
+      height: 6px;
+      background: #38bdf8;
+      border-radius: 50%;
+    }
+
+    .cursor-ring {
+      width: 24px;
+      height: 24px;
+      border: 1px solid #38bdf8;
+      border-radius: 50%;
+    }
+
+    .cursor-dot.hovered {
+      background: #ffffff;
+      /* or any color you want on hover */
+    }
+
+    .cursor-ring.hovered {
+      border-color: #ffffff;
+    }
+
 
     @media (max-width: 768px) {
       .hero-content {
@@ -325,6 +517,10 @@
 </head>
 
 <body>
+
+
+  <!---------Navbar_Wrapper---------->
+
   <header>
     <h2>Fardhan.dev</h2>
     <nav>
@@ -333,6 +529,10 @@
       <a href="#contact">Contact</a>
     </nav>
   </header>
+
+
+
+  <!---------Hero-img_Wrapper---------->
 
   <section class="hero" id="hero">
     <div class="parallax-bg" aria-hidden="true">
@@ -360,15 +560,26 @@
       <div class="hero-text">
         <h1>Hi, I'm Fardhan</h1>
         <p>A passionate Web Developer & Digital Marketer</p>
-        <button onclick="document.getElementById('contact').scrollIntoView({behavior: 'smooth'})">Hire Me</button>
+        <button class="interactive-button"
+          onclick="document.getElementById('contact').scrollIntoView({behavior: 'smooth'})">Hire Me</button>
       </div>
     </div>
   </section>
 
+
+
+  <!---------About_Wrapper---------->
+
   <section class="section about" id="about">
     <h2>About Me</h2>
-    <p>I’m a full-stack web developer with 2+ years of experience building responsive, high-performance websites and web apps. I’m also experienced in SEO, CMS platforms, and digital strategy. I combine creativity and logic to create stunning digital experiences.</p>
+    <p>I’m a full-stack web developer with 2+ years of experience building responsive, high-performance websites and web
+      apps. I’m also experienced in SEO, CMS platforms, and digital strategy. I combine creativity and logic to create
+      stunning digital experiences.</p>
   </section>
+
+
+
+  <!---------Project_Wrapper---------->
 
   <section class="section" id="projects">
     <h2>My Projects</h2>
@@ -388,15 +599,84 @@
     </div>
   </section>
 
+
+
+  <!-------- FAQ_Wrapper --------->
+
+  <section class="section faq" id="faq">
+    <h2>FAQ</h2>
+    <div class="faq-section">
+      <div class="faq-item active first">
+        <div class="faq-question">1. What kind of web development do you specialize in?</div>
+        <div class="faq-answer">
+          <p>Absolutely! I can build websites using core technologies like HTML, CSS, Bootstrap,
+            and JavaScript — even with something as simple as Notepad. I focus on clean code,
+            responsiveness, and performance. Whether it's from scratch or CMS-based, I’ve got it
+            covered.</p>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <div class="faq-question">2. Which CMS platforms are you experienced with?</div>
+        <div class="faq-answer">
+          <p>I’ve been working extensively with JOOMLA CMS for structured content management.
+            I also have strong hands-on experience with WordPress, where I’ve designed and
+            developed custom websites tailored to clients' needs.</p>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <div class="faq-question">3. Do you offer SEO and traffic-building strategies?</div>
+        <div class="faq-answer">
+          <p>Yes, I specialize in SEO research and techniques that organically grow website
+            traffic. I analyze keywords, competitors, and on-page optimization to ensure your
+            site performs well on search engines.</p>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <div class="faq-question">4. Can you help with web hosting and performance debugging?</div>
+        <div class="faq-answer">
+          <p>Definitely. I have solid knowledge in web hosting services and deployment. I also
+            use Chrome DevTools to inspect, debug, and reconstruct web code for improved performance
+            and faster loading.
+
+          </p>
+        </div>
+      </div>
+
+      <div class="faq-item last">
+        <div class="faq-question">5. Do you have experience in digital marketing or paid ads?</div>
+        <div class="faq-answer">
+          <p>Yes, I have 2 years of hands-on experience running Meta (Facebook & Instagram) Ads.
+            I’ve managed ad budgets like 10,000 AED per month, averaging around 70 quality leads
+            per day — with impressive conversion rates.</p>
+        </div>
+      </div>
+    </div>
+
+  </section>
+
+
+
+
+  <!---------Contact_Wrapper---------->
+
   <section class="section contact" id="contact">
     <h2>Contact Me</h2>
     <form>
       <input type="text" placeholder="Your Name" required />
       <input type="email" placeholder="Your Email" required />
       <textarea rows="5" placeholder="Your Message" required></textarea>
-      <button type="submit">Send Message</button>
+      <button class="interactive-button" type="submit">Send Message</button>
     </form>
   </section>
+
+
+
+
+
+  <!-------- Social_Wrapper --------->
 
   <div class="footer-wave"></div>
 
@@ -418,9 +698,17 @@
     </div>
   </div>
 
+
+
+  <!-------- Footer_Wrapper --------->
   <footer class="super-footer">
     <p class="footer-copy">© 2025 Fardhan — Made with ❤️ & JavaScript</p>
   </footer>
+
+
+  <!------ Cursor elements ------>
+  <div class="cursor-dot"></div>
+  <div class="cursor-ring"></div>
 
   <script>
     window.addEventListener('scroll', () => {
@@ -433,6 +721,93 @@
       const heroImg = document.querySelector('.hero-img');
       heroImg.classList.add('slide-in');
     });
+
+    // Trailing Cursor Effect
+    const dot = document.querySelector('.cursor-dot');
+    const ring = document.querySelector('.cursor-ring');
+
+    let mouseX = window.innerWidth / 2;
+    let mouseY = window.innerHeight / 2;
+    let dotX = mouseX;
+    let dotY = mouseY;
+    let ringX = mouseX;
+    let ringY = mouseY;
+
+    document.addEventListener('mousemove', (e) => {
+      mouseX = e.clientX;
+      mouseY = e.clientY;
+    });
+
+    function animateCursor() {
+      // Dot with 2s delay (slower)
+      dotX += (mouseX - dotX) / (0.4 * 60);
+      dotY += (mouseY - dotY) / (0.4 * 60);
+      dot.style.transform = `translate(${dotX}px, ${dotY}px) translate(-50%, -50%)`;
+
+      // Ring with 1s delay (faster)
+      ringX += (mouseX - ringX) / (0.1 * 60);
+      ringY += (mouseY - ringY) / (0.1 * 60);
+      ring.style.transform = `translate(${ringX}px, ${ringY}px) translate(-50%, -50%)`;
+
+      requestAnimationFrame(animateCursor);
+    }
+
+    animateCursor();
+
+    document.addEventListener('mousemove', (e) => {
+      mouseX = e.clientX;
+      mouseY = e.clientY;
+
+      const elementUnderCursor = document.elementFromPoint(mouseX, mouseY);
+      const isHoveringButton = elementUnderCursor?.classList.contains('interactive-button');
+
+      if (isHoveringButton) {
+        dot.classList.add('hovered');
+        ring.classList.add('hovered');
+      } else {
+        dot.classList.remove('hovered');
+        ring.classList.remove('hovered');
+      }
+    });
+
+    // FAQ Accordion with smooth toggle and default open
+    const faqItems = document.querySelectorAll('.faq-item');
+
+    // Set initial height for the first one
+    const firstAnswer = faqItems[0].querySelector('.faq-answer');
+    firstAnswer.style.height = firstAnswer.scrollHeight + 'px';
+
+    faqItems.forEach(item => {
+      const question = item.querySelector('.faq-question');
+      const answer = item.querySelector('.faq-answer');
+
+      question.addEventListener('click', () => {
+        // If already active, do nothing
+        if (item.classList.contains('active')) return;
+
+        // Close all
+        faqItems.forEach(otherItem => {
+          if (otherItem !== item) {
+            otherItem.classList.remove('active');
+            const otherAnswer = otherItem.querySelector('.faq-answer');
+            otherAnswer.style.height = '0px';
+          }
+        });
+
+        // Open clicked one
+        item.classList.add('active');
+        answer.style.height = answer.scrollHeight + 'px';
+      });
+    });
+
+
+    // Disable right-click
+    document.addEventListener('contextmenu', e => e.preventDefault());
+
+    // Disable copy
+    document.addEventListener('copy', e => e.preventDefault());
+
+
   </script>
 </body>
 
