@@ -93,6 +93,47 @@
     .view-button:hover {
       background: #0ea5e9;
     }
+
+    /* Cursor styles */
+    .cursor-dot,
+    .cursor-ring {
+      position: fixed;
+      top: 0;
+      left: 0;
+      pointer-events: none;
+      z-index: 9999;
+      transform: translate(-50%, -50%);
+      transition: background-color 0.3s ease;
+    }
+
+    .cursor-dot {
+      width: 6px;
+      height: 6px;
+      background: #38bdf8;
+      border-radius: 50%;
+    }
+
+    .cursor-ring {
+      width: 24px;
+      height: 24px;
+      border: 1px solid #38bdf8;
+      border-radius: 50%;
+    }
+
+    .cursor-dot.hovered {
+      background: #ffffff;
+      /* or any color you want on hover */
+    }
+
+    .cursor-ring.hovered {
+      border-color: #ffffff;
+    }
+    .super-footer {
+      background: #1e293b;
+      padding: 1.2rem 1rem;
+      text-align: center;
+      color: #94a3b8;
+    }
   </style>
 </head>
 
@@ -112,23 +153,23 @@
         <img src="https://www.nbv.ac.in/images/logo/logowhite.png" alt="School Logo" />
         <h3>Navajeevan Bethany Vidyalaya</h3>
         <p>Online admissions, event calendar, mobile-friendly layout.</p>
-        <a class="view-button" href="https://www.nbv.ac.in/" target="_blank">View Website</a>
+        <a class="view-button interactive-button" href="https://www.nbv.ac.in/" target="_blank">View Website</a>
       </div>
 
       <!-- Card 2 -->
       <div class="project-box">
-        <img src="images/st-joseph.png" alt="School Logo" />
+        <img src="Images/st-joseph.png" alt="School Logo" />
         <h3>St. Joseph’s Matric Hr. Sec. School</h3>
         <p>Interactive homepage, teacher directory, secure admin panel.</p>
-        <a class="view-button" href="https://www.sjmhss.edu.in/" target="_blank">View Website</a>
+        <a class="view-button interactive-button" href="https://www.sjmhss.edu.in/" target="_blank">View Website</a>
       </div>
 
       <!-- Card 3 -->
       <div class="project-box">
-        <img src="images/st-michael.png" alt="School Logo" />
+        <img src="Images/st-michael.png" alt="School Logo" />
         <h3>St.Michael's Matric Hr. Sec. School</h3>
         <p>Pre-school curriculum, colorful UI, photo galleries.</p>
-        <a class="view-button" href="https://smhsk.edu.in/" target="_blank">View Website</a>
+        <a class="view-button interactive-button" href="https://smhsk.edu.in/" target="_blank">View Website</a>
       </div>
 
       <!-- Card 4 -->
@@ -136,7 +177,7 @@
         <img src="images/victory-public.png" alt="School Logo" />
         <h3>Victory Public School</h3>
         <p>Custom result portal, PDF downloads, fee details page.</p>
-        <a class="view-button" href="https://www.victorypublicschool.org/" target="_blank">View Website</a>
+        <a class="view-button interactive-button" href="https://www.victorypublicschool.org/" target="_blank">View Website</a>
       </div>
 
       <!-- Card 5 -->
@@ -144,7 +185,7 @@
         <img src="images/victory-matric.png" alt="School Logo" />
         <h3>Victory Matric Hr. Sec. School</h3>
         <p>Modern single-page layout with integrated WhatsApp support.</p>
-        <a class="view-button" href="https://www.victorymatricschool.edu.in/" target="_blank">View Website</a>
+        <a class="view-button interactive-button" href="https://www.victorymatricschool.edu.in/" target="_blank">View Website</a>
       </div>
 
       <!-- Card 6 -->
@@ -152,60 +193,128 @@
         <img src="images/mother-theresa.png" alt="School Logo" />
         <h3>Mother Theresa Matric Hr. Sec. School</h3>
         <p>Kid-friendly design with animations and simple navigation.</p>
-        <a class="view-button" href="https://mothertheresamylacode.edu.in/" target="_blank">View Website</a>
+        <a class="view-button interactive-button" href="https://mothertheresamylacode.edu.in/" target="_blank">View Website</a>
       </div>
 
       <!-- Card 7 -->
       <div class="project-box">
-        <img src="images/nanjil-school.png" alt="School Logo" />
+        <img src="Images/nanjil-school.png" alt="School Logo" />
         <h3>Nanjil Catholic School(CBSE)</h3>
         <p>Multi-language support, latest news section, parent portal.</p>
-        <a class="view-button" href="https://www.nanjilschool.edu.in/" target="_blank">View Website</a>
+        <a class="view-button interactive-button" href="https://www.nanjilschool.edu.in/" target="_blank">View Website</a>
       </div>
 
       <!-- Card 9 -->
       <div class="project-box">
-        <img src="images/nanjil-college.png" alt="School Logo" />
+        <img src="Images/nanjil-college.png" alt="School Logo" />
         <h3>Nanjil Catholic College of Arts and Science.</h3>
         <p>Academic calendar, responsive navigation, results archive.</p>
-        <a class="view-button" href="https://nccas.edu.in/" target="_blank">View Website</a>
+        <a class="view-button interactive-button" href="https://nccas.edu.in/" target="_blank">View Website</a>
       </div>
 
       <!-- Card 8 -->
       <div class="project-box">
-        <img src="images/corpus.png" alt="School Logo" />
+        <img src="Images/corpus.png" alt="School Logo" />
         <h3>Corpus Christi School</h3>
         <p>Class-based photo galleries, announcement banner, contact form.</p>
-        <a class="view-button" href="https://www.ccs.edu.in/" target="_blank">View Website</a>
+        <a class="view-button interactive-button" href="https://www.ccs.edu.in/" target="_blank">View Website</a>
       </div>
 
       <!-- Card 10 -->
       <div class="project-box">
-        <img src="images/st-judes.png" alt="School Logo" />
+        <img src="Images/st-judes.png" alt="School Logo" />
         <h3>St. Judes Hi-Tech School</h3>
         <p>PDF brochure download, principal message, student achievements.</p>
-        <a class="view-button" href="https://stjudeshitechschool.edu.in/" target="_blank">View Website</a>
+        <a class="view-button interactive-button" href="https://stjudeshitechschool.edu.in/" target="_blank">View Website</a>
       </div>
 
       <!-- Card 11 -->
       <div class="project-box">
-        <img src="images/Little-champion.png" alt="School Logo" />
+        <img src="Images/Little-champion.png" alt="School Logo" />
         <h3>Little Champion CBSE School</h3>
         <p>PDF brochure download, principal message, student achievements.</p>
-        <a class="view-button" href="https://littlechampioncbseschool.edu.in/" target="_blank">View Website</a>
+        <a class="view-button interactive-button" href="https://littlechampioncbseschool.edu.in/" target="_blank">View Website</a>
       </div>
 
       <!-- Card 12 -->
       <div class="project-box">
-        <img src="images/cherupushpa.png" alt="School Logo" />
+        <img src="Images/cherupushpa.png" alt="School Logo" />
         <h3>Cherupushpa Bethany Senior Secondary School</h3>
         <p>PDF brochure download, principal message, student achievements.</p>
-        <a class="view-button" href="https://cherupushpabethany.edu.in/" target="_blank">View Website</a>
+        <a class="view-button interactive-button" href="https://cherupushpabethany.edu.in/" target="_blank">View Website</a>
       </div>
 
     </div>
   </section>
 
+  <!------ Cursor elements ------>
+  <div class="cursor-dot"></div>
+  <div class="cursor-ring"></div>
+  
+  
+  <footer class="super-footer">
+    <p class="footer-copy">© 2025 Fardhan — Made with ❤️ & JavaScript</p>
+  </footer>
+  <script>
+    window.addEventListener('scroll', () => {
+      const parallax = document.querySelector('.parallax-bg');
+      const scrollY = window.scrollY;
+      parallax.style.transform = `translateX(-50%) translateY(${scrollY * 0.3}px)`;
+    });
+
+    window.addEventListener('load', () => {
+      const heroImg = document.querySelector('.hero-img');
+      heroImg.classList.add('slide-in');
+    });
+
+    // Trailing Cursor Effect
+    const dot = document.querySelector('.cursor-dot');
+    const ring = document.querySelector('.cursor-ring');
+
+    let mouseX = window.innerWidth / 2;
+    let mouseY = window.innerHeight / 2;
+    let dotX = mouseX;
+    let dotY = mouseY;
+    let ringX = mouseX;
+    let ringY = mouseY;
+
+    document.addEventListener('mousemove', (e) => {
+      mouseX = e.clientX;
+      mouseY = e.clientY;
+    });
+
+    function animateCursor() {
+      // Dot with 2s delay (slower)
+      dotX += (mouseX - dotX) / (0.4 * 60);
+      dotY += (mouseY - dotY) / (0.4 * 60);
+      dot.style.transform = `translate(${dotX}px, ${dotY}px) translate(-50%, -50%)`;
+
+      // Ring with 1s delay (faster)
+      ringX += (mouseX - ringX) / (0.1 * 60);
+      ringY += (mouseY - ringY) / (0.1 * 60);
+      ring.style.transform = `translate(${ringX}px, ${ringY}px) translate(-50%, -50%)`;
+
+      requestAnimationFrame(animateCursor);
+    }
+
+    animateCursor();
+
+    document.addEventListener('mousemove', (e) => {
+      mouseX = e.clientX;
+      mouseY = e.clientY;
+
+      const elementUnderCursor = document.elementFromPoint(mouseX, mouseY);
+      const isHoveringButton = elementUnderCursor?.classList.contains('interactive-button');
+
+      if (isHoveringButton) {
+        dot.classList.add('hovered');
+        ring.classList.add('hovered');
+      } else {
+        dot.classList.remove('hovered');
+        ring.classList.remove('hovered');
+      }
+    });
+  </script>
 </body>
 
 </html>
