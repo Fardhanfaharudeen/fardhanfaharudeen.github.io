@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Fardhan | Business Projects</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+  <style>
+    body {
+      font-family: 'Poppins', sans-serif;
+      background: #0f172a;
+      color: #f8fafc;
+      margin: 0;
+      padding: 0;
+    }
+
+    header {
+      background: #1e293b;
+      padding: 1rem 2rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    header a {
+      color: #f8fafc;
+      text-decoration: none;
+      font-weight: 500;
+    }
+
+    .projects-section {
+      padding: 4rem 2rem;
+      max-width: 1200px;
+      margin: auto;
+    }
+
+    .projects-section h2 {
+      text-align: center;
+      font-size: 2.5rem;
+      margin-bottom: 2rem;
+    }
+
+    .project-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 2rem;
+    }
+
+    .project-box {
+      background: #1e293b;
+      border-radius: 12px;
+      overflow: hidden;
+      box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+      transition: transform 0.3s ease;
+      text-align: center;
+      padding-bottom: 1.5rem;
+    }
+
+    .project-box:hover {
+      transform: scale(1.03);
+    }
+
+    .project-box img {
+      width: 100px;
+      height: 100px;
+      margin-top: 1.5rem;
+      object-fit: contain;
+    }
+
+    .project-box h3 {
+      margin: 1rem 0 0.5rem;
+    }
+
+    .project-box p {
+      font-size: 0.95rem;
+      color: #cbd5e1;
+      padding: 0 1rem;
+    }
+
+    .view-button {
+      margin-top: 1rem;
+      display: inline-block;
+      padding: 0.6rem 1.2rem;
+      background: #38bdf8;
+      color: #0f172a;
+      font-weight: 600;
+      text-decoration: none;
+      border-radius: 6px;
+      transition: background 0.3s ease;
+    }
+
+    .view-button:hover {
+      background: #0ea5e9;
+    }
+
+    /* Cursor styles */
+    .cursor-dot,
+    .cursor-ring {
+      position: fixed;
+      top: 0;
+      left: 0;
+      pointer-events: none;
+      z-index: 9999;
+      transform: translate(-50%, -50%);
+      transition: background-color 0.3s ease;
+    }
+
+    .cursor-dot {
+      width: 6px;
+      height: 6px;
+      background: #38bdf8;
+      border-radius: 50%;
+    }
+
+    .cursor-ring {
+      width: 24px;
+      height: 24px;
+      border: 1px solid #38bdf8;
+      border-radius: 50%;
+    }
+
+    .cursor-dot.hovered {
+      background: #ffffff;
+      /* or any color you want on hover */
+    }
+
+    .cursor-ring.hovered {
+      border-color: #ffffff;
+    }
+    .super-footer {
+      background: #1e293b;
+      padding: 1.2rem 1rem;
+      text-align: center;
+      color: #94a3b8;
+    }
+  </style>
+</head>
+
+<body>
+
+  <header>
+    <h2>Fardhan.dev</h2>
+    <a href="index.html">Back to Home</a>
+  </header>
+
+  <section class="projects-section">
+    <h2>Company Website</h2>
+    <div class="project-grid">
+
+      <!-- Card 1 -->
+      <div class="project-box">
+        <img src="images/setup.webp" alt="School Logo" />
+        <h3>SetupZone Business Consultancy</h3>
+        <p>Strategic consultations, client-focused planning, mobile-friendly interface.</p>
+        <a class="view-button interactive-button" href="https://setupzoon.com/" target="_blank">View Website</a>
+      </div>
+
+
+    </div>
+  </section>
+
+  <footer class="super-footer">
+    <p class="footer-copy">© 2025 Fardhan — Made with ❤️ & JavaScript</p>
+  </footer>
+  <!------ Cursor elements ------>
+  <div class="cursor-dot"></div>
+  <div class="cursor-ring"></div>
+  <script>
+    // Trailing Cursor Effect
+    const dot = document.querySelector('.cursor-dot');
+    const ring = document.querySelector('.cursor-ring');
+
+    let mouseX = window.innerWidth / 2;
+    let mouseY = window.innerHeight / 2;
+    let dotX = mouseX;
+    let dotY = mouseY;
+    let ringX = mouseX;
+    let ringY = mouseY;
+
+    document.addEventListener('mousemove', (e) => {
+      mouseX = e.clientX;
+      mouseY = e.clientY;
+    });
+
+    function animateCursor() {
+      // Dot with 2s delay (slower)
+      dotX += (mouseX - dotX) / (0.4 * 60);
+      dotY += (mouseY - dotY) / (0.4 * 60);
+      dot.style.transform = `translate(${dotX}px, ${dotY}px) translate(-50%, -50%)`;
+
+      // Ring with 1s delay (faster)
+      ringX += (mouseX - ringX) / (0.1 * 60);
+      ringY += (mouseY - ringY) / (0.1 * 60);
+      ring.style.transform = `translate(${ringX}px, ${ringY}px) translate(-50%, -50%)`;
+
+      requestAnimationFrame(animateCursor);
+    }
+
+    animateCursor();
+
+    document.addEventListener('mousemove', (e) => {
+      mouseX = e.clientX;
+      mouseY = e.clientY;
+
+      const elementUnderCursor = document.elementFromPoint(mouseX, mouseY);
+      const isHoveringButton = elementUnderCursor?.classList.contains('interactive-button');
+
+      if (isHoveringButton) {
+        dot.classList.add('hovered');
+        ring.classList.add('hovered');
+      } else {
+        dot.classList.remove('hovered');
+        ring.classList.remove('hovered');
+      }
+    });
+  </script>
+
+</body>
+
+</html>
