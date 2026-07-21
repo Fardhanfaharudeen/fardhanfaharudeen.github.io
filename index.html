@@ -1,820 +1,1457 @@
 <!DOCTYPE html>
-<html lang="en">
+
+<!--[if IE 8]><html class="ie" xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-US" lang="en-US"> <![endif]-->
+<!--[if (gte IE 9)|!(IE)]><!-->
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-US" lang="en-US">
+<!--<![endif]-->
 
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Fardhan F | Portfolio</title>
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
-  <style>
-    /*------------- Body --------------*/
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
-
-    body {
-      font-family: 'Poppins', sans-serif;
-      background: #0f172a;
-      color: #f8fafc;
-      overflow-x: hidden;
-    }
-
-
-    /*------------- Navbar --------------*/
-    header {
-      background: #1e293b;
-      padding: 1rem 2rem;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      position: sticky;
-      top: 0;
-      z-index: 1000;
-      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
-    }
-
-    nav a {
-      margin-left: 1.5rem;
-      color: #f8fafc;
-      text-decoration: none;
-      font-weight: 500;
-      transition: color 0.3s ease;
-    }
-
-    nav a:hover {
-      color: #38bdf8;
-    }
-
-
-    @media (max-width:600px) {
-
-      .cursor-dot,
-      .cursor-ring {
-        display: none;
-      }
-    }
-
-    /*------------- Banner --------------*/
-
-    .hero {
-      position: relative;
-      min-height: 100vh;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      background: #0f172a;
-      padding: 0 1rem;
-    }
-
-    .parallax-bg {
-      position: absolute;
-      top: 0;
-      left: 50%;
-      transform: translateX(-50%);
-      width: 100vw;
-      height: 100%;
-      pointer-events: none;
-      z-index: 0;
-    }
-
-    .parallax-bg i {
-      position: absolute;
-      font-size: 2.5rem;
-      color: rgba(56, 189, 248, 0.15);
-      user-select: none;
-    }
-
-    .parallax-bg i:nth-child(1) {
-      top: 8%;
-      left: 6%;
-    }
-
-    .parallax-bg i:nth-child(2) {
-      top: 22%;
-      left: 25%;
-    }
-
-    .parallax-bg i:nth-child(3) {
-      top: 38%;
-      left: 12%;
-    }
-
-    .parallax-bg i:nth-child(4) {
-      top: 63%;
-      left: 17%;
-    }
-
-    .parallax-bg i:nth-child(5) {
-      top: 72%;
-      left: 8%;
-    }
-
-    .parallax-bg i:nth-child(6) {
-      top: 15%;
-      left: 42%;
-    }
-
-    .parallax-bg i:nth-child(7) {
-      top: 35%;
-      left: 50%;
-    }
-
-    .parallax-bg i:nth-child(8) {
-      top: 60%;
-      left: 45%;
-    }
-
-    .parallax-bg i:nth-child(9) {
-      top: 73%;
-      left: 55%;
-    }
-
-    .parallax-bg i:nth-child(10) {
-      top: 10%;
-      left: 65%;
-    }
-
-    .parallax-bg i:nth-child(11) {
-      top: 27%;
-      left: 75%;
-    }
-
-    .parallax-bg i:nth-child(12) {
-      top: 50%;
-      left: 68%;
-    }
-
-    .parallax-bg i:nth-child(13) {
-      top: 73%;
-      left: 70%;
-    }
-
-    .parallax-bg i:nth-child(14) {
-      top: 85%;
-      left: 60%;
-    }
-
-    .parallax-bg i:nth-child(15) {
-      top: 40%;
-      left: 90%;
-    }
-
-    .parallax-bg i:nth-child(16) {
-      top: 65%;
-      left: 85%;
-    }
-
-    .hero-content {
-      position: relative;
-      display: flex;
-      gap: 3rem;
-      align-items: center;
-      z-index: 1;
-      max-width: 900px;
-      margin: 0 auto;
-      flex-wrap: wrap;
-    }
-
-    .hero-img {
-      max-width: 300px;
-      opacity: 0;
-    }
-
-    .slide-in {
-      animation: slideAndFloat 1.5s ease-out forwards, floatUpDown 4s ease-in-out infinite alternate;
-    }
-
-    @keyframes slideAndFloat {
-      from {
-        transform: translateX(-100%);
-        opacity: 0;
-      }
-
-      to {
-        transform: translateX(0);
-        opacity: 1;
-      }
-    }
-
-    @keyframes floatUpDown {
-      0% {
-        transform: translateY(0);
-      }
-
-      100% {
-        transform: translateY(-15px);
-      }
-    }
-
-    .hero-img img {
-      width: 100%;
-      border-radius: 20px;
-    }
-
-    .hero-text h1 {
-      font-size: 3rem;
-      animation: fadeInDown 1s ease-out;
-      margin-bottom: 0.5rem;
-      text-align: center;
-    }
-
-    .hero-text p {
-      font-size: 1.2rem;
-      margin-bottom: 1.5rem;
-      animation: fadeInUp 1s ease-out;
-      text-align: center;
-    }
-
-    .hero-text button {
-      padding: 0.8rem 2rem;
-      border: none;
-      background: #38bdf8;
-      color: #0f172a;
-      font-size: 1rem;
-      font-weight: 600;
-      border-radius: 8px;
-      cursor: pointer;
-      transition: background 0.3s ease;
-      margin: 0 auto;
-      display: block;
-    }
-
-    .hero-text button:hover {
-      background: #0ea5e9;
-    }
-
-    @keyframes fadeInDown {
-      from {
-        opacity: 0;
-        transform: translateY(-30px);
-      }
-
-      to {
-        opacity: 1;
-        transform: translateY(0);
-      }
-    }
-
-    @keyframes fadeInUp {
-      from {
-        opacity: 0;
-        transform: translateY(30px);
-      }
-
-      to {
-        opacity: 1;
-        transform: translateY(0);
-      }
-    }
-
-    .section {
-      padding: 4rem 2rem;
-      text-align: center;
-      max-width: 1100px;
-      margin: 0 auto;
-    }
-
-
-
-
-    /*------------- Project --------------*/
-
-    .projects {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-      gap: 2rem;
-    }
-
-    .projects H3 {
-      padding: 4px 0px 12px 0px;
-    }
-
-    #projects h2,
-    #contact h2,
-    #faq h2 {
-      margin-bottom: 40px;
-    }
-
-    .project-card {
-      background: #1e293b;
-      border-radius: 10px;
-      overflow: hidden;
-      transition: transform 0.3s ease;
-      text-decoration: none;
-      color: inherit;
-      display: block;
-    }
-
-    .project-card:hover {
-      transform: scale(1.05);
-    }
-
-    .project-card img {
-      width: 100%;
-      height: 180px;
-      object-fit: cover;
-    }
-
-    .about,
-    .contact {
-      max-width: 800px;
-      margin: 0 auto;
-    }
-
-
-    /*------------- Contact --------------*/
-
-
-    form input,
-    form textarea {
-      width: 100%;
-      margin: 1rem 0;
-      padding: 1rem;
-      border-radius: 6px;
-      border: none;
-      font-size: 1rem;
-    }
-
-    form button {
-      background: #38bdf8;
-      color: #0f172a;
-      padding: 0.8rem 2rem;
-      font-weight: 600;
-      border-radius: 6px;
-      border: none;
-      cursor: pointer;
-    }
-
-    .footer-wave {
-      height: 80px;
-      background: linear-gradient(to right, #1e293b, #0f172a);
-    }
-
-    .footer-connect {
-      background: #0f1c30;
-      padding: 3rem 1rem 1rem;
-      text-align: center;
-    }
-
-    .footer-social-icons {
-      display: flex;
-      justify-content: center;
-      gap: 1.5rem;
-      flex-wrap: wrap;
-      align-items: center;
-      margin-top: 1rem;
-    }
-
-    .footer-social-icons a {
-      font-size: 1.8rem;
-      color: #94a3b8;
-      transition: transform 0.3s ease, color 0.3s ease;
-    }
-
-    .footer-social-icons a:hover {
-      transform: scale(1.2);
-    }
-
-    .footer-social-icons a[href*="instagram"]:hover {
-      color: #E4405F;
-    }
-
-    .footer-social-icons a[href*="facebook"]:hover {
-      color: #1877F2;
-    }
-
-    .footer-social-icons a[href*="wa.me"]:hover {
-      color: #25D366;
-    }
-
-    .footer-social-icons a[href*="linkedin"]:hover {
-      color: #0A66C2;
-    }
-
-    .flag-badge {
-      position: absolute;
-      top: -10px;
-      right: -12px;
-      font-size: 0.8rem;
-      pointer-events: none;
-      display: block;
-    }
-
-
-    /*------------- FAQ --------------*/
-
-    .faq-section {
-      max-width: 600px;
-      margin: auto;
-    }
-
-    .faq-item {
-      background-color: #1e293b;
-      overflow: hidden;
-      transition: background 0.3s ease;
-    }
-
-    /* Top rounded corners for first item */
-    .faq-item.first {
-      border-top-left-radius: 10px;
-      border-top-right-radius: 10px;
-    }
-
-    /* Bottom rounded corners for last item */
-    .faq-item.last {
-      border-bottom-left-radius: 10px;
-      border-bottom-right-radius: 10px;
-    }
-
-    .faq-question {
-      padding: 1.2rem 1rem;
-      cursor: pointer;
-      font-weight: 600;
-      position: relative;
-      text-align: left;
-    }
-
-    .faq-question::after {
-      content: '+';
-      position: absolute;
-      right: 1.2rem;
-      font-size: 1.2rem;
-      transition: transform 0.3s ease;
-    }
-
-    .faq-item.active .faq-question::after {
-      transform: rotate(45deg);
-    }
-
-    .faq-answer {
-      height: 0;
-      text-align: left;
-      overflow: hidden;
-      transition: height 0.4s ease;
-      padding: 0 1rem;
-      background-color: #0f172a;
-      border-top: 1px solid #334155;
-    }
-
-    .faq-answer p {
-      padding: 1.6rem 0;
-    }
-
-    .super-footer {
-      background: #1e293b;
-      padding: 1.2rem 1rem;
-      text-align: center;
-      color: #94a3b8;
-    }
-
-    /* Cursor styles */
-    .cursor-dot,
-    .cursor-ring {
-      position: fixed;
-      top: 0;
-      left: 0;
-      pointer-events: none;
-      z-index: 9999;
-      transform: translate(-50%, -50%);
-      transition: background-color 0.3s ease;
-    }
-
-    .cursor-dot {
-      width: 6px;
-      height: 6px;
-      background: #38bdf8;
-      border-radius: 50%;
-    }
-
-    .cursor-ring {
-      width: 24px;
-      height: 24px;
-      border: 1px solid #38bdf8;
-      border-radius: 50%;
-    }
-
-    .cursor-dot.hovered {
-      background: #ffffff;
-      /* or any color you want on hover */
-    }
-
-    .cursor-ring.hovered {
-      border-color: #ffffff;
-    }
-
-
-    @media (max-width: 768px) {
-      .hero-content {
-        flex-direction: column;
-      }
-
-      .hero-text h1 {
-        font-size: 2.2rem;
-      }
-
-      .projects {
-        grid-template-columns: 1fr;
-      }
-    }
-  </style>
+    <meta charset="utf-8">
+    <title>Fardhan | Web Developer & Creative Specialist Portfolio</title>
+    <meta name="author" content="Fardhan">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <meta name="description"
+        content="Portfolio of Fardhan, a Dubai-based Web Developer and Creative Specialist. Expert in WordPress, Adobe Suite, and Digital Marketing. Delivering bold and functional digital experiences.">
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://fardhan.portfolio.com/">
+    <meta property="og:title" content="Fardhan | Web Developer & Creative Specialist Portfolio">
+    <meta property="og:description"
+        content="Portfolio of Fardhan, a Dubai-based Web Developer and Creative Specialist. Expert in WordPress, Adobe Suite, and Digital Marketing.">
+    <meta property="og:image" content="assets/images/section/Fardhan-main.jpg">
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://fardhan.portfolio.com/">
+    <meta property="twitter:title" content="Fardhan | Web Developer & Creative Specialist Portfolio">
+    <meta property="twitter:description"
+        content="Portfolio of Fardhan, a Dubai-based Web Developer and Creative Specialist. Expert in WordPress, Adobe Suite, and Digital Marketing.">
+    <meta property="twitter:image" content="assets/images/section/Fardhan-main.jpg">
+
+    <link rel="canonical" href="https://fardhan.portfolio.com/">
+    <meta name="theme-color" content="#ffffff">
+
+    <!-- font -->
+    <link rel="stylesheet" href="assets/fonts/fonts.css">
+    <link rel="stylesheet" href="assets/icon/icomoon/style.css">
+    <!-- css -->
+    <link rel="stylesheet" href="assets/css/bootstrap.min.css">
+    <link rel="stylesheet" href="assets/css/swiper-bundle.min.css">
+    <link rel="stylesheet" href="assets/css/animate.css">
+    <link rel="stylesheet" href="assets/css/odometer.min.css">
+    <link rel="stylesheet" type="text/css" href="assets/css/styles.css">
+
+    <!-- Favicon and Touch Icons  -->
+    <link rel="shortcut icon" href="assets/images/logo/Logo.png?v=2">
+    <link rel="icon" type="image/png" href="assets/images/logo/Logo.png?v=2">
+    <link rel="apple-touch-icon" href="assets/images/logo/Logo.png?v=2">
 </head>
 
-<body>
+<body class="counter-scroll">
+    <canvas class="cursor-trail d-none d-xl-block" id="trail"></canvas>
 
 
-  <!---------Navbar_Wrapper---------->
-  <header>
-    <h2>Fardhan.dev</h2>
-    <nav>
-      <a href="#about">About</a>
-      <a href="#projects">Projects</a>
-      <a href="#contact">Contact</a>
-    </nav>
-  </header>
+    <!-- Scroll Top -->
+    <button id="goTop">
+        <span class="border-progress"></span>
+        <span class="ic-wrap">
+            <span class="icon icon-arrow-caret-right"></span>
+        </span>
+    </button>
+    <!-- /Scroll Top -->
 
-
-
-  <!---------Hero-img_Wrapper---------->
-
-  <section class="hero" id="hero">
-    <div class="parallax-bg" aria-hidden="true">
-      <i class="fab fa-html5"></i>
-      <i class="fab fa-css3-alt"></i>
-      <i class="fab fa-js-square"></i>
-      <i class="fab fa-react"></i>
-      <i class="fab fa-node-js"></i>
-      <i class="fas fa-bullhorn"></i>
-      <i class="fas fa-chart-line"></i>
-      <i class="fas fa-search"></i>
-      <i class="fas fa-envelope"></i>
-      <i class="fab fa-google"></i>
-      <i class="fab fa-git-alt"></i>
-      <i class="fab fa-npm"></i>
-      <i class="fab fa-docker"></i>
-      <i class="fas fa-analytics"></i>
-      <i class="fas fa-ad"></i>
-      <i class="fab fa-twitter"></i>
-    </div>
-    <div class="hero-content">
-      <div class="hero-img">
-        <img src="images/fardhan.png" alt="Fardhan Image" />
-      </div>
-      <div class="hero-text">
-        <h1>Hi, I'm Fardhan</h1>
-        <p>A passionate Web Developer & Digital Marketer</p>
-        <button class="interactive-button"
-          onclick="document.getElementById('contact').scrollIntoView({behavior: 'smooth'})">Hire Me</button>
-      </div>
-    </div>
-  </section>
-
-
-
-  <!---------About_Wrapper---------->
-
-  <section class="section about" id="about">
-    <h2>About Me</h2>
-    <p>I’m a full-stack web developer with 3+ years of experience building responsive, high-performance websites and web
-      apps. I’m also experienced in SEO, CMS platforms, and digital strategy. I combine creativity and logic to create
-      stunning digital experiences.</p>
-  </section>
-
-
-
-  <!---------Project_Wrapper---------->
-
-  <section class="section" id="projects">
-    <h2>My Projects</h2>
-    <div class="projects">
-      <a href="projects.html" class="project-card">
-        <img src="images/school.png" alt="School Projects" />
-        <h3>School Website Projects</h3>
-      </a>
-      <a href="projects-3.html" target="_blank" class="project-card">
-        <img src="images/business.png" alt="Business Website" />
-        <h3>Business Website Project</h3>
-      </a>
-      <a href="projects-2.html" target="_blank" class="project-card">
-        <img src="images/social-media.png" alt="Social Media Campaigns" />
-        <h3>Social Media Projects</h3>
-      </a>
-    </div>
-  </section>
-
-
-
-  <!-------- FAQ_Wrapper --------->
-
-  <section class="section faq" id="faq">
-    <h2>FAQ</h2>
-    <div class="faq-section">
-      <div class="faq-item active first">
-        <div class="faq-question">1. What kind of web development do you specialize in?</div>
-        <div class="faq-answer">
-          <p>Absolutely! I can build websites using core technologies like HTML, CSS, Bootstrap,
-            and JavaScript — even with something as simple as Notepad. I focus on clean code,
-            responsiveness, and performance. Whether it's from scratch or CMS-based, I’ve got it
-            covered.</p>
+    <!-- Preload -->
+    <div class="preloader overflow-hidden">
+        <div class="site-name"><span>Fardhan</span></div>
+        <div class="preloader-gutters">
+            <div class="bar">
+                <div class="inner-bar"></div>
+            </div>
+            <div class="bar">
+                <div class="inner-bar"></div>
+            </div>
+            <div class="bar">
+                <div class="inner-bar"></div>
+            </div>
+            <div class="bar">
+                <div class="inner-bar"></div>
+            </div>
+            <div class="bar">
+                <div class="inner-bar"></div>
+            </div>
+            <div class="bar">
+                <div class="inner-bar"></div>
+            </div>
+            <div class="bar">
+                <div class="inner-bar"></div>
+            </div>
+            <div class="bar">
+                <div class="inner-bar"></div>
+            </div>
         </div>
-      </div>
-
-      <div class="faq-item">
-        <div class="faq-question">2. Which CMS platforms are you experienced with?</div>
-        <div class="faq-answer">
-          <p>I’ve been working extensively with JOOMLA CMS for structured content management.
-            I also have strong hands-on experience with WordPress, where I’ve designed and
-            developed custom websites tailored to clients' needs.</p>
-        </div>
-      </div>
-
-      <div class="faq-item">
-        <div class="faq-question">3. Do you offer SEO and traffic-building strategies?</div>
-        <div class="faq-answer">
-          <p>Yes, I specialize in SEO research and techniques that organically grow website
-            traffic. I analyze keywords, competitors, and on-page optimization to ensure your
-            site performs well on search engines.</p>
-        </div>
-      </div>
-
-      <div class="faq-item">
-        <div class="faq-question">4. Can you help with web hosting and performance debugging?</div>
-        <div class="faq-answer">
-          <p>Definitely. I have solid knowledge in web hosting services and deployment. I also
-            use Chrome DevTools to inspect, debug, and reconstruct web code for improved performance
-            and faster loading.
-
-          </p>
-        </div>
-      </div>
-
-      <div class="faq-item last">
-        <div class="faq-question">5. Do you have experience in digital marketing or paid ads?</div>
-        <div class="faq-answer">
-          <p>Yes, I have 2 years of hands-on experience running Meta (Facebook & Instagram) Ads.
-            I’ve managed ad budgets like 10,000 AED per month, averaging around 70 quality leads
-            per day — with impressive conversion rates.</p>
-        </div>
-      </div>
     </div>
+    <!-- /Preload -->
 
-  </section>
+    <main id="wrapper">
+        <h1 class="visually-hidden">Fardhan - Web Developer & Creative Specialist Portfolio</h1>
+        <!-- Header -->
+        <header class="tf-header style-2">
+            <div class="header-inner">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-6 col-md-1">
+                            <a href="index.html" class="logo-site">
+                                <img src="assets/images/logo/Logo.png" alt="Fardhan Logo" style="max-height: 40px; width: auto;">
+                            </a>
+                        </div>
+                        <div class="col-3 col-md-2 ms-xl-auto d-none d-md-block">
+                            <ul class="tf-list vertical">
+                                <li> <a href="#workScroll" class="link text-caption">WORKS</a></li>
+                                <li> <a href="#serviceScroll" class="link text-caption">SERVICES</a></li>
+                                <li> <a href="#aboutScroll" class="link text-caption">ABOUT</a></li>
+                                <li> <a href="#contactScroll" class="link text-caption">CONTACT</a></li>
+                            </ul>
+                        </div>
+                        <div class="col-3 col-md-2 d-none d-sm-block ms-auto ms-xl-0">
+                            <div class="header-contact">
+                                <a href="mailto:fardhan2703@gmail.com"
+                                    class="link text-caption">fardhan2703@gmail.com</a>
+                                <p class="text-caption text-utc">
+                                    <i class="icon icon-globe"></i>
+                                    Al Nahda, Dubai
+                                </p>
+                            </div>
+                        </div>
+                        <div class="col-6 col-sm-3 col-md-2 d-flex justify-content-end align-items-start d-md-none">
+                            <button type="button" class="btn-mobile-menu open-mb-menu text-caption text-white link">
+                                <i class="icon icon-menu"></i>
+                                MENU
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </header>
+        <!-- /Header -->
+        <!-- Hero Banner -->
+        <div class="section-hero-v2 flat-spacing">
+            <div class="overlay"></div>
+            <div class="bg-video">
+                <video class="" muted="" autoplay="" loop="" playsinline="">
+                    <source src="assets/images/video/wave-bg.mp4" type="video/mp4">
+                </video>
+            </div>
+            <div class="container">
+                <div class="image-wrap">
+                    <div class="img-item image-1">
+                        <img class="effectFade fadeDown" loading="lazy" width="400" height="600"
+                            src="assets/images/section/Fardhan-main.jpg" alt="Fardhan - Portrait">
+                        <div class="image-child">
+                            <img class="effectFade fadeZoom" loading="lazy" width="1296" height="279"
+                                src="assets/images/item/Fardhan-stroke.png" alt="Fardhan Name Stroke">
+                        </div>
+                    </div>
+                    <div class="img-item-2">
+                        <img class="effectFade fadeZoom" loading="lazy" width="1296" height="279"
+                            src="assets/images/item/Fardhan-fill.png" alt="Fardhan Name Fill">
+                    </div>
+                </div>
+                <div class="bottom">
+                    <ul class="tf-list text-caption letter-space--1 fw-medium scroll-fadeUp2">
+                        <li><a href="#" class="link effectFade view-visible">WEB-DEVELOPER</a></li>
+                        <li class="effectFade view-visible" data-delay="0.1">/</li>
+                        <li><a href="#" class="link effectFade view-visible" data-delay="0.2">GRAPHIC DESIGNER</a></li>
+                        <li class="effectFade view-visible" data-delay="0.3">/</li>
+                        <li><a href="#" class="link effectFade view-visible" data-delay="0.4">DIGITAL MARKETING
+                                SPECIALIST</a></li>
+                    </ul>
+                    <div class="effectFade fadeUp no-div view-visible" data-delay="0.1">
+                        <a href="#contactScroll" class="tf-btn style-2 style-fill-white animate-btn animate-dark">
+                            <span class="text-caption letter-space--1 fw-medium">START A PROJECT</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- /Hero Banner -->
+        <!-- Select Work -->
+        <section class="section-selected-work-v2 flat-spacing stack-element" id="workScroll">
+            <div class="s-header d-block overflow-hidden">
+                <div class="infiniteSlide infiniteSlide_select_work" data-clone="5">
+                    <!-- clone 1 -->
+                    <p class="text-display-1 letter-space--3 fw-semibold">
+                        Selected Work
+                    </p>
+                    <div class="icon-app">
+                        <img loading="lazy" width="120" height="120" src="assets/images/item/global.svg"
+                            alt="Global Work Icon">
+                    </div>
+                    <!-- clone 2 -->
+                    <p class="text-display-1 letter-space--3 fw-semibold">
+                        Selected Work
+                    </p>
+                    <div class="icon-app">
+                        <img loading="lazy" width="120" height="120" src="assets/images/item/global.svg"
+                            alt="Global Work Icon">
+                    </div>
+                    <!-- clone 3 -->
+                    <p class="text-display-1 letter-space--3 fw-semibold">
+                        Selected Work
+                    </p>
+                    <div class="icon-app">
+                        <img loading="lazy" width="120" height="120" src="assets/images/item/global.svg"
+                            alt="Global Work Icon">
+                    </div>
+                </div>
+            </div>
+            <div class="container">
+                <div class="work-list stack-element-main position-relative">
+                    <div class="element">
+                        <a href="https://www.bsrai.ai" class="wg-work effectFade fadeUp no-div">
+                            <div class="work-image">
+                                <video class="" muted="" autoplay="" loop="" playsinline="">
+                                    <source src="assets/images/video/nexbot.mp4" type="video/mp4">
+                                </video>
+                            </div>
+                            <div class="work-content">
+                                <div class="work_top">
+                                    <h5 class="letter-space--2">Bonifon_</h5>
+                                    <ul class="tf-list vertical text-end">
+                                        <li class="text-white-64">Industry</li>
+                                        <li class="effectFade fadeUp">Artificial Intelligence</li>
+                                        <li class="effectFade fadeUp">Web3</li>
+                                    </ul>
+                                </div>
+                                <div class="work_bottom">
+                                    <ul class="tf-list vertical">
+                                        <li class="text-white-64">Services</li>
+                                        <li class="effectFade fadeUp">Branding</li>
+                                    </ul>
+                                    <h5 class="letter-space--2">
+                                        2023
+                                    </h5>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                    <div class="element">
+                        <a href="#" class="wg-work">
+                            <div class="work-image">
+                                <img loading="lazy" width="1296" height="648" src="assets/images/section/work-5.jpg"
+                                    alt="Landa Project - SAAS Productivity Platform">
+                            </div>
+                            <div class="work-content">
+                                <div class="work_top">
+                                    <h5 class="letter-space--2">Landa_</h5>
+                                    <ul class="tf-list vertical text-end">
+                                        <li class="text-white-64">Industry</li>
+                                        <li class="effectFade fadeUp">SAAS</li>
+                                        <li class="effectFade fadeUp">Productivity</li>
+                                    </ul>
+                                </div>
+                                <div class="work_bottom">
+                                    <ul class="tf-list vertical">
+                                        <li class="text-white-64">Services</li>
+                                        <li class="effectFade fadeUp">Website Design</li>
+                                        <li class="effectFade fadeUp">Visual Identity</li>
+                                        <li class="effectFade fadeUp">WordPress Development</li>
+                                    </ul>
+                                    <h5 class="letter-space--2">
+                                        2025
+                                    </h5>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                    <div class="element">
+                        <a href="https://bearings.akapolco.com/" class="wg-work">
+                            <div class="work-image">
+                                <img loading="lazy" width="1296" height="648" src="assets/images/section/work-6.jpg"
+                                    alt="Brandon Project - Photography Portfolio">
+                            </div>
+                            <div class="work-content">
+                                <div class="work_top">
+                                    <h5 class="letter-space--2">Akapolco_</h5>
+                                    <ul class="tf-list vertical text-end">
+                                        <li class="text-white-64">Sector</li>
+                                        <li class="effectFade fadeUp">Manufacturing</li>
+                                        <li class="effectFade fadeUp">Heavy Machinery</li>
+                                    </ul>
+                                </div>
+                                <div class="work_bottom">
+                                    <ul class="tf-list vertical">
+                                        <li class="text-white-64">Services</li>
+                                        <li class="effectFade fadeUp">Website Design</li>
+                                        <li class="effectFade fadeUp">Visual Identity</li>
+                                        <li class="effectFade fadeUp">WordPress Development</li>
+                                    </ul>
+                                    <h5 class="letter-space--2">
+                                        2026
+                                    </h5>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+                <div class="d-flex justify-content-center">
+                    <a href="#contactScroll" class="tf-btn style-2">
+                        + YOUR PROJECT
+                    </a>
+                </div>
+            </div>
+        </section>
+        <!-- /Select Work -->
+        <!-- About Me -->
+        <section class="section-about-me-v2 flat-spacing" id="aboutScroll">
+            <div class="container">
+                <div class="about-main flat-spacing-bottom">
+                    <div class="Fardhan-video">
+                        <video class="video" muted="" autoplay="" loop="" playsinline="">
+                            <source src="assets/images/video/Fardhan-video.mp4" type="video/mp4">
+                        </video>
+                        <div class="overlay mark"></div>
+                        <div class="overlay bg-effect">
+                            <img loading="lazy" width="1296" height="729" src="assets/images/item/dither-effect.svg"
+                                alt="Dither Effect Overlay">
+                        </div>
+                    </div>
+                    <div class="content">
+                        <div class="top text-display-1 fw-semibold letter-space--3">
+                            <div class="overflow-hidden">
+                                <p class="effectFade fadeUp">About</p>
+                            </div>
+                            <div class="overflow-hidden">
+                                <p class="effectFade fadeUp" data-delay="0.1">Fardhan<span class="text-primary">_</span>
+                                </p>
+                            </div>
+                        </div>
+                        <h5 class="text-color-change letter-space--2 fw-normal">
+                            I’m a designer and creative specialist creating bold, functional, and digital
+                            experiences that help brands
+                            connect with their audience.
+                        </h5>
+                    </div>
+                </div>
+                <div class="br-line d-flex flat-spacing-bottom"></div>
+                <div class="award-main">
+                    <div class="left">
+                        <div class="badget animate-box">
+                            <img loading="lazy" width="156" height="156" src="assets/images/item/badge-design.png"
+                                alt="Design Excellence Badge">
+                        </div>
+                    </div>
+                    <ul class="experience-list overflow-hidden">
+                        <li>Work Experience</li>
+                        <li class="effectFade fadeRight">
+                            <p class="exp_name">Junior Developer at TechnoCIT</p>
+                            <p class="exp_year">2025 - Present</p>
+                        </li>
+                        <li class="effectFade fadeRight">
+                            <p class="exp_name">Developer & Digital Marketing Excecutive at SetupZone</p>
+                            <p class="exp_year">2024 - 2025</p>
+                        </li>
+                        <li class="effectFade fadeRight">
+                            <p class="exp_name">UI/UX Designer at Bonifon</p>
+                            <p class="exp_year">2023 - 2024</p>
+                        </li>
+                        <li class="effectFade fadeRight">
+                            <p class="exp_name">Java Developer at Inbox</p>
+                            <p class="exp_year">2022 - 2023</p>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+        <!-- About Me -->
+        <!-- Tech Stack -->
+        <section class="section-tech-stack-v2 flat-spacing">
+            <div class="container">
+                <div class="s-header d-block">
+                    <h2 class="text-display-2 letter-space--3 text-center effectFade fadeUp">Tech Stack</h2>
+                </div>
+                <div class="tf-grid-layout lg-col-3">
+                    <div class="wg-tech-v2" data-us-project="lHlDvoJDIXCxxXVqTNOC?update=0.8924711990022087">
+                        <div class="tech-content">
+                            <h5 class="tech-name letter-space--2">Figma</h5>
+                            <p class="tech-desc letter-space--1">
+                                Collaborative design tool for <br>
+                                creating, prototyping, and refining <br>
+                                modern interfaces.
+                            </p>
+                            <div class="ic-img">
+                                <img loading="lazy" width="33" height="48" src="assets/images/item/figma.svg"
+                                    alt="Figma Logo">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="wg-tech-v2" data-us-project="lHlDvoJDIXCxxXVqTNOC?update=0.8924711990022087">
+                        <div class="tech-content">
+                            <h5 class="tech-name letter-space--2">WordPress</h5>
+                            <p class="tech-desc letter-space--1">
+                                The world's most popular CMS <br>
+                                for building flexible, scalable, and <br>
+                                feature-rich websites.
+                            </p>
+                            <div class="ic-img">
+                                <img loading="lazy" width="48" height="48" src="assets/images/section/wordpress.png"
+                                    alt="WordPress Logo">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="wg-tech-v2" data-us-project="lHlDvoJDIXCxxXVqTNOC?update=0.8924711990022087">
+                        <div class="tech-content">
+                            <h5 class="tech-name letter-space--2">Adobe Suite</h5>
+                            <p class="tech-desc letter-space--1">
+                                Industry-standard tools for <br>
+                                professional photo editing, vector <br>
+                                design, and digital imaging.
+                            </p>
+                            <div class="ic-img">
+                                <img loading="lazy" width="48" height="48" src="assets/images/section/adobe-creative-cloud.svg"
+                                    alt="Adobe Creative Cloud Logo">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- /Tech Stack -->
+        <!-- Service -->
+        <section class="section-service-v2 flat-spacing" id="serviceScroll">
+            <div class="container">
+                <div class="br-line d-flex"></div>
+                <div class="service-accordion-main" id="service-accordion-main">
+                    <div class="service-accordion_item effectFade fadeUp no-div" role="presentation">
+                        <div class="accordion-action" data-bs-target="#service-1" role="button"
+                            data-bs-toggle="collapse" aria-controls="service-1" aria-expanded="true">
+                            <h5 class="text-display-1 letter-space--3">Branding</h5>
+                        </div>
+                        <div id="service-1" class="collapse show" data-bs-parent="#service-accordion-main">
+                            <div class="accordion-content">
+                                <div class="image-left">
+                                    <img width="860" height="373" src="assets/images/section/service-4.jpg"
+                                        alt="Branding Services - Visual Identity">
+                                   </div>
+                                <div class="content-right">
+                                    <p class="number-order text-display-1 fw-medium letter-space--3 text-white-32">
+                                        01
+                                    </p>
+                                    <ul class="tf-list vertical gap-12 text-body-1">
+                                        <li><span class="text-primary">//</span> Brand Strategy</li>
+                                        <li><span class="text-primary">//</span> Visual Identity Design</li>
+                                        <li><span class="text-primary">//</span> Logo & Typography</li>
+                                        <li><span class="text-primary">//</span> Color Palette Creation</li>
+                                        <li><span class="text-primary">//</span> Brand Guidelines</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="service-accordion_item effectFade fadeUp no-div" role="presentation">
+                        <div class="accordion-action collapsed" data-bs-target="#service-2" role="button"
+                            data-bs-toggle="collapse" aria-controls="service-2" aria-expanded="true">
+                            <h5 class="text-display-1 letter-space--3">Web Design</h5>
+                        </div>
+                        <div id="service-2" class="collapse" data-bs-parent="#service-accordion-main">
+                            <div class="accordion-content">
+                                <div class="image-left">
+                                    <img width="860" height="373" src="assets/images/section/service-5.jpg"
+                                        alt="Web Design Services - UI/UX Design">
+                                </div>
+                                <div class="content-right">
+                                    <p class="number-order text-display-1 fw-medium letter-space--3 text-white-32">
+                                        02
+                                    </p>
+                                    <ul class="tf-list vertical gap-12 text-body-1">
+                                        <li><span class="text-primary">//</span> UI/UX Design</li>
+                                        <li><span class="text-primary">//</span> Wireframing & Prototyping</li>
+                                        <li><span class="text-primary">//</span> Interactive Animations</li>
+                                        <li><span class="text-primary">//</span> Responsive Layouts</li>
+                                        <li><span class="text-primary">//</span> Front-End Development</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="service-accordion_item effectFade fadeUp no-div" role="presentation">
+                        <div class="accordion-action collapsed" data-bs-target="#service-3" role="button"
+                            data-bs-toggle="collapse" aria-controls="service-3" aria-expanded="true">
+                            <h5 class="text-display-1 letter-space--3">Adobe Creative</h5>
+                        </div>
+                        <div id="service-3" class="collapse" data-bs-parent="#service-accordion-main">
+                            <div class="accordion-content">
+                                <div class="image-left">
+                                    <img width="860" height="373" src="assets/images/section/service-6.jpg"
+                                        alt="Adobe Creative Services - Digital Imaging">
+                                </div>
+                                <div class="content-right">
+                                    <p class="number-order text-display-1 fw-medium letter-space--3 text-white-32">
+                                        03
+                                    </p>
+                                    <ul class="tf-list vertical gap-12 text-body-1">
+                                        <li><span class="text-primary">//</span> Photo Manipulation</li>
+                                        <li><span class="text-primary">//</span> Vector Illustration</li>
+                                        <li><span class="text-primary">//</span> Print & Layout Design</li>
+                                        <li><span class="text-primary">//</span> Digital Compositing</li>
+                                        <li><span class="text-primary">//</span> UI Asset Creation</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- /Service -->
+        <!-- Brand -->
+        <div class="section-brand flat-spacing bg-surface">
+            <div class="container">
+                <h6 class="mini-title text-caption text-black-64">
+                    SOME OF OUR CLIENTS
+                </h6>
+                <div class="brand-list type-line-2">
+                    <a href="https://www.nbv.ac.in/" class="img-brand">
+                        <img loading="lazy" src="assets/images/brand/nbv-logo.png"
+                            alt="NBV Logo" style="max-height: 70px; width: auto;">
+                    </a>
+                    <a href="https://www.ribena.co.uk/" class="img-brand">
+                        <img loading="lazy" src="assets/images/brand/ribena-logo.png"
+                            alt="Ribena Logo" style="max-height: 60px; width: auto; filter: grayscale(100%) brightness(0.3);">
+                    </a>
+                    <a href="https://www.bearings.akapolco.com/" class="img-brand">
+                        <img loading="lazy" src="assets/images/brand/akapolco-logo.png"
+                            alt="Akapolco Logo" style="max-height: 50px; width: auto; filter: grayscale(100%) brightness(0.3);">
+                    </a>
+                    <a href="https://www.mibs.org.in/" class="img-brand">
+                        <img loading="lazy" src="assets/images/brand/mibs-logo.png"
+                            alt="MIBS Logo" style="max-height: 60px; width: auto; filter: grayscale(100%) brightness(0.3);">
+                    </a>
+                    <a href="https://www.nanjilschool.edu.in/" class="img-brand">
+                        <img loading="lazy" src="assets/images/brand/nanjil-logo.png"
+                            alt="Nanjil Catholic Logo" style="max-height: 70px; width: auto; filter: grayscale(100%) brightness(0.3);">
+                    </a>
+                    <a href="https://www.setupzoon.com/" class="img-brand">
+                        <img loading="lazy" src="assets/images/brand/setupzone-logo.png"
+                            alt="SetupZone Logo" style="max-height: 60px; width: auto; filter: grayscale(100%) brightness(0.3);">
+                    </a>
+                    <a href="https://www.bethanymatric.edu.in/" class="img-brand">
+                        <img loading="lazy" src="assets/images/brand/bethany-logo.png"
+                            alt="Bethany Matric Logo" style="max-height: 70px; width: auto; filter: grayscale(100%) brightness(0.3);">
+                    </a>
+                    <a href="https://www.bonifontechnologies.com/" class="img-brand">
+                        <img loading="lazy" src="assets/images/brand/bonifon-logo.png"
+                            alt="Bonifon Logo" style="max-height: 50px; width: auto; filter: grayscale(100%) brightness(0.3);">
+                    </a>
+                    <a href="https://www.bsrai.ai/index.html" class="img-brand">
+                        <img loading="lazy" src="assets/images/brand/bsrai-logo.png"
+                            alt="BSRAI Logo" style="max-height: 50px; width: auto; filter: grayscale(100%) brightness(0.3);">
+                    </a>
+                    <a href="https://www.lemarcorporate.com/" class="img-brand">
+                        <img loading="lazy" src="assets/images/brand/lemar-logo.png"
+                            alt="Lemar Corporate Logo" style="max-height: 50px; width: auto; filter: grayscale(100%) brightness(0.3);">
+                    </a>
+                </div>
+            </div>
+        </div>
+        <!-- /Brand -->
+        <!-- Award -->
+        <section class="section-award flat-spacing bg-surface">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-5 ms-auto">
+                        <div class="col-right">
+                            <h6 class="mini-title text-caption text-black-64">
+                                ENGINEERING SOLUTIONS
+                            </h6>
+                            <h5 class="fw-normal letter-space--2 text-black">
+                                Since 2020, Fusing mechanical precision with interactive GSAP animations to build intuitive, real-world technical solutions.
+                            </h5>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-5">
+                        <div class="col-left">
+                            <p class="desc text-black-64 mini-title">
+                                19 Overall Projects <br>
+                                Bold ideas. Flawless execution.
+                            </p>
+                            <div dir="ltr" class="swiper tf-swiper swiper-t2" data-preview="3" data-tablet="3"
+                                data-mobile="3" data-mobile-sm="3" data-loop="true" data-auto="true" data-delay="1000"
+                                data-speed="1000" data-direction="vertical" data-space="4">
+                                <div class="swiper-wrapper">
+                                    <!-- item 1 -->
+                                    <div class="swiper-slide">
+                                        <div class="award-item h4 letter-space--2">
+                                            Ecommerce Website
+                                            <span class="text-body-1 letter-space--1">x1</span>
+                                        </div>
+                                    </div>
+                                    <!-- item 2 -->
+                                    <div class="swiper-slide">
+                                        <div class="award-item h4 letter-space--2">
+                                            School Website
+                                            <span class="text-body-1 letter-space--1">x12</span>
+                                        </div>
+                                    </div>
+                                    <!-- item 3 -->
+                                    <div class="swiper-slide">
+                                        <div class="award-item h4 letter-space--2">
+                                            Industrial Website
+                                            <span class="text-body-1 letter-space--1">x6</span>
+                                        </div>
+                                    </div>
+                                    <!-- item 1 -->
+                                    <div class="swiper-slide">
+                                        <div class="award-item h4 letter-space--2">
+                                            Ecommerce Website
+                                            <span class="text-body-1 letter-space--1">x1</span>
+                                        </div>
+                                    </div>
+                                    <!-- item 2 -->
+                                    <div class="swiper-slide">
+                                        <div class="award-item h4 letter-space--2">
+                                            School Website
+                                            <span class="text-body-1 letter-space--1">x12</span>
+                                        </div>
+                                    </div>
+                                    <!-- item 3 -->
+                                    <div class="swiper-slide">
+                                        <div class="award-item h4 letter-space--2">
+                                            Industrial Website
+                                            <span class="text-body-1 letter-space--1">x6</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="wrap-flip-image flat-spacing">
+                <div class="container">
+                    <div class="flip-image-list gsap-anime-2">
+                        <div class="flip-image">
+                            <img loading="lazy" width="325" height="325" src="assets/images/section/award-1.jpg"
+                                alt="Image">
+                        </div>
+                        <div class="flip-image">
+                            <img loading="lazy" width="325" height="325" src="assets/images/section/award-2.jpg"
+                                alt="Image">
 
+                        </div>
+                        <div class="flip-image">
+                            <img loading="lazy" width="325" height="325" src="assets/images/section/award-3.jpg"
+                                alt="Image">
+                        </div>
+                        <div class="flip-image">
+                            <img loading="lazy" width="325" height="325" src="assets/images/section/award-4.jpg"
+                                alt="Image">
 
+                        </div>
+                        <div class="flip-image">
+                            <img loading="lazy" width="325" height="325" src="assets/images/section/award-5.jpg"
+                                alt="Image">
 
+                        </div>
+                        <div class="flip-image">
+                            <img loading="lazy" width="325" height="325" src="assets/images/section/award-6.jpg"
+                                alt="Image">
 
-  <!---------Contact_Wrapper---------->
-
-  <section class="section contact" id="contact">
-    <h2>Contact Me</h2>
-    <form>
-      <input type="text" placeholder="Your Name" required />
-      <input type="email" placeholder="Your Email" required />
-      <textarea rows="5" placeholder="Your Message" required></textarea>
-      <button class="interactive-button" type="submit">Send Message</button>
-    </form>
-  </section>
-
-
-
-
-
-  <!-------- Social_Wrapper --------->
-
-  <div class="footer-wave"></div>
-
-  <div class="footer-connect">
-    <h3>Let’s Connect 🌐</h3>
-    <p>Feel free to reach out for collaboration, freelancing, or just a friendly hello!</p>
-    <div class="footer-social-icons">
-      <a href="https://www.instagram.com/__.being_faru.__" target="_blank"><i class="fab fa-instagram"></i></a>
-      <a href="https://www.facebook.com/share/1AZRT3f7R5/" target="_blank"><i class="fab fa-facebook"></i></a>
-      <span style="position: relative; display: inline-block;">
-        <a href="https://wa.me/+919514365936" target="_blank"><i class="fab fa-whatsapp"></i></a>
-        <span class="flag-badge">🇮🇳</span>
-      </span>
-      <span style="position: relative; display: inline-block;">
-        <a href="https://wa.me/+971562409467" target="_blank"><i class="fab fa-whatsapp"></i></a>
-        <span class="flag-badge">🇦🇪</span>
-      </span>
-      <a href="https://www.linkedin.com/in/fardhan-f-58799a274" target="_blank"><i class="fab fa-linkedin"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- /Award -->
+        <!-- Testimonial -->
+        <section class="section-testimonial flat-spacing tf-btn-swiper-main d-none">
+            <h6 class="mini-title text-caption text-white-64 text-center">
+                TRUSTED BY FOUNDED
+            </h6>
+            <div dir="ltr" class="swiper tf-swiper swiper-testimonial" data-preview="2.15" data-tablet="2.2"
+                data-mobile-sm="1.5" data-mobile="1.2" data-loop="true" data-center="true" data-space-lg="40"
+                data-space-md="30" data-space="15" data-init="1">
+                <div class="swiper-wrapper">
+                    <!-- item 1 -->
+                    <div class="swiper-slide">
+                        <div class="testimonial-v01">
+                            <div class="tes-author">
+                                <div class="author_image">
+                                    <img loading="lazy" width="437" height="328"
+                                        src="assets/images/section/tes-v2-1.jpg" alt="Image">
+                                </div>
+                                <div class="author_info">
+                                    <h6 class="info__name text-body-1 letter-space--1">Liam Carter</h6>
+                                    <p class="info__duty">Founder, Arcadia Tech</p>
+                                </div>
+                            </div>
+                            <div class="br-line"></div>
+                            <p class="tes-text text-body-1">
+                                “Working with Fardhan was seamless. He nailed our vision and delivered a modern,
+                                functional website that feels
+                                distinctly
+                                ours.”
+                            </p>
+                        </div>
+                    </div>
+                    <!-- item 2 -->
+                    <div class="swiper-slide">
+                        <div class="testimonial-v01">
+                            <div class="tes-author">
+                                <div class="author_image">
+                                    <img loading="lazy" width="437" height="328"
+                                        src="assets/images/section/tes-v2-2.jpg" alt="Image">
+                                </div>
+                                <div class="author_info">
+                                    <h6 class="info__name text-body-1 letter-space--1">Liam Carter</h6>
+                                    <p class="info__duty">Founder, Arcadia Tech</p>
+                                </div>
+                            </div>
+                            <div class="br-line"></div>
+                            <p class="tes-text text-body-1">
+                                “Working with Fardhan was seamless. He nailed our vision and delivered a modern,
+                                functional website that feels
+                                distinctly
+                                ours.”
+                            </p>
+                        </div>
+                    </div>
+                    <!-- item 3 -->
+                    <div class="swiper-slide">
+                        <div class="testimonial-v01">
+                            <div class="tes-author">
+                                <div class="author_image">
+                                    <img loading="lazy" width="437" height="328"
+                                        src="assets/images/section/tes-v2-3.jpg" alt="Image">
+                                </div>
+                                <div class="author_info">
+                                    <h6 class="info__name text-body-1 letter-space--1">Liam Carter</h6>
+                                    <p class="info__duty">Founder, Arcadia Tech</p>
+                                </div>
+                            </div>
+                            <div class="br-line"></div>
+                            <p class="tes-text text-body-1">
+                                “Working with Fardhan was seamless. He nailed our vision and delivered a modern,
+                                functional website that feels
+                                distinctly
+                                ours.”
+                            </p>
+                        </div>
+                    </div>
+                    <!-- item 2 -->
+                    <div class="swiper-slide">
+                        <div class="testimonial-v01">
+                            <div class="tes-author">
+                                <div class="author_image">
+                                    <img loading="lazy" width="437" height="328"
+                                        src="assets/images/section/tes-v2-1.jpg" alt="Image">
+                                </div>
+                                <div class="author_info">
+                                    <h6 class="info__name text-body-1 letter-space--1">Liam Carter</h6>
+                                    <p class="info__duty">Founder, Arcadia Tech</p>
+                                </div>
+                            </div>
+                            <div class="br-line"></div>
+                            <p class="tes-text text-body-1">
+                                “Working with Fardhan was seamless. He nailed our vision and delivered a modern,
+                                functional website that feels
+                                distinctly
+                                ours.”
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <div class="group-btn-slider">
+                    <div class="lh-1 nav-prev-swiper">
+                        <i class="fs-8 icon icon-arrow-caret-left"></i>
+                    </div>
+                    <div class="sw-dot-default tf-sw-pagination"></div>
+                    <div class="lh-1 nav-next-swiper">
+                        <i class="fs-8 icon icon-arrow-caret-right"></i>
+                    </div>
+                </div>
+            </div>
+            <div class="indicator-wrap flat-spacing">
+                <div class="bg-img">
+                    <img loading="lazy" width="1440" height="800" src="assets/images/item/gird-net.png" alt="Image">
+                </div>
+                <div class="container">
+                    <div class="row">
+                        <div class="col-md-4">
+                            <div class="wg-indicator mb-md-0">
+                                <p class="indicate-title text-body-1 letter-space--1">
+                                    <span class="text-primary">//</span> Projects Delivered
+                                </p>
+                                <p class="indicate-counter wg-counter text-display-1 fw-medium">
+                                    <span class="odometer" data-number="40">10</span> <span
+                                        class="text-primary">+</span>
+                                </p>
+                                <p class="indicate-sub">
+                                    Creative work that drive <br>
+                                    real results
+                                </p>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="wg-indicator mb-md-0">
+                                <p class="indicate-title text-body-1 letter-space--1">
+                                    <span class="text-primary">//</span> Clients Satisfaction
+                                </p>
+                                <p class="indicate-counter wg-counter text-display-1 fw-medium">
+                                    <span class="odometer" data-number="96">10</span> <span
+                                        class="text-primary">%</span>
+                                </p>
+                                <p class="indicate-sub">
+                                    I mostly focus on <br>
+                                    exceeding expectations
+                                </p>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="wg-indicator mb-0">
+                                <p class="indicate-title text-body-1 letter-space--1">
+                                    <span class="text-primary">//</span> Years of Experience
+                                </p>
+                                <p class="indicate-counter wg-counter text-display-1 fw-medium">
+                                    <span class="odometer" data-number="10">1</span> <span class="text-primary">+</span>
+                                </p>
+                                <p class="indicate-sub">
+                                    Mastering the art of animation <br>
+                                    content and design
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- /Testimonial -->
+        <!-- Pricing -->
+        <section class="section-pricing type-2 flat-spacing flat-animate-tab">
+            <div class="s-header d-block overflow-hidden">
+                <div class="infiniteSlide infiniteSlide_select_work" data-clone="5">
+                    <!-- clone 1 -->
+                    <p class="text-display-1 letter-space--3 fw-semibold">
+                        Pricing Plan
+                    </p>
+                    <div class="icon-app">
+                        <img loading="lazy" width="120" height="120" src="assets/images/item/global.svg" alt="Image">
+                    </div>
+                    <!-- clone 2 -->
+                    <p class="text-display-1 letter-space--3 fw-semibold">
+                        Pricing Plan
+                    </p>
+                    <div class="icon-app">
+                        <img loading="lazy" width="120" height="120" src="assets/images/item/global.svg" alt="Image">
+                    </div>
+                    <!-- clone 3 -->
+                    <p class="text-display-1 letter-space--3 fw-semibold">
+                        Pricing Plan
+                    </p>
+                    <div class="icon-app">
+                        <img loading="lazy" width="120" height="120" src="assets/images/item/global.svg" alt="Image">
+                    </div>
+                </div>
+            </div>
+            <div class="container">
+                <ul class="pricing-tab_btn" role="tablist">
+                    <li class="nav-tab-item" role="presentation">
+                        <a href="#monthly" data-bs-toggle="tab" class="tf-btn-tab active">
+                            <span class="dot-active"></span>
+                            Monthly
+                        </a>
+                    </li>
+                    <li class="nav-tab-item" role="presentation">
+                        <a href="#annual" data-bs-toggle="tab" class="tf-btn-tab">
+                            <span class="dot-active"></span>
+                            <span>
+                                Annualy - <span class="text-primary">Save 20%</span>
+                            </span>
+                        </a>
+                    </li>
+                </ul>
+                <div class="tab-content">
+                    <div class="tab-pane active show" id="monthly" role="tabpanel">
+                        <div class="tf-grid-layout md-col-2 lg-col-3">
+                            <div class="wg-plan">
+                                <div class="br-line"></div>
+                                <div class="plan-name letter-space--1 fw-medium">Basic</div>
+                                <h4 class="plan-price">
+                                    د.إ 750
+                                </h4>
+                                <p class="plan-desc text-white-64 letter-space--1">
+                                    Perfect for early-stage teams or startups ready to launch their first online
+                                    presence.
+                                </p>
+                                <a href="#contactScroll" class="btn-action tf-btn style-2 style-troke w-100">
+                                    <span class="text-caption fw-medium">CHOOSE THIS PLAN</span>
+                                </a>
+                                <ul class="benefit-list tf-list vertical">
+                                    <li class="benefit_title letter-space--1 text-white-64">What’s included:</li>
+                                    <li><span>//</span> Custom website design</li>
+                                    <li><span>//</span> Responsive layouts</li>
+                                    <li><span>//</span> Basic SEO setup</li>
+                                    <li><span>//</span> Tool integrations</li>
+                                    <li><span>//</span> Ongoing support</li>
+                                </ul>
+                            </div>
+                            <div class="wg-plan style-2 type-2">
+                                <!-- <div class="bg-img bg-img_1 d-xl-block"></div> -->
+                                <div class="bg-img bg-img_2">
+                                    <img loading="lazy" width="416" height="625" src="assets/images/item/bg-6.png"
+                                        alt="Image">
+                                </div>
+                                <div class="br-line bg-primary"></div>
+                                <div class="plan-name letter-space--1 fw-medium">Pro</div>
+                                <h4 class="plan-price">
+                                    د.إ 2,200
+                                </h4>
+                                <p class="plan-desc text-white-64 letter-space--1">
+                                    Ideal for growing brands that require added features and enhanced creative
+                                    flexibility.
+                                </p>
+                                <a href="#contactScroll"
+                                    class="btn-action tf-btn style-2 style-fill w-100 animate-btn animate-dark">
+                                    <span class="text-caption fw-medium">CHOOSE THIS PLAN</span>
+                                </a>
+                                <ul class="benefit-list tf-list vertical">
+                                    <li class="benefit_title letter-space--1 text-white-64">What’s included:</li>
+                                    <li><span class="text-primary">//</span> Advanced web design</li>
+                                    <li><span class="text-primary">//</span> Interactive elements</li>
+                                    <li><span class="text-primary">//</span> Full SEO services</li>
+                                    <li><span class="text-primary">//</span> E-commerce setup</li>
+                                    <li><span class="text-primary">//</span> Monthly reports</li>
+                                </ul>
+                            </div>
+                            <div class="wg-plan style-2 type-3">
+                                <div class="bg-img bg-img_1"></div>
+                                <div class="br-line bg-white"></div>
+                                <div class="plan-name letter-space--1 fw-medium">Max</div>
+                                <h4 class="plan-price">
+                                    د.إ 6,000
+                                </h4>
+                                <p class="plan-desc text-white-64 letter-space--1">
+                                    Designed for established companies seeking a completely bespoke digital solution.
+                                </p>
+                                <a href="#contactScroll"
+                                    class="btn-action tf-btn style-2 style-fill-white w-100 animate-btn animate-dark">
+                                    <span class="text-caption fw-medium">CHOOSE THIS PLAN</span>
+                                </a>
+                                <ul class="benefit-list tf-list vertical">
+                                    <li class="benefit_title letter-space--1 text-white-64">What’s included:</li>
+                                    <li><span>//</span> Complete branding</li>
+                                    <li><span>//</span> Premium visuals</li>
+                                    <li><span>//</span> Enterprise systems</li>
+                                    <li><span>//</span> Dedicated manager</li>
+                                    <li><span>//</span> Priority support</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="tab-pane" id="annual" role="tabpanel">
+                        <div class="tf-grid-layout md-col-2 lg-col-3">
+                            <div class="wg-plan">
+                                <div class="br-line"></div>
+                                <div class="plan-name letter-space--1 fw-medium">Basic</div>
+                                <h4 class="plan-price">
+                                    د.إ 7,200
+                                </h4>
+                                <p class="plan-desc text-white-64 letter-space--1">
+                                    Perfect for early-stage teams or startups ready to launch their first online
+                                    presence.
+                                </p>
+                                <a href="#contactScroll" class="btn-action tf-btn style-2 style-troke w-100">
+                                    <span class="text-caption fw-medium">CHOOSE THIS PLAN</span>
+                                </a>
+                                <ul class="benefit-list tf-list vertical">
+                                    <li class="benefit_title letter-space--1 text-white-64">What’s included:</li>
+                                    <li><span>//</span> Custom website design</li>
+                                    <li><span>//</span> Responsive layouts</li>
+                                    <li><span>//</span> Basic SEO setup</li>
+                                    <li><span>//</span> Tool integrations</li>
+                                    <li><span>//</span> Ongoing support</li>
+                                </ul>
+                            </div>
+                            <div class="wg-plan style-2 type-2">
+                                <!-- <div class="bg-img bg-img_1 d-xl-block"></div> -->
+                                <div class="bg-img bg-img_2">
+                                    <img loading="lazy" width="416" height="625" src="assets/images/item/bg-6.png"
+                                        alt="Image">
+                                </div>
+                                <div class="br-line bg-primary"></div>
+                                <div class="plan-name letter-space--1 fw-medium">Pro</div>
+                                <h4 class="plan-price">
+                                    د.إ 21,120
+                                </h4>
+                                <p class="plan-desc text-white-64 letter-space--1">
+                                    Ideal for growing brands that require added features and enhanced creative
+                                    flexibility.
+                                </p>
+                                <a href="#contactScroll"
+                                    class="btn-action tf-btn style-2 style-fill w-100 animate-btn animate-dark">
+                                    <span class="text-caption fw-medium">CHOOSE THIS PLAN</span>
+                                </a>
+                                <ul class="benefit-list tf-list vertical">
+                                    <li class="benefit_title letter-space--1 text-white-64">What’s included:</li>
+                                    <li><span class="text-primary">//</span> Advanced web design</li>
+                                    <li><span class="text-primary">//</span> Interactive elements</li>
+                                    <li><span class="text-primary">//</span> Full SEO services</li>
+                                    <li><span class="text-primary">//</span> E-commerce setup</li>
+                                    <li><span class="text-primary">//</span> Monthly reports</li>
+                                </ul>
+                            </div>
+                            <div class="wg-plan style-2 type-3">
+                                <div class="bg-img bg-img_1"></div>
+                                <div class="br-line bg-white"></div>
+                                <div class="plan-name letter-space--1 fw-medium">Max</div>
+                                <h4 class="plan-price">
+                                    د.إ 57,600
+                                </h4>
+                                <p class="plan-desc text-white-64 letter-space--1">
+                                    Designed for established companies seeking a completely bespoke digital solution.
+                                </p>
+                                <a href="#contactScroll"
+                                    class="btn-action tf-btn style-2 style-fill-white w-100 animate-btn animate-dark">
+                                    <span class="text-caption fw-medium">CHOOSE THIS PLAN</span>
+                                </a>
+                                <ul class="benefit-list tf-list vertical">
+                                    <li class="benefit_title letter-space--1 text-white-64">What’s included:</li>
+                                    <li><span>//</span> Complete branding</li>
+                                    <li><span>//</span> Premium visuals</li>
+                                    <li><span>//</span> Enterprise systems</li>
+                                    <li><span>//</span> Dedicated manager</li>
+                                    <li><span>//</span> Priority support</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- /Pricing -->
+        <!-- Faq -->
+        <section class="section-faq type-2 flat-spacing bg-surface">
+            <div class="container">
+                <div class="s-header d-block">
+                    <h2 class="title text-display-2 letter-space--3 text-center text-black effectFade fadeUp">
+                        <span class="text">
+                            Frequently
+                            <span class="icon"><img loading="lazy" width="80" height="80"
+                                    src="assets/images/item/global-2.svg" alt="Image"></span>
+                        </span> <br>
+                        asked questions
+                    </h2>
+                </div>
+                <div class="row">
+                    <div class="col-lg-8 mx-auto">
+                        <div class="accordion-faq_list" id="accordion-faq_list">
+                            <div class="accordion-faq_item cl-line-2" role="presentation">
+                                <div class="accordion-action text-body-1 letter-space--1 fw-medium collapsed"
+                                    data-bs-target="#faq-1" role="button" data-bs-toggle="collapse"
+                                    aria-controls="faq-1" aria-expanded="true">
+                                    <span class="accordion-order text-black-64">01</span>
+                                    <p class="accordion-text text-black">How long does a project usually take?</p>
+                                    <div class="ic-wrap d-flex">
+                                        <i class="icon icon-arrow-caret-down fs-10 text-black"></i>
+                                    </div>
+                                </div>
+                                <div id="faq-1" class="collapse " data-bs-parent="#accordion-faq_list">
+                                    <p class="accordion-content text-black-64">
+                                        Most projects are completed within 4–8 weeks, depending on complexity,
+                                        revisions, and scope. I’ll
+                                        always
+                                        provide a clear timeline before starting.
+                                    </p>
+                                </div>
+                            </div>
+                            <div class="accordion-faq_item cl-line-2" role="presentation">
+                                <div class="accordion-action text-body-1 letter-space--1 fw-medium"
+                                    data-bs-target="#faq-2" role="button" data-bs-toggle="collapse"
+                                    aria-controls="faq-2" aria-expanded="false">
+                                    <span class="accordion-order text-black-64">02</span>
+                                    <p class="accordion-text text-black">Do you work with international clients?</p>
+                                    <div class="ic-wrap d-flex">
+                                        <i class="icon icon-arrow-caret-down fs-10 text-black"></i>
+                                    </div>
+                                </div>
+                                <div id="faq-2" class="collapse show" data-bs-parent="#accordion-faq_list">
+                                    <p class="accordion-content text-black-64">
+                                        At this time, my main focus is dedicated to local and regional projects, so I am not currently taking on international clients. However, I truly appreciate the interest and am always open to connecting for potential future opportunities.
+                                    </p>
+                                </div>
+                            </div>
+                            <div class="accordion-faq_item cl-line-2" role="presentation">
+                                <div class="accordion-action text-body-1 letter-space--1 fw-medium collapsed"
+                                    data-bs-target="#faq-3" role="button" data-bs-toggle="collapse"
+                                    aria-controls="faq-3" aria-expanded="false">
+                                    <span class="accordion-order text-black-64">03</span>
+                                    <p class="accordion-text text-black">Can you help with both design and development?
+                                    </p>
+                                    <div class="ic-wrap d-flex">
+                                        <i class="icon icon-arrow-caret-down fs-10 text-black"></i>
+                                    </div>
+                                </div>
+                                <div id="faq-3" class="collapse" data-bs-parent="#accordion-faq_list">
+                                    <p class="accordion-content text-black-64">
+                                        Absolutely. I handle UI/UX design, and no-code or coded development to
+                                        deliver a complete
+                                        end-to-end
+                                        solution.
+                                    </p>
+                                </div>
+                            </div>
+                            <div class="accordion-faq_item cl-line-2" role="presentation">
+                                <div class="accordion-action text-body-1 letter-space--1 fw-medium collapsed"
+                                    data-bs-target="#faq-4" role="button" data-bs-toggle="collapse"
+                                    aria-controls="faq-4" aria-expanded="false">
+                                    <span class="accordion-order text-black-64">04</span>
+                                    <p class="accordion-text text-black">What’s your payment process?</p>
+                                    <div class="ic-wrap d-flex">
+                                        <i class="icon icon-arrow-caret-down fs-10 text-black"></i>
+                                    </div>
+                                </div>
+                                <div id="faq-4" class="collapse" data-bs-parent="#accordion-faq_list">
+                                    <p class="accordion-content text-black-64">
+                                        I typically require a 50% deposit to begin work, with the remaining balance due
+                                        upon project
+                                        completion and
+                                        approval.
+                                    </p>
+                                </div>
+                            </div>
+                            <div class="accordion-faq_item cl-line-2" role="presentation">
+                                <div class="accordion-action text-body-1 letter-space--1 fw-medium collapsed"
+                                    data-bs-target="#faq-5" role="button" data-bs-toggle="collapse"
+                                    aria-controls="faq-5" aria-expanded="false">
+                                    <span class="accordion-order text-black-64">05</span>
+                                    <p class="accordion-text text-black">Do you provide ongoing support after launch?
+                                    </p>
+                                    <div class="ic-wrap d-flex">
+                                        <i class="icon icon-arrow-caret-down fs-10 text-black"></i>
+                                    </div>
+                                </div>
+                                <div id="faq-5" class="collapse" data-bs-parent="#accordion-faq_list">
+                                    <p class="accordion-content text-black-64">
+                                        Yes. I offer maintenance, updates, and performance monitoring packages to keep
+                                        your website or product
+                                        running
+                                        smoothly long-term.
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- /Faq -->
+        <!-- CTA -->
+        <section class="section-cta flat-spacing" id="contactScroll">
+            <div class="s-header d-block">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-2 offset-lg-2 col-lg-2">
+                            <div class="col-left">
+                                <a href="index.html" class="logo-custom">
+                                    <div class="logo-site-sv">
+                                        <img src="assets/images/logo/Logo.png" alt="Fardhan Logo" style="max-height: 41px; width: auto;">
+                                    </div>
+                                    <span class="line-vertical left"></span>
+                                    <span class="line-vertical right"></span>
+                                    <span class="line-horizontal top"></span>
+                                    <span class="line-horizontal bottom"></span>
+                                </a>
+                            </div>
+                        </div>
+                        <div class="col-10 col-lg-6">
+                            <h2 class="text-display-2 letter-space--3 text-end effectFade fadeUp">
+                                Let’s start <br>
+                                creating together
+                            </h2>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-8 mx-auto">
+                        <form class="form-cta" action="https://formsubmit.co/fardhan2703@gmail.com" method="POST">
+                            <input type="hidden" name="_subject" value="New lead from Portfolio!">
+                            <div class="form-content">
+                                <div class="tf-grid-layout sm-col-2">
+                                    <fieldset class="tf-field">
+                                        <input class="tf-input" type="text" name="name" placeholder required>
+                                        <label class="tf-lable">Name <span class="text-primary">*</span></label>
+                                    </fieldset>
+                                    <fieldset class="tf-field">
+                                        <input class="tf-input" type="email" name="email" placeholder required>
+                                        <label class="tf-lable">Email <span class="text-primary">*</span></label>
+                                    </fieldset>
+                                </div>
+                                <div class="tf-grid-layout sm-col-2">
+                                    <div class="nc-wrap">
+                                        <p class="select-label fs-14 text-white-64 d-sm-none">Select an option <span
+                                                class="text-primary">*</span></p>
+                                        <select name="Interest" class="tf-input select_js" required>
+                                            <option value="" data-display="You are interested in">Select an option</option>
+                                            <option value="Web Development">Web Development</option>
+                                            <option value="UI/UX Design">UI/UX Design</option>
+                                            <option value="Digital Marketing">Digital Marketing</option>
+                                        </select>
+                                    </div>
+                                    <div class="nc-wrap">
+                                        <p class="select-label fs-14 text-white-64 d-sm-none">Select your budget <span
+                                                class="text-primary">*</span>
+                                        </p>
+                                        <select name="Budget" class="tf-input select_js" required>
+                                            <option value="" data-display="Budget in AED">Select your budget</option>
+                                            <option value="د.إ 3500 - د.إ 5000">د.إ 3500 - د.إ 5000</option>
+                                            <option value="د.إ 5000 - د.إ 10000">د.إ 5000 - د.إ 10000</option>
+                                            <option value="د.إ 10000 - د.إ 15000">د.إ 10000 - د.إ 15000</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <fieldset class="tf-field">
+                                    <input class="tf-input" type="text" name="project_details" placeholder required>
+                                    <label class="tf-lable">Project details</label>
+                                </fieldset>
+                            </div>
+                            <div class="form-action">
+                                <button type="submit" class="tf-btn">
+                                    <span class="text-caption">SUBMIT MESSAGE</span>
+                                </button>
+                                <p class="text-body-1">
+                                    say hello - <a href="#" class="text-primary">fardhan2703@gmail.com</a>
+                                </p>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- /CTA -->
+        <!-- Footer -->
+        <footer class="tf-footer style-2">
+            <div class="container">
+                <div class="br-line"></div>
+            </div>
+            <div class="container">
+                <div class="footer-inner text-caption letter-space--1 fw-medium">
+                    <a href="#workScroll" class="link">WORKS</a>
+                    <a href="#serviceScroll" class="link">SERVICES</a>
+                    <a href="#aboutScroll" class="link">ABOUT</a>
+                    <a href="#" class="action-go-top tf-link-icon link">
+                        BACK TO TOP
+                        <i class="icon icon-arrow-long-right"></i>
+                    </a>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <div class="container">
+                    <div class="img-agency scroll-fadeZoom">
+                        <img class="effectFade fadeZoom" loading="lazy" width="1293" height="269"
+                            src="assets/images/item/footer-stroke.png" alt="Fardhan Portfolio Footer Logo">
+                    </div>
+                    <div class="bottom text-caption letter-space--1 fw-medium">
+                        <p class="text-nocopy">
+                            © FARDHAN'S PERSONAL PORTFOLIO
+                        </p>
+                        <p class="">
+                            Dubai → <span class="clock"></span>
+                        </p>
+                        <div class="right">
+                            <a href="#" class="tf-link-icon link">
+                                TWITTER (X)
+                            </a>
+                            <a href="#" class="tf-link-icon link">
+                                DRIBBBLE
+                            </a>
+                            <a href="#" class="tf-link-icon link">
+                                LINKEDIN
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </footer>
+        <!-- /Footer -->
+    </main>
+    <!-- Mobile Menu -->
+    <div class="offcanvas-menu">
+        <div class="offcanvas-content">
+            <div class="container h-100">
+                <div class="offcanvas-content_wrapin">
+                    <div class="canvas_head">
+                        <a href="index.html" class="logo-site">
+                            <i class="icon icon-Fardhan-logo"></i>
+                        </a>
+                        <div class="btn-mobile-menu close-mb-menu text-caption link">
+                            <i class="icon icon-close"></i>
+                            CLOSE
+                        </div>
+                    </div>
+                    <div class="canvas_center">
+                        <ul class="nav-ul-mb">
+                            <li>
+                                <div class="item close-mb-menu">
+                                    <a href="#workScroll" class="mb-menu-link text-display-1">
+                                        <span class="text">Works</span>
+                                        <div class="infiniteSlide_text_main">
+                                            <div class="infiniteSlide infiniteSlide_text" data-clone="5">
+                                                <p class="text-body-2 letter-space--1">
+                                                    <span class="text-primary">//</span> View Works
+                                                </p>
+                                                <p class="text-body-2 letter-space--1">
+                                                    <span class="text-primary">//</span> View Works
+                                                </p>
+                                                <p class="text-body-2 letter-space--1">
+                                                    <span class="text-primary">//</span> View Works
+                                                </p>
+                                            </div>
+                                        </div>
+                                    </a>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="item close-mb-menu">
+                                    <a href="#aboutScroll" class="mb-menu-link text-display-1">
+                                        <span class="text">About</span>
+                                        <div class="infiniteSlide_text_main">
+                                            <div class="infiniteSlide infiniteSlide_text" data-clone="5">
+                                                <p class="text-body-2 letter-space--1">
+                                                    <span class="text-primary">//</span> View About
+                                                </p>
+                                                <p class="text-body-2 letter-space--1">
+                                                    <span class="text-primary">//</span> View About
+                                                </p>
+                                                <p class="text-body-2 letter-space--1">
+                                                    <span class="text-primary">//</span> View About
+                                                </p>
+                                            </div>
+                                        </div>
+                                    </a>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="item close-mb-menu">
+                                    <a href="#serviceScroll" class="mb-menu-link text-display-1">
+                                        <span class="text">Services</span>
+                                        <div class="infiniteSlide_text_main">
+                                            <div class="infiniteSlide infiniteSlide_text" data-clone="5">
+                                                <p class="text-body-2 letter-space--1">
+                                                    <span class="text-primary">//</span> View Services
+                                                </p>
+                                                <p class="text-body-2 letter-space--1">
+                                                    <span class="text-primary">//</span> View Services
+                                                </p>
+                                                <p class="text-body-2 letter-space--1">
+                                                    <span class="text-primary">//</span> View Services
+                                                </p>
+                                            </div>
+                                        </div>
+                                    </a>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="item close-mb-menu">
+                                    <a href="#contactScroll" class="mb-menu-link text-display-1">
+                                        <span class="text">Contact</span>
+                                        <div class="infiniteSlide_text_main">
+                                            <div class="infiniteSlide infiniteSlide_text" data-clone="5">
+                                                <p class="text-body-2 letter-space--1">
+                                                    <span class="text-primary">//</span> View Contact
+                                                </p>
+                                                <p class="text-body-2 letter-space--1">
+                                                    <span class="text-primary">//</span> View Contact
+                                                </p>
+                                                <p class="text-body-2 letter-space--1">
+                                                    <span class="text-primary">//</span> View Contact
+                                                </p>
+                                            </div>
+                                        </div>
+                                    </a>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="canvas_foot">
+                        <div class="left">
+                            <a href="mailto:fardhan2703@gmail.com" class="link text-caption">fardhan2703@gmail.com</a>
+                            <p class="text-caption">
+                                CUP <span class="clock"></span>
+                            </p>
+                        </div>
+                        <div class="right">
+                            <a href="#" class="tf-link-icon text-caption link">
+                                <i class="icon icon-arrow-top-right"></i>
+                                TWITTER (X)
+                            </a>
+                            <a href="#" class="tf-link-icon text-caption link">
+                                <i class="icon icon-arrow-top-right"></i>
+                                DRIBBBLE
+                            </a>
+                            <a href="#" class="tf-link-icon text-caption link">
+                                <i class="icon icon-arrow-top-right"></i>
+                                LINKEDIN
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
-  </div>
+    <!-- /Mobile Menu -->
 
+    <!-- Left Bar -->
+    <div class="tf-left-bar">
+        <a class="btn-setting-color" data-bs-toggle="offcanvas" href="#settingColorMenu"><i class="icon-gear"></i></a>
+    </div>
+    <!-- Setting Color -->
+    <div class="offcanvas offcanvas-end offcanvas-color" id="settingColorMenu">
+        <div class="offcanvas-content">
+            <span class="icon-close-popup" data-bs-dismiss="offcanvas">
+                <i class="icon-close"></i>
+            </span>
+            <div class="canvas-header">
+                <h3 class="fw-semibold">Configuration</h3>
+            </div>
+            <div class="canvas-body">
+                <h6 class="title fw-semibold">COLORS</h6>
+                <div class="settings-color list-choose">
+                    <button type="button" class="choose-item link-no-action active"></button>
+                    <button type="button" class="choose-item link-no-action"></button>
+                    <button type="button" class="choose-item link-no-action"></button>
+                    <button type="button" class="choose-item link-no-action"></button>
+                    <button type="button" class="choose-item link-no-action"></button>
+                    <button type="button" class="choose-item link-no-action"></button>
+                    <button type="button" class="choose-item link-no-action"></button>
+                    <button type="button" class="choose-item link-no-action"></button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- /Setting Color -->
+    <!-- Javascript -->
+    <script src="assets/js/bootstrap.min.js"></script>
+    <script src="assets/js/jquery.min.js"></script>
+    <script src="assets/js/swiper-bundle.min.js"></script>
+    <script src="assets/js/carousel.js"></script>
 
-
-  <!-------- Footer_Wrapper --------->
-  <footer class="super-footer">
-    <p class="footer-copy">© 2025 Fardhan — Made with ❤️ & JavaScipt</p>
-  </footer>
-
-
-  <!------ Cursor elements ------>
-  <div class="cursor-dot" style="transform: translate(450px, 237px) translate(-50%, -50%);"></div>
-  <div class="cursor-ring" style="transform: translate(450px, 237px) translate(-50%, -50%);"></div>
-
-
-  <script>
-    window.addEventListener('scroll', () => {
-      const parallax = document.querySelector('.parallax-bg');
-      const scrollY = window.scrollY;
-      parallax.style.transform = `translateX(-50%) translateY(${scrollY * 0.3}px)`;
-    });
-
-    window.addEventListener('load', () => {
-      const heroImg = document.querySelector('.hero-img');
-      heroImg.classList.add('slide-in');
-    });
-
-    // Trailing Cursor Effect
-    const dot = document.querySelector('.cursor-dot');
-    const ring = document.querySelector('.cursor-ring');
-
-    let mouseX = window.innerWidth / 2;
-    let mouseY = window.innerHeight / 2;
-    let dotX = mouseX;
-    let dotY = mouseY;
-    let ringX = mouseX;
-    let ringY = mouseY;
-
-    document.addEventListener('mousemove', (e) => {
-      mouseX = e.clientX;
-      mouseY = e.clientY;
-    });
-
-    function animateCursor() {
-      // Dot with 2s delay (slower)
-      dotX += (mouseX - dotX) / (0.4 * 60);
-      dotY += (mouseY - dotY) / (0.4 * 60);
-      dot.style.transform = `translate(${dotX}px, ${dotY}px) translate(-50%, -50%)`;
-
-      // Ring with 1s delay (faster)
-      ringX += (mouseX - ringX) / (0.1 * 60);
-      ringY += (mouseY - ringY) / (0.1 * 60);
-      ring.style.transform = `translate(${ringX}px, ${ringY}px) translate(-50%, -50%)`;
-
-      requestAnimationFrame(animateCursor);
-    }
-
-    animateCursor();
-
-    document.addEventListener('mousemove', (e) => {
-      mouseX = e.clientX;
-      mouseY = e.clientY;
-
-      const elementUnderCursor = document.elementFromPoint(mouseX, mouseY);
-      const isHoveringButton = elementUnderCursor?.classList.contains('interactive-button');
-
-      if (isHoveringButton) {
-        dot.classList.add('hovered');
-        ring.classList.add('hovered');
-      } else {
-        dot.classList.remove('hovered');
-        ring.classList.remove('hovered');
-      }
-    });
-
-    // FAQ Accordion with smooth toggle and default open
-    const faqItems = document.querySelectorAll('.faq-item');
-
-    // Set initial height for the first one
-    const firstAnswer = faqItems[0].querySelector('.faq-answer');
-    firstAnswer.style.height = firstAnswer.scrollHeight + 'px';
-
-    faqItems.forEach(item => {
-      const question = item.querySelector('.faq-question');
-      const answer = item.querySelector('.faq-answer');
-
-      question.addEventListener('click', () => {
-        // If already active, do nothing
-        if (item.classList.contains('active')) return;
-
-        // Close all
-        faqItems.forEach(otherItem => {
-          if (otherItem !== item) {
-            otherItem.classList.remove('active');
-            const otherAnswer = otherItem.querySelector('.faq-answer');
-            otherAnswer.style.height = '0px';
-          }
-        });
-
-        // Open clicked one
-        item.classList.add('active');
-        answer.style.height = answer.scrollHeight + 'px';
-      });
-    });
-
-
-    // Disable right-click
-    document.addEventListener('contextmenu', e => e.preventDefault());
-
-    // Disable copy
-    document.addEventListener('copy', e => e.preventDefault());
-
-
-  </script>
+    <script src="assets/js/infinityslide.js"></script>
+    <script src="assets/js/ScrollSmooth.js"></script>
+    <script src="assets/js/gsap.min.js"></script>
+    <script src="assets/js/gsapAnimation.js"></script>
+    <script src="assets/js/SplitText.min.js"></script>
+    <script src="assets/js/ScrollTrigger.min.js"></script>
+    <script src="assets/js/odometer.min.js"></script>
+    <script src="assets/js/jquery.nice-select.min.js"></script>
+    <script src="assets/js/unicornStudio.umd.js"></script>
+    <script src="assets/js/main.js"></script>
+    <script>
+        UnicornStudio.init();
+    </script>
 </body>
 
 </html>
