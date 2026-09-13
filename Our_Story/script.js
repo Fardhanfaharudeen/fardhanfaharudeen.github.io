@@ -1,7 +1,16 @@
 /* ── Cartoon Fireworks Engine ─────────────────────────────────── */
+let fireworksAnimationId = null;
+let fireworksEngineRunning = false;
+
 function launchCartoonFireworks() {
     const canvas = document.getElementById('fireworks-canvas');
     if (!canvas) return;
+
+    window._fireworksActive = true;
+    canvas.style.display = 'block';
+
+    if (fireworksEngineRunning) return;
+    fireworksEngineRunning = true;
 
     const parent = canvas.parentElement; // .mobile-container
     function resizeCanvas() {
@@ -269,8 +278,20 @@ function launchCartoonFireworks() {
         ctx.fill();
     }
 
-    /* ── Infinite Loop ── */
+    /* ── Animation Loop ── */
     function animate(now) {
+        const homeScreen = document.getElementById('screen-home');
+        const isHomeActive = homeScreen && homeScreen.classList.contains('active');
+
+        // Fireworks only exist and animate inside the homepage
+        if (!isHomeActive || !window._fireworksActive) {
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+            canvas.style.display = 'none';
+            fireworksAnimationId = requestAnimationFrame(animate);
+            return;
+        }
+
+        canvas.style.display = 'block';
         ctx.clearRect(0, 0, canvas.width, canvas.height);
 
         if (now - lastLaunch > nextInterval) {
@@ -295,10 +316,10 @@ function launchCartoonFireworks() {
             if (shockwaves[i].isDead()) shockwaves.splice(i, 1);
         }
 
-        requestAnimationFrame(animate);
+        fireworksAnimationId = requestAnimationFrame(animate);
     }
 
-    requestAnimationFrame(animate);
+    fireworksAnimationId = requestAnimationFrame(animate);
 }
 /* ──────────────────────────────────────────────────────────────── */
 
@@ -735,6 +756,20 @@ document.addEventListener('DOMContentLoaded', () => {
                     settingsToggle.style.display = 'flex';
                 } else {
                     settingsToggle.style.display = 'none';
+                }
+            }
+
+            // Fireworks: only visible inside Home screen
+            const fireworksCanvas = document.getElementById('fireworks-canvas');
+            if (fireworksCanvas) {
+                if (targetId === 'screen-home') {
+                    if (window._fireworksActive) {
+                        fireworksCanvas.style.display = 'block';
+                    }
+                } else {
+                    fireworksCanvas.style.display = 'none';
+                    const fCtx = fireworksCanvas.getContext('2d');
+                    if (fCtx) fCtx.clearRect(0, 0, fireworksCanvas.width, fireworksCanvas.height);
                 }
             }
         });
