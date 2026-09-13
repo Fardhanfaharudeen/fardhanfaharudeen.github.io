@@ -1,0 +1,572 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Our Love Story</title>
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Plus+Jakarta+Sans:wght@400;500;600;700&family=Kalam:wght@400;700&display=swap" rel="stylesheet">
+    <!-- Font Awesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="style.css?v=34">
+</head>
+<body>
+    <!-- Initial Loader -->
+    <div id="app-loader" class="app-loader">
+        <div class="loader-heart">
+            <i class="fa-solid fa-heart"></i><i class="fa-solid fa-heart loader-heart-pulse"></i>
+        </div>
+        <p>Loading our memories...</p>
+    </div>
+
+    <div class="mobile-container">
+        <!-- Fireworks Canvas (covers mobile frame, hits inside promise container) -->
+        <canvas id="fireworks-canvas" style="position:absolute;top:0;left:0;width:100%;height:100%;pointer-events:none;z-index:90;border-radius:inherit;"></canvas>
+
+        <!-- Fireflies Background -->
+        <div class="fireflies-container">
+            <!-- 30 Fireflies -->
+            <div class="firefly"></div><div class="firefly"></div><div class="firefly"></div>
+            <div class="firefly"></div><div class="firefly"></div><div class="firefly"></div>
+            <div class="firefly"></div><div class="firefly"></div><div class="firefly"></div>
+            <div class="firefly"></div><div class="firefly"></div><div class="firefly"></div>
+            <div class="firefly"></div><div class="firefly"></div><div class="firefly"></div>
+            <div class="firefly"></div><div class="firefly"></div><div class="firefly"></div>
+            <div class="firefly"></div><div class="firefly"></div><div class="firefly"></div>
+            <div class="firefly"></div><div class="firefly"></div><div class="firefly"></div>
+            <div class="firefly"></div><div class="firefly"></div><div class="firefly"></div>
+            <div class="firefly"></div><div class="firefly"></div><div class="firefly"></div>
+        </div>
+
+        <!-- Theme Toggle -->
+        <button class="theme-toggle" id="theme-toggle" aria-label="Toggle Theme">
+            <i class="fa-solid fa-sun" id="theme-icon"></i>
+        </button>
+
+        <!-- Settings Toggle -->
+        <button class="settings-toggle" id="settings-toggle" aria-label="Settings">
+            <i class="fa-solid fa-gear"></i>
+        </button>
+
+        <!-- Lock Screen -->
+        <div id="lock-screen" class="lock-screen">
+            <div class="lock-content">
+                <i class="fa-solid fa-lock lock-icon"></i>
+                <h2>Private</h2>
+                <p class="lock-subtitle">Enter PIN to view our story</p>
+                <div class="pin-dots" id="pin-dots">
+                    <div class="dot"></div>
+                    <div class="dot"></div>
+                    <div class="dot"></div>
+                    <div class="dot"></div>
+                </div>
+                <div class="numpad">
+                    <button class="num-btn" data-num="1">1</button>
+                    <button class="num-btn" data-num="2">2</button>
+                    <button class="num-btn" data-num="3">3</button>
+                    <button class="num-btn" data-num="4">4</button>
+                    <button class="num-btn" data-num="5">5</button>
+                    <button class="num-btn" data-num="6">6</button>
+                    <button class="num-btn" data-num="7">7</button>
+                    <button class="num-btn" data-num="8">8</button>
+                    <button class="num-btn" data-num="9">9</button>
+                    <button class="num-btn action-btn" id="pin-clear"><i class="fa-solid fa-delete-left"></i></button>
+                    <button class="num-btn" data-num="0">0</button>
+                    <button class="num-btn action-btn" id="pin-enter"><i class="fa-solid fa-check"></i></button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Screens Area -->
+        <main class="screens-container">
+            <!-- Home Screen -->
+            <section id="screen-home" class="screen active">
+                <div class="header">
+                    <h1>Our Journey</h1>
+                    <p>Every love story is beautiful, but ours is my favorite.</p>
+                    <div class="bg-music-container">
+                        <button class="bg-music-chip" id="bg-music-chip">
+                            <i class="fa-solid fa-music"></i>
+                            <span>Please play this while viewing ❤️</span>
+                        </button>
+                        <!-- Floating Hand Pointer Guide -->
+                        <div class="music-hand-pointer" id="music-hand-pointer" title="Click to play">
+                            <i class="fa-solid fa-hand-point-left"></i>
+                        </div>
+                        <div class="bg-visualizer" id="bg-visualizer">
+                            <div class="bar"></div>
+                            <div class="bar"></div>
+                            <div class="bar"></div>
+                            <div class="bar"></div>
+                            <div class="bar"></div>
+                            <div class="bar"></div>
+                            <div class="bar"></div>
+                            <div class="bar"></div>
+                            <div class="bar"></div>
+                            <div class="bar"></div>
+                            <div class="bar"></div>
+                            <div class="bar"></div>
+                        </div>
+                    </div>
+                </div>
+                <!-- Live Relationship Counter -->
+                <div class="counter-wrapper glass-note">
+                    <div class="counter-header">
+                        <i class="fa-solid fa-heart pulse-heart"></i>
+                        <h3>Time Together</h3>
+                    </div>
+                    
+                    <div class="counter-grid-layout">
+                        <div class="counter-box">
+                            <div class="counter-value" id="count-years">0</div>
+                            <div class="counter-label">Years</div>
+                        </div>
+                        <div class="counter-box">
+                            <div class="counter-value" id="count-months">0</div>
+                            <div class="counter-label">Months</div>
+                        </div>
+                        <div class="counter-box">
+                            <div class="counter-value" id="count-days">0</div>
+                            <div class="counter-label">Days</div>
+                        </div>
+                        <div class="counter-box">
+                            <div class="counter-value" id="count-hours">0</div>
+                            <div class="counter-label">Hours</div>
+                        </div>
+                        <div class="counter-box">
+                            <div class="counter-value" id="count-mins">0</div>
+                            <div class="counter-label">Mins</div>
+                        </div>
+                        <div class="counter-box highlight-box">
+                            <div class="counter-value" id="count-secs">0</div>
+                            <div class="counter-label">Secs</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Love Meter Widget -->
+                <div class="love-meter-widget glass-note">
+                    <div class="meter-header">
+                        <h4>Love Meter</h4>
+                        <i class="fa-solid fa-gauge-high"></i>
+                    </div>
+                    <div class="speedometer-container">
+                        <svg viewBox="0 0 200 120" class="speedometer-svg">
+                            <defs>
+                                <linearGradient id="speed-gradient" x1="0%" y1="0%" x2="100%" y2="0%">
+                                    <stop offset="0%" stop-color="#00f2fe" />
+                                    <stop offset="100%" stop-color="#4facfe" />
+                                </linearGradient>
+                                <filter id="glow" x="-20%" y="-20%" width="140%" height="140%">
+                                    <feGaussianBlur stdDeviation="4" result="blur" />
+                                    <feComposite in="SourceGraphic" in2="blur" operator="over" />
+                                </filter>
+                            </defs>
+                            <!-- Background track -->
+                            <path class="speed-track-bg" d="M 20 100 A 80 80 0 0 1 180 100" />
+                            <!-- Foreground glowing track -->
+                            <path class="speed-track-fg" id="speed-track" d="M 20 100 A 80 80 0 0 1 180 100" filter="url(#glow)" />
+                            <!-- Needle -->
+                            <g class="speed-needle-group" id="love-needle">
+                                <polygon class="speed-needle" points="96,100 104,100 100,25" />
+                                <circle class="speed-center-dot" cx="100" cy="100" r="8" />
+                            </g>
+                        </svg>
+                        <div class="speedometer-readout" id="speed-readout">0%</div>
+                        <div class="speedometer-labels">
+                            <span>0</span>
+                            <span>50</span>
+                            <span>100</span>
+                        </div>
+                    </div>
+                    <button class="calculate-btn" id="calculate-love-btn">Calculate ❤️</button>
+                </div>
+
+                <!-- Music Player Widget -->
+                <div class="music-player-widget glass-note">
+                    <div class="music-player-top">
+                        <div class="music-cover" id="music-cover-wrapper">
+                            <div class="vinyl-record" id="vinyl-record">
+                                <img src="Gallery/1000166870.jpg.jpeg" alt="Cover Art">
+                            </div>
+                            <div class="stardust-container" id="stardust">
+                                <div class="star">✨</div>
+                                <div class="star">✨</div>
+                                <div class="star">✨</div>
+                                <div class="star">✨</div>
+                            </div>
+                        </div>
+                        <div class="music-details">
+                            <div class="music-info">
+                                <h4>Maalai Mangum Neram</h4>
+                                <p>Rowthiram</p>
+                            </div>
+                            <div class="music-controls">
+                                <button class="control-btn" id="prev-btn"><i class="fa-solid fa-backward-step"></i></button>
+                                <button class="play-btn" id="home-play-btn">
+                                    <i class="fa-solid fa-play" id="home-play-icon"></i>
+                                </button>
+                                <button class="control-btn" id="next-btn"><i class="fa-solid fa-forward-step"></i></button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="music-progress">
+                        <span id="current-time">0:00</span>
+                        <input type="range" id="progress-bar" min="0" max="100" value="0">
+                        <span id="total-time">0:00</span>
+                    </div>
+                </div>
+
+                <!-- Memory of the Day Widget -->
+                <div class="memory-widget glass-note">
+                    <div class="memory-header">
+                        <h4>Memory of the Day</h4>
+                        <i class="fa-solid fa-camera-retro"></i>
+                    </div>
+                    <div class="polaroid-frame">
+                        <img src="Gallery/1000167234.jpg.jpeg" alt="Memory" id="memory-img">
+                        <p class="polaroid-caption">Best moments with you ❤️</p>
+                    </div>
+                </div>
+
+                <!-- Scratch Card Widget -->
+                <div class="scratch-card-widget glass-note">
+                    <div class="scratch-header">
+                        <h4>Daily Surprise</h4>
+                        <i class="fa-solid fa-gift"></i>
+                    </div>
+                    <div class="scratch-container" id="scratch-container">
+                        <div class="scratch-content">
+                            <h3>Coupon: 1 Labanese Shawarma! 🌯</h3>
+                            <p>Redeemable anytime, anywhere.</p>
+                        </div>
+                        <canvas id="scratch-canvas"></canvas>
+                    </div>
+                </div>
+
+                <!-- Reunion Animation Widget -->
+                <div class="reunion-widget glass-note" id="reunion-widget">
+                    <div class="reunion-header">
+                        <h4>💌 A Promise</h4>
+                    </div>
+                    <div class="reunion-scene" id="reunion-scene">
+                        <!-- Ground -->
+                        <div class="reunion-ground"></div>
+
+                        <!-- Boy (left) — starts crying/waiting -->
+                        <div class="char-figure char-boy" id="figure-boy">
+                            <img src="Gallery/Characters/Boy_Crying.png" alt="Boy" id="boy-img" class="char-img">
+                        </div>
+
+                        <!-- Girl (right) — facing away (sad), turns when running -->
+                        <div class="char-figure char-girl" id="figure-girl">
+                            <img src="Gallery/Characters/Girl_Crying.png" alt="Girl" id="girl-img" class="char-img">
+                        </div>
+
+                        <!-- Hug image shown when they meet -->
+                        <div class="char-hug" id="char-hug">
+                            <img src="Gallery/Characters/Hug.png" alt="Hug" class="char-img hug-img">
+                        </div>
+
+                        <!-- Floating hearts -->
+                        <div class="hug-heart" id="hug-heart">💕</div>
+
+                        <!-- Message -->
+                        <div class="reunion-message" id="reunion-message">
+                            <span>No more long distance</span>
+                            <span class="reunion-highlight">relationship</span>
+                            <span>💕</span>
+                        </div>
+                    </div>
+
+                    <!-- Trigger Button -->
+                    <button class="reunion-btn" id="reunion-btn">
+                        <i class="fa-solid fa-heart"></i>
+                        <span>Bring Us Together</span>
+                    </button>
+                </div>
+            </section>
+
+            <!-- Story Screen -->
+            <section id="screen-story" class="screen">
+                <div class="header">
+                    <h1>Timeline</h1>
+                    <p>How it all began</p>
+                </div>
+                <div class="timeline-container">
+                    <div class="timeline-item">
+                        <div class="timeline-line"></div>
+                        <div class="timeline-dot-glowing"></div>
+                        <div class="timeline-card">
+                            <div class="timeline-date">May 6, 2022</div>
+                            <h4 class="timeline-title">First Meeting at the Canteen</h4>
+                            <div class="timeline-body">
+                                <p>Our story began in the canteen with a simple conversation. When I asked for your name, you played it cool and hesitated. I even tried the "I'm your senior" card, but you completely brushed it off! Fate had other plans, though. Later that day, you saw my Instagram story, we finally followed each other, and that was the spark that started our endless, late-night conversations.</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="timeline-item">
+                        <div class="timeline-line"></div>
+                        <div class="timeline-dot-glowing"></div>
+                        <div class="timeline-card">
+                            <div class="timeline-date">May 9, 2022</div>
+                            <h4 class="timeline-title">The Unspoken Confession</h4>
+                            <div class="timeline-body">
+                                <p>No words were needed. I simply looked into your eyes, and in that silent gaze, we both knew. It was an unspoken proposal—a quiet, beautiful realization that I was falling deeply in love with you.</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="timeline-item">
+                        <div class="timeline-line"></div>
+                        <div class="timeline-dot-glowing"></div>
+                        <div class="timeline-card">
+                            <div class="timeline-date">August 25, 2022</div>
+                            <h4 class="timeline-title">Ramzeen's Wedding</h4>
+                            <div class="timeline-body">
+                                <p>I went to your brother Ramzeen's wedding completely uninvited, just for a chance to see you. When I did, you were wearing a beautiful cyan dress and looked like an absolute angel. I tried so hard to find a moment to talk to you, but I just couldn't. Even so, I decided that I had to be a part of your memories forever. So, I grabbed my friends, confidently walked up to the stage, and made sure I was in your brother's wedding album!</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="timeline-item">
+                        <div class="timeline-line"></div>
+                        <div class="timeline-dot-glowing"></div>
+                        <div class="timeline-card">
+                            <div class="timeline-date">January 23, 2023</div>
+                            <h4 class="timeline-title">The Train to Chennai</h4>
+                            <div class="timeline-body">
+                                <p>You were heading to Chennai for Nisha's wedding, and I just had to see you. I sat quietly behind you at the station, and we ended up boarding the train right beside each other! Desperate to stay close, I nervously asked your dad, "Indha Bag ahh konjo paathukreengla?". He agreed, and I got to share that entire wonderful journey sitting right near you.</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="timeline-item">
+                        <div class="timeline-line"></div>
+                        <div class="timeline-dot-glowing"></div>
+                        <div class="timeline-card">
+                            <div class="timeline-date">August 8, 2023</div>
+                            <h4 class="timeline-title">A Planned Coincidence</h4>
+                            <div class="timeline-body">
+                                <p>You and your mom were heading to Trichy, and I couldn't pass up the chance to see you. I bought a ticket to Valliyoor just so I could travel in the same compartment as you. By pure fate, your mom—completely unaware that I was hopelessly in love with you—actually came up and asked me, "Brother, we are afraid of crossing the compartment bridge, could you help us cross?" Of course, I gladly helped! We ended up talking and getting so much closer during the journey. When I finally had to step off the train at Valliyoor, my heart was completely full of unforgettable memories.</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="timeline-item">
+                        <div class="timeline-line"></div>
+                        <div class="timeline-dot-glowing"></div>
+                        <div class="timeline-card">
+                            <div class="timeline-date">November 4, 2023</div>
+                            <h4 class="timeline-title">A Secret Encounter at the Beach</h4>
+                            <div class="timeline-body">
+                                <p>I rushed to the beach the moment I heard you were there with your family, just hoping for a glimpse of you. Seeing your mom, I walked up and politely asked if she needed help, pretending she was searching for something. But she looked closely at me and realized she had seen me somewhere before—instantly recalling our unforgettable train journey! We talked for some time, but I carefully slipped away so your family wouldn't doubt or suspect anything about us. Still, I couldn't leave just yet; after some time, I quietly came back just to catch one more glimpse of you and your family on your way back home.</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="timeline-item">
+                        <div class="timeline-line"></div>
+                        <div class="timeline-dot-glowing"></div>
+                        <div class="timeline-card">
+                            <div class="timeline-date">March 8, 2024</div>
+                            <h4 class="timeline-title">Opening Up to Your Parents</h4>
+                            <div class="timeline-body">
+                                <p>When we heard you were starting to receive marriage proposals, we decided it was time to take a stand and open up to your parents. I gathered all my courage to speak to them on their way to the hospital, finding them on the bus and talking to them honestly. At first, they were surprisingly calm, but after stepping off the bus, your father began shouting in shock. We took an auto together to the hospital while I tried with all my heart to convince them. Eventually, your mom softened and said, "We can talk about it later... for now, please leave and go home." That day was intense and difficult, but it became the unforgettable turning point that took our love to the next level.</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="timeline-item">
+                        <div class="timeline-line"></div>
+                        <div class="timeline-dot-glowing"></div>
+                        <div class="timeline-card">
+                            <div class="timeline-date">September 6, 2024</div>
+                            <h4 class="timeline-title">Your Friend's Wedding</h4>
+                            <div class="timeline-body">
+                                <p>I came to the wedding just to see you and your mom, and we actually walked into the hall together! I really wanted a photo with you on stage, but you refused. Later, while handing over the gift, your mom said we should give it together—which felt so awesome. We sat right next to each other to eat, and when they served me aappam, you chimed in, "He doesn't like aappam," and happily ate it for me. Afterwards, while we were washing our hands, I playfully pressed your head just because I desperately wanted an excuse to touch you. The whole day was full of unforgettable moments.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="timeline-item">
+                        <div class="timeline-line"></div>
+                        <div class="timeline-dot-glowing"></div>
+                        <div class="timeline-card">
+                            <div class="timeline-date">November 6, 2024</div>
+                            <h4 class="timeline-title">Meeting at the Shop</h4>
+                            <div class="timeline-body">
+                                <p>I couldn't make it to the hospital to say goodbye before Dubai — but you came to me instead, you and your mother, right into my dad's shop. Three hours passed without us even noticing. We talked, we laughed, we flipped through wedding photos, and even clicked a few of our own. It wasn't planned, but it was perfect. 🤍</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Gallery Screen -->
+            <section id="screen-gallery" class="screen">
+                <div class="header">
+                    <h1>Gallery</h1>
+                    <p>Moments captured in time</p>
+                </div>
+                <div class="gallery-grid">
+                    <div class="gallery-item">
+                        <img src="Gallery/1000166870.jpg.jpeg" alt="Memory 1" class="gallery-img">
+                    </div>
+                    <div class="gallery-item">
+                        <img src="Gallery/1000167119.jpg.jpeg" alt="Memory 2" class="gallery-img">
+                    </div>
+                    <div class="gallery-item">
+                        <img src="Gallery/1000167234.jpg.jpeg" alt="Memory 3" class="gallery-img">
+                    </div>
+                    <div class="gallery-item">
+                        <img src="Gallery/1000167259.webp" alt="Memory 4" class="gallery-img">
+                    </div>
+                    <div class="gallery-item">
+                        <img src="Gallery/1000167411.jpg.jpeg" alt="Memory 5" class="gallery-img">
+                    </div>
+                </div>
+            </section>
+
+            <!-- Favorites Screen -->
+            <section id="screen-favorites" class="screen">
+                <div class="header">
+                    <h1>Favorites</h1>
+                    <p>Things we love</p>
+                </div>
+                <div class="favorites-list">
+                    <!-- Music Card -->
+                    <div class="premium-card music-card">
+                        <div class="music-art" style="padding: 0; background: none;">
+                            <img src="Gallery/Rowthiram.jpg" alt="Rowthiram" style="width: 100%; height: 100%; object-fit: cover; border-radius: 12px;">
+                        </div>
+                        <div class="card-details">
+                            <h4>Maalai Mangum Neram</h4>
+                            <p>Our Favourite Song</p>
+                        </div>
+                        <div class="play-btn">
+                            <i class="fa-solid fa-star"></i>
+                        </div>
+                    </div>
+                    <!-- Movie Card -->
+                    <div class="premium-card movie-card">
+                        <div class="movie-art" style="padding: 0; background: none;">
+                            <img src="Gallery/Dear Comrade.png" alt="Dear Comrade" style="width: 100%; height: 100%; object-fit: cover; border-radius: 12px;">
+                        </div>
+                        <div class="card-details">
+                            <h4>Dear Comrade</h4>
+                            <p>Our favorite movie</p>
+                        </div>
+                        <div class="play-btn">
+                            <i class="fa-solid fa-star"></i>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Notes Screen -->
+            <section id="screen-notes" class="screen">
+                <div class="header">
+                    <h1>Love Notes & Jar</h1>
+                    <p>Words from the heart</p>
+                </div>
+
+                <!-- Interactive Love Jar -->
+                <div class="love-jar-container">
+                    <div class="love-jar" id="love-jar">
+                        <div class="jar-lid"></div>
+                        <div class="jar-glass">
+                            <div class="paper-slips">
+                                <div class="slip slip-1"></div>
+                                <div class="slip slip-2"></div>
+                                <div class="slip slip-3"></div>
+                            </div>
+                            <div class="jar-label">Reasons Why I Love You</div>
+                        </div>
+                    </div>
+                    <p class="jar-instruction">Tap the jar to pull a note...</p>
+                </div>
+
+                <div class="notes-container" style="margin-top: 30px;">
+                    <div class="note-card glass-note">
+                        <i class="fa-solid fa-quote-left note-quote-icon"></i>
+                        <p>"I love you not only for what you are, but for what I am when I am with you."</p>
+                        <div class="note-author">- Yours always</div>
+                    </div>
+                    <div class="note-card glass-note" style="animation-delay: 0.2s;">
+                        <i class="fa-solid fa-quote-left note-quote-icon"></i>
+                        <p>"Every day with you is a beautiful addition to my life's journey."</p>
+                        <div class="note-author">- Me</div>
+                    </div>
+                </div>
+            </section>
+        </main>
+
+        <!-- Image Preview Modal (Moved to root) -->
+        <div id="image-preview-modal" class="image-preview-modal hidden">
+            <button class="close-preview" id="close-preview"><i class="fa-solid fa-xmark"></i></button>
+            <img src="" alt="Preview" id="preview-image" class="preview-image">
+        </div>
+
+        <!-- Random Reason Modal (Moved to root) -->
+        <div class="reason-modal hidden" id="reason-modal">
+            <div class="reason-card glass-note">
+                <button class="close-modal" id="close-reason"><i class="fa-solid fa-xmark"></i></button>
+                <i class="fa-solid fa-envelope-open-heart modal-icon"></i>
+                <h4 style="color: var(--primary-color); font-family: var(--font-sans); margin-bottom: 12px;">Reason #<span id="reason-number">1</span></h4>
+                <p id="random-reason-text">You always know how to make me smile.</p>
+            </div>
+        </div>
+
+        <!-- Settings Modal -->
+        <div id="settings-modal" class="settings-modal hidden">
+            <div class="settings-card glass-note">
+                <button class="close-modal" id="close-settings"><i class="fa-solid fa-xmark"></i></button>
+                <h2 style="font-family: var(--font-serif); margin-bottom: 20px;">Settings</h2>
+                
+                <div class="settings-section">
+                    <h4 style="margin-bottom: 12px; color: var(--primary-color);">Change Vault PIN</h4>
+                    <div class="pin-input-group">
+                        <input type="password" id="current-pin-input" class="pin-input" placeholder="Current PIN" maxlength="4" pattern="\d*">
+                        <input type="password" id="new-pin-input" class="pin-input" placeholder="New PIN (4 digits)" maxlength="4" pattern="\d*">
+                        <button id="save-pin-btn" class="save-btn">Update PIN</button>
+                    </div>
+                    <p id="pin-message" class="pin-message"></p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Bottom Navigation -->
+        <nav class="bottom-nav">
+            <button class="nav-item active" data-target="screen-home">
+                <i class="fa-solid fa-house"></i>
+                <span>Home</span>
+            </button>
+            <button class="nav-item" data-target="screen-story">
+                <i class="fa-solid fa-clock"></i>
+                <span>Story</span>
+            </button>
+            <button class="nav-item" data-target="screen-gallery">
+                <i class="fa-solid fa-image"></i>
+                <span>Gallery</span>
+            </button>
+            <button class="nav-item" data-target="screen-favorites">
+                <i class="fa-solid fa-heart"></i>
+                <span>Favorites</span>
+            </button>
+            <button class="nav-item" data-target="screen-notes">
+                <i class="fa-solid fa-pen"></i>
+                <span>Notes</span>
+            </button>
+        </nav>
+    </div>
+
+    <!-- Custom JS -->
+    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
+    <script src="script.js?v=38"></script>
+</body>
+</html>
