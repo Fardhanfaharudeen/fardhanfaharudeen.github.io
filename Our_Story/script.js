@@ -325,7 +325,12 @@ function launchCartoonFireworks() {
 
 document.addEventListener('DOMContentLoaded', () => {
     // Lock Screen Logic
-    let CORRECT_PIN = localStorage.getItem('vault_pin') || '0905'; // May 9 default
+    let savedPin = localStorage.getItem('vault_pin');
+    if (!savedPin || savedPin === '0905') {
+        savedPin = '1436';
+        localStorage.setItem('vault_pin', '1436');
+    }
+    let CORRECT_PIN = savedPin;
     let currentPin = '';
     const lockScreen = document.getElementById('lock-screen');
     const dots = document.querySelectorAll('.dot');
