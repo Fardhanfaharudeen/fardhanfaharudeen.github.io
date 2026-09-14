@@ -796,9 +796,126 @@ document.addEventListener('DOMContentLoaded', () => {
         memoryImg.src = galleryImages[todaysImageIndex];
     }
 
-    // Timeline Card Interaction
+    // Timeline Card Interaction & Randomized Glowing Butterfly Companion
+    class ButterflyFlight {
+        constructor(card, butterflyEl) {
+            this.card = card;
+            this.el = butterflyEl;
+            this.running = true;
+
+            const w = Math.max(card.clientWidth || 280, 240);
+            const h = Math.max(card.clientHeight || 240, 200);
+
+            // Initial random starting point
+            this.x = 20 + Math.random() * (w - 70);
+            this.y = 20 + Math.random() * (h - 70);
+            this.currentAngle = Math.random() * 360;
+
+            this.pickNewWaypoint();
+            this.lastTime = performance.now();
+            this.nextWaypointTime = this.lastTime + (1000 + Math.random() * 1500);
+
+            this.loop = this.loop.bind(this);
+            this.animFrame = requestAnimationFrame(this.loop);
+        }
+
+        pickNewWaypoint() {
+            const w = Math.max(this.card.clientWidth, 240);
+            const h = Math.max(this.card.clientHeight, 200);
+
+            // Pick a completely random target point inside the card
+            this.targetX = 16 + Math.random() * (w - 60);
+            this.targetY = 16 + Math.random() * (h - 60);
+
+            // Smooth randomized speed
+            this.speed = 0.025 + Math.random() * 0.025;
+        }
+
+        loop(now) {
+            if (!this.running || !this.card.classList.contains('expanded')) {
+                return;
+            }
+
+            const dx = this.targetX - this.x;
+            const dy = this.targetY - this.y;
+            const dist = Math.hypot(dx, dy);
+
+            // Pick a new random target periodically or when reaching destination
+            if (now > this.nextWaypointTime || dist < 12) {
+                this.pickNewWaypoint();
+                this.nextWaypointTime = now + (1100 + Math.random() * 2000);
+            }
+
+            if (dist > 2) {
+                // Direction angle in degrees (head points UP at 0deg)
+                const desiredAngle = Math.atan2(dy, dx) * (180 / Math.PI) + 90;
+
+                // Smooth shortest-arc rotation
+                let diff = (desiredAngle - this.currentAngle) % 360;
+                if (diff < -180) diff += 360;
+                if (diff > 180) diff -= 360;
+                this.currentAngle += diff * 0.09;
+
+                // Move towards target point
+                this.x += dx * this.speed;
+                this.y += dy * this.speed;
+            }
+
+            // Organic flutter wobble
+            const flutterWobble = Math.sin(now / 120) * 8;
+            const flutterDrift = Math.cos(now / 180) * 3;
+
+            this.el.style.transform = `translate3d(${this.x + flutterDrift}px, ${this.y}px, 0) rotate(${this.currentAngle + flutterWobble}deg)`;
+
+            this.animFrame = requestAnimationFrame(this.loop);
+        }
+
+        stop() {
+            this.running = false;
+            if (this.animFrame) {
+                cancelAnimationFrame(this.animFrame);
+                this.animFrame = null;
+            }
+        }
+    }
+
     const timelineCards = document.querySelectorAll('.timeline-card');
+    let activeButterflyController = null;
+
     timelineCards.forEach(card => {
+        // Inject glowing butterfly companion if not already present
+        if (!card.querySelector('.card-butterfly')) {
+            const butterfly = document.createElement('div');
+            butterfly.className = 'card-butterfly';
+            butterfly.setAttribute('aria-hidden', 'true');
+            butterfly.innerHTML = `
+                <svg class="butterfly-svg" viewBox="0 0 50 50">
+                    <defs>
+                        <linearGradient id="bf-grad" x1="0%" y1="0%" x2="100%" y2="100%">
+                            <stop offset="0%" stop-color="#ff9a9e" />
+                            <stop offset="50%" stop-color="#ff4b72" />
+                            <stop offset="100%" stop-color="#fecfef" />
+                        </linearGradient>
+                    </defs>
+                    <g>
+                        <path class="bf-wing bf-wing-l" d="M25,25 C14,8 4,12 8,24 C10,32 19,29 25,26 Z" fill="url(#bf-grad)" />
+                        <path class="bf-wing-inner bf-wing-l" d="M25,25 C17,14 10,16 12,24 C14,29 21,27 25,26 Z" fill="rgba(255,255,255,0.75)" />
+                        <path class="bf-wing bf-wing-r" d="M25,25 C36,8 46,12 42,24 C40,32 31,29 25,26 Z" fill="url(#bf-grad)" />
+                        <path class="bf-wing-inner bf-wing-r" d="M25,25 C33,14 40,16 38,24 C36,29 29,27 25,26 Z" fill="rgba(255,255,255,0.75)" />
+                        <ellipse cx="25" cy="25" rx="1.5" ry="7" fill="#ffffff" />
+                        <circle cx="25" cy="18" r="1.5" fill="#ffffff" />
+                        <path d="M24,17 Q20,11 16,13 M26,17 Q30,11 34,13" stroke="#ffffff" stroke-width="0.9" fill="none" stroke-linecap="round" />
+                    </g>
+                </svg>
+                <div class="butterfly-trail">
+                    <span class="bf-dust d1"></span>
+                    <span class="bf-dust d2"></span>
+                    <span class="bf-dust d3"></span>
+                </div>
+            `;
+            card.appendChild(butterfly);
+        }
+
         card.addEventListener('click', () => {
             // Close all other cards first
             timelineCards.forEach(otherCard => {
@@ -806,15 +923,29 @@ document.addEventListener('DOMContentLoaded', () => {
                     otherCard.classList.remove('expanded');
                 }
             });
-            
+
+            if (activeButterflyController) {
+                activeButterflyController.stop();
+                activeButterflyController = null;
+            }
+
             // Then toggle the clicked one
             card.classList.toggle('expanded');
-            
-            // If expanded, scroll it into view so it's centered
+
+            // If expanded, launch randomized butterfly flight and scroll into view
             if (card.classList.contains('expanded')) {
+                const bEl = card.querySelector('.card-butterfly');
+                if (bEl) {
+                    setTimeout(() => {
+                        if (card.classList.contains('expanded')) {
+                            activeButterflyController = new ButterflyFlight(card, bEl);
+                        }
+                    }, 50);
+                }
+
                 setTimeout(() => {
                     card.scrollIntoView({ behavior: 'smooth', block: 'center' });
-                }, 300); // Wait for the expand CSS transition to almost finish
+                }, 300);
             }
         });
     });
