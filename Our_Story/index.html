@@ -34,7 +34,7 @@
     <!-- Font Awesome for Icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <!-- Custom CSS -->
-    <link rel="stylesheet" href="style.css?v=37">
+    <link rel="stylesheet" href="style.css?v=44">
 </head>
 <body>
     <!-- Initial Loader -->
@@ -455,37 +455,46 @@
                 </div>
             </section>
 
-            <!-- Favorites Screen -->
+                        <!-- Favorites / Special Memory Screen -->
             <section id="screen-favorites" class="screen">
                 <div class="header">
-                    <h1>Favorites</h1>
-                    <p>Things we love</p>
+                    <h1>Favorite Memory</h1>
+                    <p>A moment captured in time forever ❤️</p>
                 </div>
-                <div class="favorites-list">
-                    <!-- Music Card -->
-                    <div class="premium-card music-card">
-                        <div class="music-art" style="padding: 0; background: none;">
-                            <img src="Gallery/Rowthiram.jpg" alt="Rowthiram" style="width: 100%; height: 100%; object-fit: cover; border-radius: 12px;">
+
+                <div class="special-memory-container">
+                    <div class="special-video-card">
+                        <div class="memory-card-topbar">
+                            <div class="memory-pill-badge">
+                                <i class="fa-solid fa-heart-pulse"></i>
+                                <span>Cherished Moment</span>
+                            </div>
+                            <div class="memory-date-tag">
+                                <i class="fa-solid fa-star"></i>
+                                <span>Favorites</span>
+                            </div>
                         </div>
-                        <div class="card-details">
-                            <h4>Maalai Mangum Neram</h4>
-                            <p>Our Favourite Song</p>
+
+                        <div class="memory-video-frame">
+                            <video id="special-memory-video" 
+                                   controls 
+                                   playsinline 
+                                   preload="metadata"
+                                   controlsList="nodownload">
+                                <source src="Video/hf_20260918_135003_9365cf0a-5481-45b4-9d06-c7c509621ee6.mp4" type="video/mp4">
+                                Your browser does not support HTML video playback.
+                            </video>
                         </div>
-                        <div class="play-btn">
-                            <i class="fa-solid fa-star"></i>
-                        </div>
-                    </div>
-                    <!-- Movie Card -->
-                    <div class="premium-card movie-card">
-                        <div class="movie-art" style="padding: 0; background: none;">
-                            <img src="Gallery/Dear Comrade.png" alt="Dear Comrade" style="width: 100%; height: 100%; object-fit: cover; border-radius: 12px;">
-                        </div>
-                        <div class="card-details">
-                            <h4>Dear Comrade</h4>
-                            <p>Our favorite movie</p>
-                        </div>
-                        <div class="play-btn">
-                            <i class="fa-solid fa-star"></i>
+
+                        <div class="memory-card-content">
+                            <div class="memory-quote-box">
+                                <i class="fa-solid fa-quote-left quote-mark"></i>
+                                <p class="memory-caption-text">Some moments are far too precious for ordinary photos. Every time this video plays, our hearts relive the sweetest feelings all over again. ✨</p>
+                            </div>
+                            <div class="memory-sound-tip">
+                                <i class="fa-solid fa-headphones-simple"></i>
+                                <span>Background music automatically pauses while playing this video</span>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -590,6 +599,6 @@
 
     <!-- Custom JS -->
     <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
-    <script src="script.js?v=42"></script>
+    <script src="script.js?v=44"></script>
 </body>
 </html>

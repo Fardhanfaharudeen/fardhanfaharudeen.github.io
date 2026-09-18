@@ -764,6 +764,12 @@ document.addEventListener('DOMContentLoaded', () => {
                 }
             }
 
+            // Auto-pause special video if navigating away from Favorites
+            const specialMemoryVid = document.getElementById('special-memory-video');
+            if (targetId !== 'screen-favorites' && specialMemoryVid && !specialMemoryVid.paused) {
+                specialMemoryVid.pause();
+            }
+
             // Fireworks: only visible inside Home screen
             const fireworksCanvas = document.getElementById('fireworks-canvas');
             if (fireworksCanvas) {
@@ -985,6 +991,29 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         });
 
+        window.pauseBgMusic = function() {
+            if (isBgPlaying) {
+                bgAudio.pause();
+                bgMusicChip.classList.remove('playing');
+                if (bgVisualizer) bgVisualizer.classList.remove('active');
+                if (musicHandPointer) musicHandPointer.classList.remove('hidden');
+                isBgPlaying = false;
+                return true;
+            }
+            return false;
+        };
+
+        window.resumeBgMusic = function() {
+            if (!isBgPlaying) {
+                bgAudio.play().then(() => {
+                    bgMusicChip.classList.add('playing');
+                    if (bgVisualizer) bgVisualizer.classList.add('active');
+                    if (musicHandPointer) musicHandPointer.classList.add('hidden');
+                    isBgPlaying = true;
+                }).catch(err => console.log("BGM resume prevented:", err));
+            }
+        };
+
         // Stop BGM when the tab/browser is closed (desktop)
         window.addEventListener('beforeunload', () => {
             bgAudio.pause();
@@ -1009,6 +1038,39 @@ document.addEventListener('DOMContentLoaded', () => {
                 if (bgVisualizer) bgVisualizer.classList.remove('active');
                 if (musicHandPointer) musicHandPointer.classList.remove('hidden');
                 isBgPlaying = false;
+            }
+        });
+    }
+
+    // Special Memory Video Logic
+    const specialMemoryVideo = document.getElementById('special-memory-video');
+    if (specialMemoryVideo) {
+        let resumeBgOnVideoStop = false;
+
+        specialMemoryVideo.addEventListener('play', () => {
+            if (typeof window.pauseBgMusic === 'function') {
+                resumeBgOnVideoStop = window.pauseBgMusic();
+            } else if (window.bgAudio && !window.bgAudio.paused) {
+                window.bgAudio.pause();
+                const chip = document.getElementById('bg-music-chip');
+                const vis = document.getElementById('bg-visualizer');
+                if (chip) chip.classList.remove('playing');
+                if (vis) vis.classList.remove('active');
+                resumeBgOnVideoStop = true;
+            }
+        });
+
+        specialMemoryVideo.addEventListener('pause', () => {
+            if (resumeBgOnVideoStop && typeof window.resumeBgMusic === 'function') {
+                window.resumeBgMusic();
+                resumeBgOnVideoStop = false;
+            }
+        });
+
+        specialMemoryVideo.addEventListener('ended', () => {
+            if (resumeBgOnVideoStop && typeof window.resumeBgMusic === 'function') {
+                window.resumeBgMusic();
+                resumeBgOnVideoStop = false;
             }
         });
     }

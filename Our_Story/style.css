@@ -748,70 +748,162 @@ img {
     cursor: pointer;
 }
 
-.favorites-list {
+/* ── Special Memory / Favorites Video Screen ─────────────────── */
+.special-memory-container {
     display: flex;
     flex-direction: column;
-    gap: 16px;
+    align-items: center;
+    width: 100%;
+    margin-top: 10px;
+    margin-bottom: 24px;
 }
 
-.premium-card {
-    display: flex;
-    align-items: center;
+.special-video-card {
+    width: 100%;
+    max-width: 440px;
     background: var(--surface-color);
-    border-radius: 20px;
-    padding: 16px;
-    box-shadow: var(--shadow-sm);
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
     border: 1px solid var(--border-color);
+    border-radius: 24px;
+    padding: 16px;
+    box-shadow: var(--shadow-sm), 0 12px 32px rgba(255, 75, 110, 0.08);
     position: relative;
     overflow: hidden;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
 }
 
-.premium-card::before {
+[data-theme="dark"] .special-video-card {
+    background: rgba(28, 20, 36, 0.85);
+    border: 1px solid rgba(255, 107, 139, 0.2);
+    box-shadow: 0 16px 40px rgba(0, 0, 0, 0.4), 0 0 24px rgba(255, 75, 110, 0.12);
+}
+
+.special-video-card::before {
     content: '';
     position: absolute;
-    top: 0; left: 0; width: 4px; height: 100%;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 3px;
     background: var(--gradient-primary);
+    border-radius: 24px 24px 0 0;
 }
 
-.music-art, .movie-art {
-    width: 60px;
-    height: 60px;
-    border-radius: 12px;
+.memory-card-topbar {
     display: flex;
+    justify-content: space-between;
     align-items: center;
-    justify-content: center;
-    font-size: 1.5rem;
-    color: white;
-    margin-right: 16px;
+    margin-bottom: 12px;
+    padding: 0 4px;
 }
 
-.music-art { background: linear-gradient(135deg, #1DB954, #1ed760); }
-.movie-art { background: linear-gradient(135deg, #E50914, #ff3842); }
-
-.card-details h4 {
-    font-family: var(--font-sans);
-    font-size: 1.1rem;
-    margin-bottom: 4px;
-    color: var(--text-main);
+.memory-pill-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 0.78rem;
+    font-weight: 600;
+    color: var(--primary-color);
+    background: rgba(255, 75, 110, 0.1);
+    padding: 5px 12px;
+    border-radius: 20px;
+    border: 1px solid rgba(255, 75, 110, 0.2);
 }
 
-.card-details p {
-    font-size: 0.9rem;
+.memory-pill-badge i {
+    font-size: 0.82rem;
+    animation: heartBeatGlow 2s infinite ease-in-out;
+}
+
+@keyframes heartBeatGlow {
+    0%, 100% { transform: scale(1); opacity: 0.9; }
+    50% { transform: scale(1.18); opacity: 1; }
+}
+
+.memory-date-tag {
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+    font-size: 0.75rem;
+    font-weight: 500;
     color: var(--text-muted);
 }
 
-.play-btn {
-    margin-left: auto;
-    width: 40px;
-    height: 40px;
-    border-radius: 50%;
-    background: var(--bg-color);
+.memory-date-tag i {
+    color: #ffb703;
+}
+
+.memory-video-frame {
+    position: relative;
+    width: 100%;
+    border-radius: 18px;
+    overflow: hidden;
+    background: #000;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.25);
+    border: 1px solid rgba(255, 255, 255, 0.12);
+}
+
+#special-memory-video {
+    width: 100%;
+    max-height: 480px;
+    display: block;
+    object-fit: contain;
+    background: #000;
+    outline: none;
+    border-radius: 18px;
+}
+
+.memory-card-content {
+    margin-top: 14px;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.memory-quote-box {
+    position: relative;
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px dashed rgba(255, 107, 139, 0.25);
+    border-radius: 16px;
+    padding: 14px 16px 14px 38px;
+}
+
+[data-theme="dark"] .memory-quote-box {
+    background: rgba(255, 255, 255, 0.03);
+    border-color: rgba(255, 107, 139, 0.2);
+}
+
+.quote-mark {
+    position: absolute;
+    left: 14px;
+    top: 14px;
+    font-size: 1rem;
+    color: var(--primary-color);
+    opacity: 0.7;
+}
+
+.memory-caption-text {
+    font-family: var(--font-serif);
+    font-size: 0.95rem;
+    line-height: 1.5;
+    color: var(--text-main);
+    font-style: italic;
+    margin: 0;
+}
+
+.memory-sound-tip {
     display: flex;
     align-items: center;
-    justify-content: center;
+    gap: 8px;
+    font-size: 0.76rem;
+    color: var(--text-muted);
+    padding: 0 4px;
+}
+
+.memory-sound-tip i {
     color: var(--primary-color);
-    box-shadow: var(--shadow-sm);
+    font-size: 0.85rem;
 }
 
 .notes-container {
