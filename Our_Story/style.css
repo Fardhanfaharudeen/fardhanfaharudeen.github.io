@@ -2113,15 +2113,17 @@ img {
     height: 4px;
     background: rgba(255, 215, 0, 1);
     border-radius: 50%;
-    box-shadow: 0 0 15px rgba(255, 215, 0, 1), 0 0 30px rgba(255, 215, 0, 0.8);
-    animation: float 10s infinite linear, flash 3s infinite alternate;
+    box-shadow: 0 0 8px rgba(255, 215, 0, 0.9);
+    animation: float 12s infinite linear, flash 3s infinite alternate;
+    pointer-events: none;
+    will-change: transform, opacity;
 }
 
 @keyframes float {
-    0% { transform: translateY(100vh) translateX(0); }
-    33% { transform: translateY(60vh) translateX(100px); }
-    66% { transform: translateY(30vh) translateX(-50px); }
-    100% { transform: translateY(-10vh) translateX(50px); }
+    0% { transform: translate3d(0, 100vh, 0); }
+    33% { transform: translate3d(80px, 60vh, 0); }
+    66% { transform: translate3d(-40px, 30vh, 0); }
+    100% { transform: translate3d(40px, -10vh, 0); }
 }
 
 @keyframes flash {

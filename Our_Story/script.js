@@ -287,7 +287,8 @@ function launchCartoonFireworks() {
         if (!isHomeActive || !window._fireworksActive) {
             ctx.clearRect(0, 0, canvas.width, canvas.height);
             canvas.style.display = 'none';
-            fireworksAnimationId = requestAnimationFrame(animate);
+            fireworksEngineRunning = false;
+            fireworksAnimationId = null;
             return;
         }
 
@@ -437,15 +438,18 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     });
 
-    // App Loader Dismissal
+    // App Loader Dismissal with safety timeout
+    function dismissAppLoader() {
+        const loader = document.getElementById('app-loader');
+        if (loader && !loader.classList.contains('hidden')) {
+            loader.classList.add('hidden');
+        }
+    }
     window.addEventListener('load', () => {
-        setTimeout(() => {
-            const loader = document.getElementById('app-loader');
-            if (loader) {
-                loader.classList.add('hidden');
-            }
-        }, 1200); // 1.2s delay for visual effect
+        setTimeout(dismissAppLoader, 400);
     });
+    // Fallback: Never leave mobile users on slow connections waiting behind an infinite spinner
+    setTimeout(dismissAppLoader, 1600);
 
     const navItems = document.querySelectorAll('.nav-item');
     const screens = document.querySelectorAll('.screen');
@@ -494,6 +498,7 @@ document.addEventListener('DOMContentLoaded', () => {
     
     if (homePlayBtn) {
         const audio = new Audio('Songs/Maalai-Mangum-Neram.mp3');
+        audio.preload = 'none';
         audio.loop = true;
         let isPlaying = false;
 
@@ -776,11 +781,19 @@ document.addEventListener('DOMContentLoaded', () => {
                 if (targetId === 'screen-home') {
                     if (window._fireworksActive) {
                         fireworksCanvas.style.display = 'block';
+                        if (!fireworksEngineRunning && typeof launchCartoonFireworks === 'function') {
+                            launchCartoonFireworks();
+                        }
                     }
                 } else {
                     fireworksCanvas.style.display = 'none';
                     const fCtx = fireworksCanvas.getContext('2d');
                     if (fCtx) fCtx.clearRect(0, 0, fireworksCanvas.width, fireworksCanvas.height);
+                    if (fireworksAnimationId) {
+                        cancelAnimationFrame(fireworksAnimationId);
+                        fireworksAnimationId = null;
+                    }
+                    fireworksEngineRunning = false;
                 }
             }
         });
@@ -963,6 +976,7 @@ document.addEventListener('DOMContentLoaded', () => {
     
     if (bgMusicChip) {
         const bgAudio = new Audio('Songs/The-Metro-Proposal-MassTamilan.dev.mp3');
+        bgAudio.preload = 'none';
         window.bgAudio = bgAudio;
         bgAudio.loop = true;
         let isBgPlaying = false;

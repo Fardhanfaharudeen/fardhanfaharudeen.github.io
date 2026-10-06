@@ -34,7 +34,7 @@
     <!-- Font Awesome for Icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <!-- Custom CSS -->
-    <link rel="stylesheet" href="style.css?v=45">
+    <link rel="stylesheet" href="style.css?v=46">
 </head>
 <body>
     <!-- Initial Loader -->
@@ -49,20 +49,16 @@
         <!-- Fireworks Canvas (covers mobile frame, hits inside promise container) -->
         <canvas id="fireworks-canvas" style="position:absolute;top:0;left:0;width:100%;height:100%;pointer-events:none;z-index:90;border-radius:inherit;display:none;"></canvas>
 
-        <!-- Fireflies Background -->
+                <!-- Fireflies Background -->
         <div class="fireflies-container">
-            <!-- 30 Fireflies -->
-            <div class="firefly"></div><div class="firefly"></div><div class="firefly"></div>
-            <div class="firefly"></div><div class="firefly"></div><div class="firefly"></div>
-            <div class="firefly"></div><div class="firefly"></div><div class="firefly"></div>
-            <div class="firefly"></div><div class="firefly"></div><div class="firefly"></div>
-            <div class="firefly"></div><div class="firefly"></div><div class="firefly"></div>
+            <!-- 15 Optimized Fireflies -->
             <div class="firefly"></div><div class="firefly"></div><div class="firefly"></div>
             <div class="firefly"></div><div class="firefly"></div><div class="firefly"></div>
             <div class="firefly"></div><div class="firefly"></div><div class="firefly"></div>
             <div class="firefly"></div><div class="firefly"></div><div class="firefly"></div>
             <div class="firefly"></div><div class="firefly"></div><div class="firefly"></div>
         </div>
+
 
         <!-- Theme Toggle -->
         <button class="theme-toggle" id="theme-toggle" aria-label="Toggle Theme">
@@ -213,7 +209,7 @@
                     <div class="music-player-top">
                         <div class="music-cover" id="music-cover-wrapper">
                             <div class="vinyl-record" id="vinyl-record">
-                                <img src="Gallery/1000166870.jpg.jpeg" alt="Cover Art">
+                                <img src="Gallery/1000166870.jpg.jpeg" alt="Cover Art" loading="lazy" decoding="async">
                             </div>
                             <div class="stardust-container" id="stardust">
                                 <div class="star">✨</div>
@@ -250,7 +246,7 @@
                         <i class="fa-solid fa-camera-retro"></i>
                     </div>
                     <div class="polaroid-frame">
-                        <img src="Gallery/1000167234.jpg.jpeg" alt="Memory" id="memory-img">
+                        <img src="Gallery/1000167234.jpg.jpeg" alt="Memory" id="memory-img" loading="lazy" decoding="async">
                         <p class="polaroid-caption">Best moments with you ❤️</p>
                     </div>
                 </div>
@@ -438,19 +434,19 @@
                 </div>
                 <div class="gallery-grid">
                     <div class="gallery-item">
-                        <img src="Gallery/1000166870.jpg.jpeg" alt="Memory 1" class="gallery-img">
+                        <img src="Gallery/1000166870.jpg.jpeg" alt="Memory 1" class="gallery-img" loading="lazy" decoding="async">
                     </div>
                     <div class="gallery-item">
-                        <img src="Gallery/1000167119.jpg.jpeg" alt="Memory 2" class="gallery-img">
+                        <img src="Gallery/1000167119.jpg.jpeg" alt="Memory 2" class="gallery-img" loading="lazy" decoding="async">
                     </div>
                     <div class="gallery-item">
-                        <img src="Gallery/1000167234.jpg.jpeg" alt="Memory 3" class="gallery-img">
+                        <img src="Gallery/1000167234.jpg.jpeg" alt="Memory 3" class="gallery-img" loading="lazy" decoding="async">
                     </div>
                     <div class="gallery-item">
-                        <img src="Gallery/1000167259.webp" alt="Memory 4" class="gallery-img">
+                        <img src="Gallery/1000167259.webp" alt="Memory 4" class="gallery-img" loading="lazy" decoding="async">
                     </div>
                     <div class="gallery-item">
-                        <img src="Gallery/1000167411.jpg.jpeg" alt="Memory 5" class="gallery-img">
+                        <img src="Gallery/1000167411.jpg.jpeg" alt="Memory 5" class="gallery-img" loading="lazy" decoding="async">
                     </div>
                 </div>
             </section>
@@ -479,7 +475,7 @@
                             <video id="special-memory-video" 
                                    controls 
                                    playsinline 
-                                   preload="metadata"
+                                   preload="none"
                                    controlsList="nodownload">
                                 <source src="Video/hf_20260918_135003_9365cf0a-5481-45b4-9d06-c7c509621ee6.mp4" type="video/mp4">
                                 Your browser does not support HTML video playback.
@@ -599,6 +595,6 @@
 
     <!-- Custom JS -->
     <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
-    <script src="script.js?v=44"></script>
+    <script src="script.js?v=46"></script>
 </body>
 </html>
